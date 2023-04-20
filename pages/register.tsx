@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const IndexPage = () => (
   <>
-    <Link href="/register">
-      <p>Register</p>
+    <Link href="/">
+      Home
     </Link>
   </>
 )
