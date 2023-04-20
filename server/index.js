@@ -1,10 +1,12 @@
 const express = require('express')
 const next = require('next')
-
+import dotenv from 'dotenv'
 const PORT = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+
+dontenv.config();
 
 app
   .prepare()
