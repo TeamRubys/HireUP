@@ -11,8 +11,8 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/api/shows', (req, res) => {
-      return res.end('made it')
+    server.get('/test-route', (req, res) => {
+      return res.end('Success')
     })
 
     server.get("*", (req, res) => {
