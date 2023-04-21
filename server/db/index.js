@@ -9,8 +9,4 @@ const pool = new Pool({
   database: 'hire'
 });
 
-module.exports = {
-  query: (q, values) => {
-    return pool.query(q, values);
-  }
-}
+module.exports = pool;

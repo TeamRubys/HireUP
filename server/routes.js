@@ -8,5 +8,6 @@ const router = require('express').Router();
 
 router.get('/messages', controller.messages.get);
 router.get('/messages/:id', controller.messages.getOne);
+router.post('/messages', controller.messages.createMessage);
 
 module.exports = router;
