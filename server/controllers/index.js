@@ -1,0 +1,1 @@
+module.exports.messages = require('./messagesController.js');
