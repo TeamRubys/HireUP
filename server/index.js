@@ -14,6 +14,7 @@ app
   .then(() => {
     const server = express();
 
+    server.use(express.json());
     server.use('/api', routes);
 
     server.get('/test-route', (req, res) => {
