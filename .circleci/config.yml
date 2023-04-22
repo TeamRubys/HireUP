@@ -13,7 +13,7 @@ jobs:
       - node/install:
           node-version: "16.19.1"
       - node/install-packages:
-          pkg-manager: npm
-          npm: "9.6.5"
+          package-manager: npm
+          version: "9.6.5"
       - run: npm install
       - run: npm run build
