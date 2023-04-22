@@ -2,22 +2,24 @@ let Models = require('../Models');
 
 const proposalsController = {
   get: (req, res) => {
-    // Models.messages.getAll()
-      // .then ...
+    Models.proposals.getAll(req.query.page, req.query.count)
+      .then(result => {
+        console.log('successfully retrieved proposals from database');
+        res.send(result);
+      })
   },
   getOne: (req, res) => {
     Models.proposals.getOne(req.params.id)
       .then(result => {
-        console.log('successfully retrieved message from database');
+        console.log('successfully retrieved proposal from database');
         res.send(result);
       })
   },
   createProposal: (req, res) => {
-    console.log('message from client', req.body)
     Models.proposals.createProposal(req.body)
       .then(result => {
         console.log('sucessfully created proposal');
-        res.send('success');
+        res.status(201).send('success');
       })
   }
 }

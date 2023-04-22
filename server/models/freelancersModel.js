@@ -8,7 +8,6 @@ const freelancersModel = {
       FROM freelancers f
         INNER JOIN work_history w ON f.id = freelancer_id
       WHERE f.id BETWEEN $1 AND $2 GROUP BY f.id ORDER BY f.id ASC`, [first, last]);
-    console.log('tester');
     return freelancers.rows;
   },
   getOne: async (id) => {

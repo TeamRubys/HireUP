@@ -17,11 +17,10 @@ const messagesController = {
       })
   },
   createFreelancer: (req, res) => {
-    console.log('message from client', req.body)
     Models.freelancers.createMessage(req.body)
       .then(result => {
         console.log('sucessfully created freelancer', result);
-        res.send('success');
+        res.status(201).send('success');
       })
   }
 }

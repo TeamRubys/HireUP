@@ -26,7 +26,7 @@ CREATE TABLE business_proposals (
   skills TEXT[] NOT NULL,
   estimated_timeline TEXT NOT NULL,
   locations TEXT[] NOT NULL,
-  budget INT NOT NULL,
+  budget TEXT NOT NULL,
   timestamp TIMESTAMP DEFAULT NOW()
 );
 
