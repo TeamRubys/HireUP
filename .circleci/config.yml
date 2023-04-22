@@ -10,13 +10,14 @@ jobs:
     working_directory: ~/HireUp
     steps:
       - checkout
-      - node/install:
-          node-version: "16.19.1"
       - run:
-          name: Install dependencies
+          name: Install Node.js and npm
           command: |
-            npm install -g npm@9.6.5
-            npm install
+            curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            sudo npm install -g npm@9.6.5
       - run:
-          name: Build
-          command: npm run build
+          name: Install dependencies and build
+          command: |
+            npm install
+            npm run build
