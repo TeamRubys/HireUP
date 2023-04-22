@@ -55,5 +55,3 @@ CREATE INDEX ON messages(receiver_id);
 CREATE INDEX ON business_proposals(user_id);
 CREATE INDEX ON freelancers(user_id);
 CREATE INDEX ON work_history(freelancer_id);
-
-COPY users(id, name, s_id, email) FROM '/users/zach/Documents/blue-ocean-test-data/users.csv' DELIMITER ',' CSV HEADER;
