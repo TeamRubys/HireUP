@@ -1,11 +1,16 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@4.7
+
 jobs:
   build:
     docker:
-      - image: circleci/node:14.16.0-browsers
-    working_directory: ~/HireUp
+      - image: cimg/node:16.10
     steps:
       - checkout
-      - run: npm install
+      - node/install:
+          node-version: "16.19.1"
+      - node/install-packages:
+          pkg-manager: npm
       - run: npm run build
