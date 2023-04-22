@@ -7,5 +7,9 @@ jobs:
     working_directory: ~/HireUp
     steps:
       - checkout
+      - node/install:
+          node-version: "16.19.1"
+      - node/install-packages:
+          pkg-manager: npm
       - run: npm install
       - run: npm run build
