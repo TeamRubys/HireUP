@@ -12,8 +12,11 @@ jobs:
       - checkout
       - node/install:
           node-version: "16.19.1"
-      - node/install-packages:
-          package-manager: npm
-          version: "9.6.5"
-      - run: npm install
-      - run: npm run build
+      - run:
+          name: Install dependencies
+          command: |
+            npm install -g npm@9.6.5
+            npm install
+      - run:
+          name: Build
+          command: npm run build
