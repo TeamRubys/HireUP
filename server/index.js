@@ -6,6 +6,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const routes = require('./routes.js')
+const socketIO = require('./socket.js')
 
 dotenv.config();
 
@@ -25,10 +26,12 @@ app
       return handle(req, res);
     })
 
-    server.listen(PORT, err => {
+    const httpServer = server.listen(PORT, err => {
       if(err) throw err;
       console.log(`Ready On ${PORT}`)
     })
+
+    socketIO(httpServer);
   })
   .catch(ex => {
     console.error(ex.stack);
