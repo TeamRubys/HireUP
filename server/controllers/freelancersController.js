@@ -3,8 +3,11 @@ let Models = require('../Models');
 const messagesController = {
   get: (req, res) => {
     console.log('im in the messages controller')
-    // Models.messages.getAll()
-      // .then ...
+    Models.freelancers.getAll(req.query.page, req.query.count)
+      .then(result => {
+        console.log('successfully retrieved freelancers from database');
+        res.send(result);
+      })
   },
   getOne: (req, res) => {
     Models.freelancers.getOne(req.params.id)

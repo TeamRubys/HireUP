@@ -1,7 +1,15 @@
 const db = require('../db');
 
 const freelancersModel = {
-  getAll: () => {
+  getAll: async (page = 1, count = 5) => {
+    const first = (page - 1) * count + 1;
+    const last = page * count;
+    const freelancers = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration)) AS work_history
+      FROM freelancers f
+        INNER JOIN work_history w ON f.id = freelancer_id
+      WHERE f.id BETWEEN $1 AND $2 GROUP BY f.id ORDER BY f.id ASC`, [first, last]);
+    console.log('tester');
+    return freelancers.rows;
   },
   getOne: async (id) => {
     const freelancer = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration)) AS work_history
