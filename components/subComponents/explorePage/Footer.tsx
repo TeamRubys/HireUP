@@ -10,10 +10,10 @@ function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">About Us</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
                   <ul className="text-gray-600 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="" className="hover:underline">HireUP</a>
+                          <a href="" className="hover:underline">About</a>
                       </li>
                       <li>
                           <a href="" className="hover:underline">Contact Us</a>
