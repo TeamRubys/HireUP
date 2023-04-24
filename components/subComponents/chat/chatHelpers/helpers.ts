@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-module.exports.getMessages = (user) => {
+module.exports.getMessages = async (user) => {
 
   const formatMessages = (messages, userId) => {
     const formatted = {};
@@ -19,15 +19,17 @@ module.exports.getMessages = (user) => {
       });
     });
 
-    return Object.values(formatted);
+    let list = Object.values(formatted);
+    return list
   }
 
 
-  axios.get(`/api/messages?id=${1}`)
-    .then((res) => {
-      console.log(formatMessages(res.data, user))
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  try {
+    const res = await axios.get(`/api/messages?id=${1}`);
+    const messages = formatMessages(res.data, user);
+    return messages;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 }

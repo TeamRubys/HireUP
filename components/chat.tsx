@@ -8,13 +8,18 @@ function Chat() {
 
   const [selected, setSelected] = useState(0);
 
-  const [message, setMessage] = useState()
+  const [messages, setMessages] = useState()
 
   const [user, setUser] = useState(1)
 
   useEffect(() => {
-    getMessages(1)
-  }, [])
+    const fetchMessages = async () => {
+      const list = await getMessages(1);
+      setMessages(list);
+    }
+    fetchMessages();
+  }, []);
+
 
   return (
     <>
