@@ -1,9 +1,8 @@
-import Cards from './Cards'
-
+import Card from "./Card"
 function CardList({}){
     return(
         <div>
-        <Cards/>
+        <Card/>
         </div>
     )
 }

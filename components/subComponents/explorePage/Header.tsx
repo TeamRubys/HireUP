@@ -6,12 +6,12 @@ function Header() {
           <div className="relative items-center bg-white md:flex">
             <div className="flex space-x-4 items-center ml-10">
               <div className="">
-                <a href="" className="mx-auto underline mr-5 text-2xl">Find Talent</a>
+                <a href="" className="mx-auto underline mr-5 text-2xl hover:text-blue-500">Find Talent</a>
               </div>
-              <button className="px-10 py-3 border border-solid font-bold rounded-md">
+              <button className="hover:bg-blue-100 px-10 py-3 border border-solid font-bold rounded-md">
                 Log In
               </button>
-              <button className="px-20 py-3 bg-black text-white font-bold rounded-md">
+              <button className="hover:bg-blue-500 px-20 py-3 bg-black text-white font-bold rounded-md">
                 Sign Up
               </button>
             </div>
