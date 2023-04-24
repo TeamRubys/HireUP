@@ -22,6 +22,8 @@ function Dm({recipient, chats}) {
     }
   }, [chats])
 
+  const [input, setInput] = useState("");
+
   const sendMessage = (message, user) => {
     console.log(user)
     socket.emit('sendMessage', {roomName: recipient, message: {sender_id: user, receiver_id: recipient, context: message}});
@@ -47,13 +49,19 @@ function Dm({recipient, chats}) {
         ) : (
           <p>Loading...</p>
         )}
-
-        <button
-          onClick={() => {sendMessage('hi', user)}}
-        >Send test message</button>
+        <div>
+          <input
+          className="border"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          ></input>
+          <button
+          className="border"
+          onClick={() => {sendMessage(input, user); setInput("")}}
+          >{">"}</button>
+        </div>
       </div>
     </>
-
   );
 }
 
