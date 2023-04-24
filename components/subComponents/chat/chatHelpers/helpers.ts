@@ -19,7 +19,9 @@ module.exports.getMessages = async (user) => {
       });
     });
 
-    let list = Object.values(formatted);
+    console.log(formatted)
+
+    let list = formatted;
     return list;
 
   }

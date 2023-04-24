@@ -1,45 +1,45 @@
 import React, {useState, useEffect} from 'react'
 import io from 'socket.io-client'
 import Link from 'next/link'
-function Dm({user, recipient}) {
+import { initializeSocket } from './chatHelpers/socketConnection';
+function Dm({recipient, chats}) {
 
-  const [messages, setMessages] = useState(['test message'])
+  const [messages, setMessages] = useState([])
 
   const [socket, setSocket] = useState(null);
 
-  useEffect(() => {
-    setSocket(io())
-  }, [])
+  const [user, setUser] = useState(1)
 
   useEffect(() => {
-    if(socket !== null) {
-      socket.on('connect', () => {
-        console.log('Connected to server')
-        socket.emit('joinRoom', user)
-      })
+    const cleanup = initializeSocket(user, setMessages, setSocket);
+    return cleanup;
+  }, []);
 
-      socket.on('newMessage', (message) => {
-        setMessages((messages) => [...messages, message]);
-      });
-
-      return () => {
-        socket.disconnect();
-      };
+  useEffect(() => {
+    if(chats) {
+      setMessages(chats.messages)
     }
-  }, [socket]);
+  }, [chats])
 
   const sendMessage = (message, user) => {
     console.log('hit')
 
-    socket.emit('sendMessage', {roomName: recipient, message: message});
+    socket.emit('sendMessage', {roomName: 1, message: {sender_id: user, receiver_id: recipient, context: message}});
   }
+
+  console.log(messages)
 
   return (
     <>
       <div className="flex flex-col items-center justify-center border-8 h-[100%] w-[100%]">
-        {messages.map((message, idx) => {
-          return <p key={idx}>{message}</p>
-        })}
+        {messages ? (
+          messages.map((message, idx) => {
+           return <p key={idx}>{message.context}</p>;
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
+
         <button
           onClick={() => {sendMessage('hi', 0)}}
         >Send test message</button>

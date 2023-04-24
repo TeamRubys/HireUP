@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import io from 'socket.io-client'
-import Link from 'next/link'
 import Dm from './subComponents/chat/dm';
-import axios from 'axios';
 const {getMessages} = require('./subComponents/chat/chatHelpers/helpers')
 function Chat() {
 
@@ -10,7 +7,7 @@ function Chat() {
 
   const [messages, setMessages] = useState([])
 
-  const [user, setUser] = useState(1)
+  const [recipient, setRecipient] = useState(2)
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -19,7 +16,7 @@ function Chat() {
     }
     fetchMessages();
   }, []);
-
+  console.log(messages[recipient])
 
   return (
     <>
@@ -29,12 +26,15 @@ function Chat() {
             <div className="flex flex-col h-[100%] w-[100%]">
               <div className="flex items-center border h-[80%]">
                 <div className="flex flex-col items-center justify-evenly border h-[80%] w-[20%]">
-                  {messages.map((message) => {
-                    return <button className="flex items-center justify-center rounded-full border h-[5vw] w-[5vw]">{message.recipient}</button>
+                  {Object.values(messages).map((message, idx) => {
+                    return <button
+                     key={idx}
+                     onClick={() => {setRecipient(message.recipient)}}
+                     className="flex items-center justify-center rounded-full border h-[5vw] w-[5vw]">{message.recipient}</button>
                   })}
                 </div>
                 <div className="flex flex-col border h-[80%] w-[80%]">
-                  No Chat Selected
+                  <Dm recipient={recipient} chats={messages[recipient]} />
                 </div>
               </div>
               <div className="flex border h-[20%]"></div>

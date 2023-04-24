@@ -13,6 +13,7 @@ module.exports = (server) => {
 
     socket.on('sendMessage', ({roomName, message}) => {
       console.log('sending message')
+      console.log(roomName)
       io.to(roomName).emit('newMessage', message)
     })
 
