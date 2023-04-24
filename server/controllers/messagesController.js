@@ -3,7 +3,8 @@ let Models = require('../Models');
 const messagesController = {
   get: (req, res) => {
     console.log('im in the messages controller')
-      Models.messages.getAll(req.body.id)
+      console.log(req.query.id)
+      Models.messages.getAll(req.query.id)
         .then(result => {
           res.send(result.rows);
         })
