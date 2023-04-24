@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import io from 'socket.io-client'
 import Link from 'next/link'
 import { initializeSocket } from './chatHelpers/socketConnection';
+import axios from 'axios'
 function Dm({recipient, chats}) {
 
   const [messages, setMessages] = useState([])
@@ -22,9 +23,16 @@ function Dm({recipient, chats}) {
   }, [chats])
 
   const sendMessage = (message, user) => {
-    console.log('hit')
-
-    socket.emit('sendMessage', {roomName: 1, message: {sender_id: user, receiver_id: recipient, context: message}});
+    console.log(user)
+    socket.emit('sendMessage', {roomName: recipient, message: {sender_id: user, receiver_id: recipient, context: message}});
+    setMessages((messages) => [...messages, {sender_id: user, receiver_id: recipient, context: message}]);
+    axios.post('/api/messages', {sender_id: user, receiver_id: recipient, context: message})
+    .then((res) => {
+      console.log("message posted to DB")
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   console.log(messages)
@@ -41,7 +49,7 @@ function Dm({recipient, chats}) {
         )}
 
         <button
-          onClick={() => {sendMessage('hi', 0)}}
+          onClick={() => {sendMessage('hi', user)}}
         >Send test message</button>
       </div>
     </>
