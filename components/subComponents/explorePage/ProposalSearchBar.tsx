@@ -1,4 +1,4 @@
-function SearchBar() {
+function ProposalSearchBar() {
     return (
     <div>
         <div id="list-header" className="text-4xl font-bold mx-auto mb-8 max-w-screen-2xl">List of Business Proposals</div>
@@ -30,4 +30,4 @@ function SearchBar() {
     );
   }
   
-  export default SearchBar;
+  export default ProposalSearchBar;

@@ -1,10 +1,10 @@
-import Card from "./Card"
+import ProposalCard from "./ProposalCard"
 
-function CardList({}) {
+function ProposalCardList({}) {
   return (
     <div>
-      <Card/>
-      <Card/>
+      <ProposalCard/>
+      <ProposalCard/>
       <div className="flex justify-center mt-10">
         <button className="bg-black hover:bg-blue-700 text-white font-bold py-3 px-10 rounded">
           Load More
@@ -14,4 +14,4 @@ function CardList({}) {
   );
 }
 
-export default CardList;
+export default ProposalCardList;

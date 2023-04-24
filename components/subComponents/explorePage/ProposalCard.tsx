@@ -1,7 +1,7 @@
 function Card({}) {
     return (
       <div className="border p-6 rounded-lg mb-10">
-        <div id="card-header" className="flex justify-between items-center mb-10">
+        <div id="card-header" className="flex justify-between items-center mb-5">
             <div className="flex flex-col">
             <h2 className="text-2xl font-bold">Example Headline</h2>
             <ul className="">Client</ul>
