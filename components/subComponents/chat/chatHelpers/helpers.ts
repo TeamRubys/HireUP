@@ -20,7 +20,8 @@ module.exports.getMessages = async (user) => {
     });
 
     let list = Object.values(formatted);
-    return list
+    return list;
+
   }
 
 

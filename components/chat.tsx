@@ -8,7 +8,7 @@ function Chat() {
 
   const [selected, setSelected] = useState(0);
 
-  const [messages, setMessages] = useState()
+  const [messages, setMessages] = useState([])
 
   const [user, setUser] = useState(1)
 
@@ -23,11 +23,24 @@ function Chat() {
 
   return (
     <>
-      {selected === 0 ? (
-        <p></p>
-      ) : (
-        <p></p>
-      )}
+        <div className="absolute flex items-center justify-center h-[100%] w-[100%]">
+          <div className="flex flex-col items-center h-[80%] w-[40%] border-4">
+            <div className="h-[10%] w-[90%] border-b-2">Header</div>
+            <div className="flex flex-col h-[100%] w-[100%]">
+              <div className="flex items-center border h-[80%]">
+                <div className="flex flex-col items-center justify-evenly border h-[80%] w-[20%]">
+                  {messages.map((message) => {
+                    return <button className="flex items-center justify-center rounded-full border h-[5vw] w-[5vw]">{message.recipient}</button>
+                  })}
+                </div>
+                <div className="flex flex-col border h-[80%] w-[80%]">
+                  No Chat Selected
+                </div>
+              </div>
+              <div className="flex border h-[20%]"></div>
+            </div>
+          </div>
+        </div>
     </>
   );
 }
