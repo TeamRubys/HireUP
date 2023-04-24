@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Header from './subComponents/explorePage/Header';
 import ProposalBody from './subComponents/explorePage/ProposalBody';
-//import FreelancersBody from './subComponents/explorePage/FreelancersBody
+import FreelancerBody from './subComponents/explorePage/FreelancerBody'
 import Footer from './subComponents/explorePage/Footer';
 
 function ExplorePage() {
@@ -12,7 +12,7 @@ function ExplorePage() {
     <>
       <Header page={page} setPage={setPage} />
       {page === 0 && <ProposalBody />}
-      {/* {page === 1 && <FreelancersBody />} */}
+      {page === 1 && <FreelancerBody />}
       <Footer />
     </>
   );
