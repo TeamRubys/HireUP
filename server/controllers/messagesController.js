@@ -3,8 +3,14 @@ let Models = require('../Models');
 const messagesController = {
   get: (req, res) => {
     console.log('im in the messages controller')
-    // Models.messages.getAll()
-      // .then ...
+      Models.messages.getAll(req.body.id)
+        .then(result => {
+          res.send(result.rows);
+        })
+        .catch(err => {
+          console.log(err)
+          res.status(500).send('Error fetching messages')
+        })
   },
   getOne: (req, res) => {
     Models.messages.getOne(req.params.id)
