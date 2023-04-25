@@ -13,13 +13,8 @@
     "pg": "^8.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1"
-=======
-    "react-hook-form": "^7.43.9",
-    "socket.io": "^4.6.1"
->>>>>>> f2c80f0 (Add react hook form package)
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
