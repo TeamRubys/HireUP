@@ -4,6 +4,7 @@ import Header from './subComponents/explorePage/Header';
 import ProposalBody from './subComponents/explorePage/ProposalBody';
 import FreelancerBody from './subComponents/explorePage/FreelancerBody'
 import Footer from './subComponents/explorePage/Footer';
+import Chat from'./subComponents/explorePage/Chat'
 
 function ExplorePage() {
   const [page, setPage] = useState<number>(0);
@@ -14,6 +15,7 @@ function ExplorePage() {
       {page === 0 && <ProposalBody />}
       {page === 1 && <FreelancerBody />}
       <Footer />
+      <Chat/>
     </>
   );
 }
