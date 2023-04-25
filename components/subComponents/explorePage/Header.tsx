@@ -21,10 +21,10 @@ function Header(props: { setPage: Function, page: number }) {
                   {page === 0 ? 'Find Freelancers' : 'Find Work'}
                 </a>
               </div>
-              <button className="hover:bg-blue-100 px-10 py-3 border border-solid font-bold rounded-md">
+              <button className="hover:bg-blue-100 px-10 py-2 border border-solid border-black font-bold rounded-md">
                 Log In
               </button>
-              <button className="hover:bg-blue-500 px-20 py-3 bg-black text-white font-bold rounded-md">
+              <button className="hover:bg-blue-500 px-20 py-2 bg-black text-white font-bold rounded-md">
                 Sign Up
               </button>
             </div>

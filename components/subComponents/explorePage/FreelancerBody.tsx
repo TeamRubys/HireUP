@@ -1,5 +1,5 @@
 import FreelancerSearchBar from './FreelancerSearchBar'
-//import FreelancerCardList from './FreelancerCardList'
+import FreelancerCardList from './FreelancerCardList'
 import FreelancerSideBar from './FreelancerSideBar'
 
 function FreelancerBody(){
@@ -8,7 +8,7 @@ function FreelancerBody(){
         <FreelancerSearchBar/>
         <div className="flex">
           <div className="w-3/4 mt-3">
-            {/* <FreelancerCardList /> */}
+            <FreelancerCardList />
           </div>
           <div className="w-1/4 p-3">
             <FreelancerSideBar />

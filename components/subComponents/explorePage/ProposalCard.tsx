@@ -1,4 +1,4 @@
-function Card({}) {
+function ProposalCard({}) {
     return (
       <div className="border p-6 rounded-lg mb-10">
         <div id="card-header" className="flex justify-between items-center mb-5">
@@ -8,10 +8,10 @@ function Card({}) {
             <ul className="text-gray-400">Date Posted</ul>
             </div>
         <div>
-          <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-gray-400">
+          <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
             Save
           </button>
-          <button className="bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-gray-400">
+          <button className="bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
             Message
           </button>
         </div>
@@ -26,7 +26,7 @@ function Card({}) {
             <span className="mr-2">Location</span>
             <span>Budget</span>
             </div> 
-        <button className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border border-gray-400">
+        <button className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border border-black">
             Apply
           </button>
         </div>
@@ -34,5 +34,5 @@ function Card({}) {
     );
   }
   
-  export default Card;
+  export default ProposalCard;
   
