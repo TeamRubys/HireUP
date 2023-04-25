@@ -14,12 +14,12 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
   }
 
   return (
-    <div className="mx-auto mb-8 max-w-screen-2xl border-b border-gray-300 px-6 pt-4 pb-6 lg:px-20">
+    <div className="mx-auto mb-8 max-w-screen-2xl border-b border-gray-300 px-6 pt-6 pb-6 lg:px-20">
       <div className="title flex flex-row items-center justify-between">
         <span id="logo" className="title text-4xl font-bold cursor-pointer">HireUp</span> 
         <div className="relative items-center bg-white md:flex">
           <div className="flex space-x-4 items-center ml-10">
-            <div className="">
+            <div>
               <a
                 className="mx-auto underline mr-5 text-xl hover:text-blue-500 cursor-pointer"
                 onClick={handleTogglePage}

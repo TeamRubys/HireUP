@@ -8,6 +8,9 @@ function ProposalCard({}) {
             <ul className="text-gray-400">Date Posted</ul>
             </div>
         <div>
+        <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
+            See profile
+          </button>
           <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
             Save
           </button>
