@@ -14,7 +14,7 @@ function FreelancerSearchBar({}) {
                 id="roles"
                 className="text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                <option value="">any service roles</option>
+                <option value="">any service role</option>
                 <option value="option1">Software Engineer</option>
                 <option value="option2">Product Manager</option>
                 <option value="option3">Web Designer</option>

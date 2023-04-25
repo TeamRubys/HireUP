@@ -22,9 +22,9 @@ function ProposalCard({}) {
         </ul>
         <div className="flex justify-between items-center border p-2 rounded-lg">
             <div>
-            <span className="font-bold mr-2 ml-2">Role</span>
-            <span className="mr-2">Location</span>
-            <span>Budget</span>
+            <span className="font-bold mr-2 ml-2">Role </span>
+            <span className="mr-2">Location </span>
+            <span>Price</span>
             </div> 
         <button className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border border-black">
             Apply
