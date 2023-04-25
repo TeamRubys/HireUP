@@ -1,7 +1,8 @@
 const db = require('../db');
 
 const messagesModel = {
-  getAll: () => {
+  getAll: (id) => {
+    return db.query('SELECT * FROM messages WHERE sender_id = $1 OR receiver_id = $1', [id])
   },
   getOne: async (id) => {
     const message = await db.query('SELECT * FROM messages WHERE id = $1', [id]);
@@ -26,4 +27,5 @@ const messagesModel = {
   }
 }
 
+module.exports = messagesModel;
 module.exports = messagesModel;
