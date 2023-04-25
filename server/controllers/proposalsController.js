@@ -1,4 +1,4 @@
-let Models = require('../models/proposalsModel');
+let Models = require('../models');
 
 const proposalsController = {
   get: (req, res) => {
