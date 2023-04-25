@@ -22,7 +22,8 @@ function Chat() {
     <>
         <div className="absolute flex items-center justify-center h-[100%] w-[100%]">
           <div className="flex flex-col items-center h-[80%] w-[40%] border-4">
-            <div className="h-[10%] w-[90%] border-b-2">Header</div>
+            <div className="h-[10%] w-[90%] border-b-2 text-dollar font-bold text-xl flex items-center
+">HigherUp</div>
             <div className="flex flex-col h-[100%] w-[100%]">
               <div className="flex items-center border h-[80%]">
                 <div className="flex flex-col items-center justify-evenly border h-[80%] w-[20%]">

@@ -9,6 +9,7 @@ module.exports = {
       },
       colors: {
         primary: '#0070f3',
+        dollar: '#6B8F71'
       },
       borderWidth: {
         '10': '10px',
