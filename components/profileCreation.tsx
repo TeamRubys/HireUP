@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import axios from 'axios'
 import { useForm, useFieldArray, SubmitHandler, Controller } from 'react-hook-form'
 import ParsePortfolio from './subComponents/profileCreation/parsePortfolio'
 import ParseSkills from './subComponents/profileCreation/parseSkills'
@@ -17,31 +18,6 @@ type Inputs = {
   skills: string[];
   location: string;
 };
-
-// const ParsePortfolio = ({ value = [], onChange }) => {
-//   const [text, setText] = React.useState<string>(value.join("\n"));
-
-//   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-//     const value = e.target.value;
-
-//     setText(value);
-//     onChange(value.split("\n"));
-//   };
-
-//   return <textarea onChange={handleChange} value={text} placeholder="Add a link to an example of your work and press enter for each additional link"/>;
-// };
-// const ParsePortfolio = ({ value = [], onChange }) => {
-//   const [text, setText] = React.useState<string>(value.join("\n"));
-
-//   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-//     const value = e.target.value;
-
-//     setText(value);
-//     onChange(value.split("\n"));
-//   };
-
-//   return <textarea onChange={handleChange} value={text} placeholder="Add a link to an example of your work and press enter for each additional link"/>;
-// };
 
 function ProfileCreation() {
   const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
@@ -61,6 +37,16 @@ function ProfileCreation() {
   });
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log('data', data);
+    axios.post('/api/freelancers', {
+      ...data,
+      user_id: 1
+    })
+      .then(response => {
+        console.log('successfully added freelancer to database');
+      })
+      .catch(err => {
+        console.log('unable to add freelancer to database, error:', err);
+      })
   }
   return (
     <div className="flex flex-col items-center">
@@ -68,7 +54,7 @@ function ProfileCreation() {
         <h2>PROFILE CREATION</h2>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-20">
-        <div className="flex">
+        <div className="flex mb-4">
           <span className="flex flex-col mr-4">
             <label htmlFor="role-input" className="font-bold text-xl">Role</label>
             <input type="text" {...register("role")} className="border border-neutral-500" id="role-input"/>
@@ -78,10 +64,10 @@ function ProfileCreation() {
             <input type="text" {...register("rate")} className="border border-neutral-500" id="rate-input"/>
           </span>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-4">
             <h3 className="font-bold text-xl">Work History</h3>
             {fields.map((field, index) => (
-              <div key={field.id} className="border border-slate-400">
+              <div key={field.id} className="border border-slate-400 mb-2">
                 <h4 className="font-semibold">Job {index + 1}</h4>
                 <div className="flex flex-col">
                   <label htmlFor="company-input">Company</label>
@@ -98,9 +84,9 @@ function ProfileCreation() {
                 <button type="button" className="border rounded p-2 text-white bg-red-400" onClick={() => remove(index)}>Remove</button>
               </div>
             ))}
-            <button type="button" onClick={() => append({ company: "", position: "", duration: "" })}>Add</button>
+            <button type="button" className="border rounded p-2 text-white bg-emerald-300" onClick={() => append({ company: "", position: "", duration: "" })}>Add Job</button>
         </div>
-        <div className="flex">
+        <div className="flex mb-4">
           <span className="flex flex-col mr-4">
             <label htmlFor="education-input" className="font-bold text-xl">Education</label>
             <input type="text" {...register("education")} className="border border-neutral-500" id="education-input"/>
@@ -114,7 +100,7 @@ function ProfileCreation() {
             control={control} />
           </span>
         </div>
-        <div className="flex">
+        <div className="flex mb-4">
           <span className="flex flex-col mr-4">
             <label htmlFor="skills-input" className="font-bold text-xl">Skills</label>
             <Controller name="skills" render={({ field }) => {
