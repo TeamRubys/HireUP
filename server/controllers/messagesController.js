@@ -2,7 +2,6 @@ let Models = require('../models');
 
 const messagesController = {
   get: (req, res) => {
-    console.log('im in the messages controller')
       console.log(req.query.id)
       Models.messages.getAll(req.query.id)
         .then(result => {
