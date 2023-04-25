@@ -1,4 +1,8 @@
-function FreelancerCard({}) {
+function FreelancerCard({setCurrentPage}) {
+  const handleChatMessage = () => {
+    setCurrentPage(6)
+  }
+
     return (
       <div className="border p-6 rounded-lg mb-10">
         <div
@@ -24,7 +28,7 @@ function FreelancerCard({}) {
             <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
               Save
             </button>
-            <button className="mb-9 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
+            <button className="mb-9 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black" onClick={handleChatMessage}>
               Message
             </button>
           </div>

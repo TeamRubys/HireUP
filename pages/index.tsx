@@ -34,7 +34,7 @@ const IndexPage = () => {
       {currentPage===1 ? (
         <LandingPage />
       ): currentPage===2 ? (
-        <ExplorePage />
+        <ExplorePage setCurrentPage={setCurrentPage}/>
       ) : currentPage===3 ? (
         <ProfileCreation />
       ) : currentPage===4 ? (

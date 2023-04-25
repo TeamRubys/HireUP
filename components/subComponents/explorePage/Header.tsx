@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, setIsLoggedIn:Function }) {
-  const { setPage, page, isLoggedIn, setIsLoggedIn } = props;
+function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, setIsLoggedIn:Function, setCurrentPage:Function}) {
+  const { setPage, page, isLoggedIn, setIsLoggedIn, setCurrentPage } = props;
 
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState('Bob');
 
   const handleTogglePage = () => {
     setPage(page === 0 ? 1 : 0);
@@ -11,6 +11,10 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
 
   const handleSignOut = () => {
     setIsLoggedIn(false)
+  }
+
+  const handleUserClick = () => {
+    setCurrentPage(3)
   }
 
   return (
@@ -24,12 +28,14 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
                 className="mx-auto underline mr-5 text-xl hover:text-blue-500 cursor-pointer"
                 onClick={handleTogglePage}
               >
-                {page === 0 ? 'Find Freelancers' : 'Find Work'}
+                {page === 0 ? 'Find Freelancers' : 'Find Jobs'}
               </a>
             </div>
             {isLoggedIn ? (
               <>
-             <span className="text-xl"> Welcome, Bob! {user} </span>
+             <span className="text-xl"> Welcome,{' '}  
+             <span className="hover:text-blue-500 cursor-pointer underline" onClick={handleUserClick}>{user}</span>
+             !</span>
               <button className="hover:bg-blue-100 px-10 py-2 border border-solid border-black font-bold rounded-md" onClick={handleSignOut}>
                 Sign Out
               </button>
@@ -52,4 +58,3 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
 }
 
 export default Header;
-

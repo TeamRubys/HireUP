@@ -1,4 +1,12 @@
-function ProposalCard({}) {
+function ProposalCard({setCurrentPage}) {
+  const handleChatMessageClick = () => {
+    setCurrentPage(6)
+  }
+
+  const handleProfileViewClick = () => {
+    setCurrentPage(4)
+  }
+
     return (
       <div className="border p-6 rounded-lg mb-10">
         <div id="card-header" className="flex justify-between items-center mb-5">
@@ -8,13 +16,13 @@ function ProposalCard({}) {
             <ul className="text-gray-400">Date Posted</ul>
             </div>
         <div>
-        <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
+        <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black" onClick={handleProfileViewClick}>
             See profile
           </button>
           <button className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
             Save
           </button>
-          <button className="bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black">
+          <button className="bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black" onClick={handleChatMessageClick}>
             Message
           </button>
         </div>

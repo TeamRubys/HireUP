@@ -1,4 +1,7 @@
-function FreelancerSearchBar({}) {
+function FreelancerSearchBar({setCurrentPage}) {
+    const handleProposeClick = () => {
+      setCurrentPage(5)
+    }
     return (
       <div>
         <div id="list-header" className="text-4xl font-bold mx-auto mb-5 max-w-screen-2xl">
@@ -50,8 +53,8 @@ function FreelancerSearchBar({}) {
             </div>
           </div>
           <div className="flex justify-center w-1/4">
-            <button className="mt-8 bg-black text-lg text-white rounded-lg py-3 px-20 hover:bg-blue-700">
-              Propose Work
+            <button className="mt-8 bg-black text-lg text-white rounded-lg py-3 px-20 hover:bg-blue-700" onClick={handleProposeClick}>
+              Propose Jobs
             </button>
           </div>
         </div>

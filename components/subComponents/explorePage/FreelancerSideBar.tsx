@@ -1,6 +1,10 @@
 import React from 'react';
 
-function FreelancerSideBar({}) {
+function FreelancerSideBar({setCurrentPage}) {
+  const handleChatMessage = () =>{
+    setCurrentPage(6)
+  }
+
   return (
     <div>
       <div id="saved" className="flex flex-col mb-4">
@@ -9,13 +13,7 @@ function FreelancerSideBar({}) {
           <ul>
             <li className="flex justify-between items-center mb-2">
               Bobby
-              <button className="hover:bg-blue-100 font-bold py-2 px-4 rounded border border-black">
-                Message
-              </button>
-            </li>
-            <li className="flex justify-between items-center mb-2">
-              Siri
-              <button className="hover:bg-blue-100 font-bold py-2 px-4 rounded border border-black">
+              <button className="hover:bg-blue-100 font-bold py-2 px-4 rounded border border-black" onClick={handleChatMessage}>
                 Message
               </button>
             </li>
