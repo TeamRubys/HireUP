@@ -62,11 +62,11 @@ updateScroll();
           messages.map((message, idx) => {
             {return message.sender_id===user ? (
               <div className="rounded-lg bg-green-600 m-1 p-1 ml-auto w-[50%] mt-auto">
-                <p key={idx}>{message.context}user</p>
+                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
               </div>
             ):(
               <div className="rounded-lg bg-blue-600 m-1 p-1 mr-auto w-[50%]">
-                <p key={idx}>{message.context}user</p>
+                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
               </div>
             )}
           })
@@ -74,7 +74,7 @@ updateScroll();
           <p>Loading...</p>
         )}
       </div>
-      <div className="absolute z-50 flex h-[5%] w-[96%] justify-between bottom-[0%] left-[2%]">
+      <div className="absolute z-50 flex h-[5%] w-[96%] justify-between bottom-[3%] left-[2%]">
          <div className="flex rounded-lg items-center justify-center text-xl w-[10%] bg-gray-400">◄</div>
          <div className="w-[75%]">
          <input
