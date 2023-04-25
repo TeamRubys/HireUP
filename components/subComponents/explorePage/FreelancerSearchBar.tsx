@@ -1,7 +1,7 @@
 function FreelancerSearchBar({}) {
     return (
       <div>
-        <div id="list-header" className="text-4xl font-bold mx-auto mb-8 max-w-screen-2xl">
+        <div id="list-header" className="text-4xl font-bold mx-auto mb-5 max-w-screen-2xl">
           Search Freelancers
         </div>
         <div id="search-bar" className="mx-auto items-center justify-start flex flex-row font-bold text-2xl mb-5">

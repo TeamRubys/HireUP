@@ -2,7 +2,7 @@ import ProposalCard from "./ProposalCard"
 
 function ProposalCardList({}) {
   return (
-    <div>
+    <div className="mb-20">
       <ProposalCard/>
       <ProposalCard/>
       <ProposalCard/>
