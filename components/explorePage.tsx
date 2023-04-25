@@ -22,8 +22,8 @@ function ExplorePage({setCurrentPage}) {
   return (
     <>
       <Header page={page} setPage={setPage} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentPage={setCurrentPage}/>
-      {page === 0 && <ProposalBody setCurrentPage={setCurrentPage}/>}
-      {page === 1 && <FreelancerBody setCurrentPage={setCurrentPage}/>}
+      {page === 0 && <ProposalBody setCurrentPage={setCurrentPage}/>} {/*jobs={jobs}*/}
+      {page === 1 && <FreelancerBody setCurrentPage={setCurrentPage}/>} {/*freelancers={freelancers}*/}
       <Footer />
       <Chat setCurrentPage={setCurrentPage}/>
     </>
