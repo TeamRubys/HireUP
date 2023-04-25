@@ -28,4 +28,3 @@ const messagesModel = {
 }
 
 module.exports = messagesModel;
-module.exports = messagesModel;

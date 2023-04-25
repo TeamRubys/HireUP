@@ -1,4 +1,4 @@
-let Models = require('../models/messagesModel');
+let Models = require('../models');
 
 const messagesController = {
   get: (req, res) => {

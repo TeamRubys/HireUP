@@ -29,7 +29,7 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
             </div>
             {isLoggedIn ? (
               <>
-             <span className="text-xl"> Welcome, Bob {user} </span>
+             <span className="text-xl"> Welcome, Bob! {user} </span>
               <button className="hover:bg-blue-100 px-10 py-2 border border-solid border-black font-bold rounded-md" onClick={handleSignOut}>
                 Sign Out
               </button>

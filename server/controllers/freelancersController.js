@@ -1,6 +1,6 @@
-let Models = require('../models/freelancersModel');
+let Models = require('../models');
 
-const messagesController = {
+const freelancersController = {
   get: (req, res) => {
     console.log('im in the messages controller')
     Models.freelancers.getAll(req.query.page, req.query.count)
@@ -25,4 +25,4 @@ const messagesController = {
   }
 }
 
-module.exports = messagesController;
+module.exports = freelancersController;
