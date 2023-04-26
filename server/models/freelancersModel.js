@@ -4,7 +4,7 @@ const freelancersModel = {
   getAll: async (page = 1, count = 5) => {
     const first = (page - 1) * count + 1;
     const last = page * count;
-    const freelancers = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration)) AS work_history, u.name AS freelancer_name, u.email AS freelancer_email
+    const freelancers = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration, 'description', description)) AS work_history, u.name AS freelancer_name, u.email AS freelancer_email
       FROM freelancers f
         INNER JOIN work_history w ON f.id = freelancer_id
         INNER JOIN users u ON f.user_id = u.id
@@ -12,7 +12,7 @@ const freelancersModel = {
     return freelancers.rows;
   },
   getOne: async (id) => {
-    const freelancer = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration)) AS work_history, u.name AS freelancer_name, u.email AS freelancer_email
+    const freelancer = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration, 'description', w.description)) AS work_history, u.name AS freelancer_name, u.email AS freelancer_email
       FROM freelancers f
         INNER JOIN work_history w ON f.id = freelancer_id
         INNER JOIN users u ON f.user_id = u.id
@@ -32,11 +32,11 @@ const freelancersModel = {
       const freelancerId = await res.rows[0].id;
       console.log(freelancerId);
 
-      const historyText = 'INSERT INTO work_history(freelancer_id, company, position, duration) VALUES ($1, $2, $3, $4)';
+      const historyText = 'INSERT INTO work_history(freelancer_id, company, position, duration, description) VALUES ($1, $2, $3, $4, $5)';
       let finalRes;
       const workHistory = freelancer.work_history;
       freelancer.work_history.forEach( async (history) => {
-        finalRes = await client.query(historyText, [freelancerId, history.company, history.position, history.duration]);
+        finalRes = await client.query(historyText, [freelancerId, history.company, history.position, history.duration, history.description]);
       })
       await client.query('COMMIT');
       return finalRes;
