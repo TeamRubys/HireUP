@@ -32,7 +32,7 @@ const IndexPage = () => {
 
 
       {currentPage===1 ? (
-        <LandingPage />
+        <LandingPage setCurrentPage={setCurrentPage}/>
       ): currentPage===2 ? (
         <ExplorePage />
       ) : currentPage===3 ? (
