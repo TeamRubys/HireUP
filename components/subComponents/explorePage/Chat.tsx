@@ -1,9 +1,13 @@
 import React from "react";
 
-function Chat({setCurrentPage}) {
+function Chat({setCurrentPage, isLoggedIn}) {
 
   const handleChatClick = () => {
-    setCurrentPage(6)
+    if(isLoggedIn) {
+      setCurrentPage(6)
+    } else {
+      alert('Please login or sign up to use website features');
+    }
   }
 
   return (

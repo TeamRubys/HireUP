@@ -3,7 +3,7 @@ import ProposalSearchBar from './ProposalSearchBar';
 import ProposalCardList from './ProposalCardList';
 import ProposalSideBar from './ProposalSideBar';
 
-function ProposalBody({setCurrentPage, jobs}) {
+function ProposalBody({setCurrentPage, jobs, isLoggedIn}) {
   const [role, setRole] = useState<string>('')
   const [location, setLocation] = useState<string>('')
   const [priceRange, setPriceRange] = useState<string>('')
@@ -18,7 +18,7 @@ function ProposalBody({setCurrentPage, jobs}) {
       <ProposalSearchBar setRole={setRole} setLocation={setLocation} setPriceRange={setPriceRange}/>
       <div className="flex">
         <div className="w-3/4 mt-3">
-          <ProposalCardList setCurrentPage={setCurrentPage} filteredJobs={filteredJobs} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs}/>
+          <ProposalCardList setCurrentPage={setCurrentPage} filteredJobs={filteredJobs} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs} isLoggedIn={isLoggedIn}/>
         </div>
         <div className="w-1/4 p-3">
           <ProposalSideBar savedJobs={savedJobs} appliedJobs={appliedJobs}/>

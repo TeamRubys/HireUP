@@ -1,35 +1,51 @@
 import React, {useState} from 'react'
 
-function ProposalCard({ setCurrentPage, setSavedJobs, setAppliedJobs }) {
+function ProposalCard({ setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn }) {
   const [saved, setSaved] = useState(false)
   const [applied, setApplied] = useState(false)
 
   const handleChatMessageClick = () => {
-    setCurrentPage(6);
+    if (isLoggedIn) {
+      setCurrentPage(6);
+    } else {
+      alert('Please login or sign up to use website features');
+    }
   };
 
   const handleProfileViewClick = () => {
-    setCurrentPage(4);
+    if (isLoggedIn) {
+      setCurrentPage(4);
+    } else {
+      alert('Please login or sign up to use website features');
+    }
   };
 
   const handleSaveJobClick = () => {
-    //fix filter later with data
-    if (saved) {
-      setSaved(false);
-      setSavedJobs(prevJobs => prevJobs.filter(job => job !== 'Example Headline'));
+    if (isLoggedIn) {
+      //fix filter later with data
+      if (saved) {
+        setSaved(false);
+        setSavedJobs(prevJobs => prevJobs.filter(job => job !== 'Example Headline'));
+      } else {
+        setSaved(true);
+        setSavedJobs(prevJobs => [...prevJobs, 'Example Headline']);
+      }
     } else {
-      setSaved(true);
-      setSavedJobs(prevJobs => [...prevJobs, 'Example Headline']);
+      alert('Please login or sign up to use website features');
     }
   };
   
   const handleApplyClick = () => {
-    if (applied) {
-      setApplied(false);
-      setAppliedJobs(prevJobs => prevJobs.filter(job => job !== 'Example Headline'));
+    if (isLoggedIn) {
+      if (applied) {
+        setApplied(false);
+        setAppliedJobs(prevJobs => prevJobs.filter(job => job !== 'Example Headline'));
+      } else {
+        setApplied(true);
+        setAppliedJobs(prevJobs => [...prevJobs, 'Example Headline']);
+      }
     } else {
-      setApplied(true);
-      setAppliedJobs(prevJobs => [...prevJobs, 'Example Headline']);
+      alert('Please login or sign up to use website features');
     }
   };
 

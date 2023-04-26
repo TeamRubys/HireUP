@@ -1,8 +1,4 @@
-function FreelancerSearchBar({setCurrentPage, setRole, setLocation, setPrice}) {
-    const handleProposeClick = () => {
-      setCurrentPage(5)
-    }
-
+function FreelancerSearchBar({setCurrentPage, setRole, setLocation, setPrice, isLoggedIn}) {
     const handleRoleChange = (e) => {
       setRole(e.target.value)
     }
@@ -14,6 +10,15 @@ function FreelancerSearchBar({setCurrentPage, setRole, setLocation, setPrice}) {
     const handlePriceChange = (e) => {
       setPrice(e.target.value)
     }
+
+    const handleProposeClick = () => {
+      if(isLoggedIn) {
+        setCurrentPage(5)
+      } else {
+        alert('Please login or sign up to use website features')
+      }
+    }
+
 
     return (
       <div>

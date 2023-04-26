@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ProposalCard from "./ProposalCard"
 
-function ProposalCardList({setCurrentPage, filteredJobs, setSavedJobs, setAppliedJobs}) {
+function ProposalCardList({setCurrentPage, filteredJobs, setSavedJobs, setAppliedJobs, isLoggedIn}) {
 
   const [numToShow, setNumToShow] = useState(4);
 
@@ -13,7 +13,7 @@ function ProposalCardList({setCurrentPage, filteredJobs, setSavedJobs, setApplie
     <div className="mb-20">
       {filteredJobs.length > 0 ? (
         filteredJobs.slice(0, numToShow).map(job => (
-          <ProposalCard setCurrentPage={setCurrentPage} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs}/>
+          <ProposalCard setCurrentPage={setCurrentPage} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs} isLoggedIn={isLoggedIn}/>
         ))
       ) : (
         <div className="text-center italic mb-4">No jobs found.</div>

@@ -1,17 +1,30 @@
 import React, { useState } from "react";
 
-function FreelancerCard({ setCurrentPage, setSavedFreelancers }) {
+function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn }) {
   const [saved, setSaved] = useState(false);
 
   const handleChatMessage = () => {
-    setCurrentPage(6);
+    if(isLoggedIn){
+      setCurrentPage(6);
+    } else {
+      alert('Please login or sign up to use website features')
+    }
   };
 
   const handleProfileView = () => {
-    setCurrentPage(4);
+    if(isLoggedIn){
+      setCurrentPage(4);
+    } else {
+      alert('Please login or sign up to use website features')
+    }
   };
 
   const handleSaveFreelancerClick = () => {
+    if (!isLoggedIn) {
+      alert('Please login or sign up to use website features');
+      return;
+    }
+
     if (saved) {
       // If the freelancer is already saved, remove them from the savedFreelancers array
       setSaved(false);
