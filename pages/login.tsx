@@ -4,8 +4,9 @@ import Link from 'next/link'
 const IndexPage = () => (
   <>
     <Link href="/">
-      Test
+      Home
     </Link>
+    
   </>
 )
 
