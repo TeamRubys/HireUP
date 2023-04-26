@@ -10,7 +10,7 @@ const ParseSkills = ({ value = [], onChange }) => {
     onChange(value.split("\n"));
   };
 
-  return <textarea onChange={handleChange} value={text} placeholder="Add a skill and press enter for each additional skill" id="skills-input"/>;
+  return <textarea onChange={handleChange} value={text} placeholder="Add skill(s)" id="skills-input" className="block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6]"/>;
 };
 
 export default ParseSkills
