@@ -7,7 +7,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   s_id TEXT NOT NULL,
-  email TEXT NOT NULL
+  email TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE messages (
@@ -48,7 +48,8 @@ CREATE TABLE work_history (
   freelancer_id INT NOT NULL REFERENCES freelancers(id),
   company TEXT NOT NULL,
   position TEXT NOT NULL,
-  duration TEXT NOT NULL
+  duration TEXT NOT NULL,
+  description TEXT NOT NULL
 );
 
 CREATE INDEX ON messages(sender_id);
