@@ -11,7 +11,7 @@ function FreelancerBody({setCurrentPage, freelancers, isLoggedIn}){
   const [filteredFreelancers, setFilteredFreelancers] = useState<Array<any>>([])
 
   //useEffect(() =>{
-  //function filters freelancers list
+  //filters freelancers
   //})
 
     return(

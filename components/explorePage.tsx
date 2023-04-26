@@ -5,6 +5,7 @@ import ProposalBody from './subComponents/explorePage/ProposalBody';
 import FreelancerBody from './subComponents/explorePage/FreelancerBody'
 import Footer from './subComponents/explorePage/Footer';
 import Chat from'./subComponents/explorePage/Chat'
+import axios from 'axios'
 
 function ExplorePage({setCurrentPage}) {
   const [page, setPage] = useState<number>(0);
@@ -15,9 +16,30 @@ function ExplorePage({setCurrentPage}) {
 
   //useEffect(() => {
   // grab userId and session and verify if user is logged in
-  // set states if logged in
-  // grab all jobs and freelancers from
   // })
+
+  useEffect(() => {
+  },[])
+
+  useEffect(() => {
+    axios.get('/api/proposals')
+    .then((res) => {
+      setJobs(res.data)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  },[])
+
+  useEffect(() => {
+    axios.get('/api/freelancers')
+    .then((res) => {
+      setFreelancers(res.data)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  },[])
 
   return (
     <>

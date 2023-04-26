@@ -11,7 +11,9 @@ function ProposalBody({setCurrentPage, jobs, isLoggedIn}) {
   const [appliedJobs, setAppliedJobs] = useState<Array<any>>([])
   const [filteredJobs, setFilteredJobs] = useState<Array<any>>([])
 
-  //filter job function here and then map jobs
+  //useEffect(()=> {
+  //filter jobs
+  //})
 
   return (
     <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl">
