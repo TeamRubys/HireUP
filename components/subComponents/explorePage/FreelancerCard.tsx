@@ -1,23 +1,7 @@
 import React, { useState } from "react";
 
-function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn }) {
+function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freelancer }) {
   const [saved, setSaved] = useState(false);
-
-  const handleChatMessage = () => {
-    if(isLoggedIn){
-      setCurrentPage(6);
-    } else {
-      alert('Please login or sign up to use website features')
-    }
-  };
-
-  const handleProfileView = () => {
-    if(isLoggedIn){
-      setCurrentPage(4);
-    } else {
-      alert('Please login or sign up to use website features')
-    }
-  };
 
   const handleSaveFreelancerClick = () => {
     if (!isLoggedIn) {
@@ -37,6 +21,22 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn }) {
       setSavedFreelancers(prevState => [...prevState, 'Freelancer Name']);
     }
   };
+  
+  const handleChatMessage = () => {
+    if(isLoggedIn){
+      setCurrentPage(6);
+    } else {
+      alert('Please login or sign up to use website features')
+    }
+  };
+
+  const handleProfileView = () => {
+    if(isLoggedIn){
+      setCurrentPage(4);
+    } else {
+      alert('Please login or sign up to use website features')
+    }
+  };
 
  return (
     <div className="border p-6 rounded-lg mb-10">
@@ -48,9 +48,9 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn }) {
             className="rounded-full mr-4"
           ></img>
           <div id="freelancer-name" className="flex flex-col">
-            <h2 className="text-2xl font-bold">Freelancer's Name</h2>
-            <ul className="">Job Title</ul>
-            <ul className="">Location</ul>
+            <h2 className="text-2xl font-bold">{freelancer.freelancer_name}</h2>
+            <ul className="">{freelancer.role}</ul>
+            <ul className="">{freelancer.location}</ul>
           </div>
         </div>
         <div className="flex items-center justify-between">
@@ -75,10 +75,10 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn }) {
         </div>
       </div>
       <ul>
-        <li className="mb-2 font-bold">Education: </li>
-        <li className="mb-2 font-bold">Skills:</li>
-        <li className="mb-2 font-bold">Portfolio:</li>
-        <li className="mb-2 font-bold">Rate:</li>
+        <li className="mb-2"><span className="font-bold">Education: </span>{freelancer.education}</li>
+        <li className="mb-2"><span className="font-bold">Skills: </span>{freelancer.skills.join(", ")}</li>
+        <li className="mb-2"><span className="font-bold">Skills: </span>{freelancer.portfolio.join(", ")}</li>
+        <li className="mb-2"><span className="font-bold">Rate: </span>${freelancer.rate}/hr</li>
       </ul>
     </div>
   );

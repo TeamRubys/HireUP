@@ -4,11 +4,16 @@ const freelancersModel = {
   getAll: async (page = 1, count = 5) => {
     const first = (page - 1) * count + 1;
     const last = page * count;
-    const freelancers = await db.query(`SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration, 'description', description)) AS work_history, u.name AS freelancer_name, u.email AS freelancer_email
+    const freelancers = await db.query(`
+      SELECT f.id, f.user_id, f.role, f.rate, f.skills, f.location, f.education, f.portfolio, f.timestamp, 
+        json_agg(json_build_object('company', w.company, 'position', w.position, 'duration', w.duration, 'description', w.description)) AS work_history, 
+        u.name AS freelancer_name, u.email AS freelancer_email
       FROM freelancers f
-        INNER JOIN work_history w ON f.id = freelancer_id
+        LEFT JOIN work_history w ON f.id = w.freelancer_id
         INNER JOIN users u ON f.user_id = u.id
-      WHERE f.id BETWEEN $1 AND $2 GROUP BY f.id, u.name, u.email ORDER BY f.id ASC`, [first, last]);
+      WHERE f.id BETWEEN $1 AND $2 
+      GROUP BY f.id, u.name, u.email 
+      ORDER BY f.id ASC`, [first, last]);
     return freelancers.rows;
   },
   getOne: async (id) => {

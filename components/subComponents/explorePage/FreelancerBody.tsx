@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import FreelancerSearchBar from './FreelancerSearchBar'
 import FreelancerCardList from './FreelancerCardList'
 import FreelancerSideBar from './FreelancerSideBar'
@@ -10,9 +10,23 @@ function FreelancerBody({setCurrentPage, freelancers, isLoggedIn}){
   const [savedFreelancers, setSavedFreelancers] = useState<Array<any>>([])
   const [filteredFreelancers, setFilteredFreelancers] = useState<Array<any>>([])
 
-  //useEffect(() =>{
-  //filters freelancers
-  //})
+  useEffect(() => {
+    let filtered = freelancers;
+    if (role) {
+      filtered = filtered.filter(freelancer => freelancer.role.includes(role));
+    }
+    if (location) {
+      filtered = filtered.filter(freelancer => freelancer.location.includes(location));
+    }
+    if (price) {
+      const [min, max] = price.split(',');
+      filtered = filtered.filter(freelancer => {
+        const rate = Number(freelancer.rate);
+        return rate >= Number(min) && rate <= Number(max);
+      });
+    }
+    setFilteredFreelancers(filtered);
+  }, [freelancers, role, location, price]);
 
     return(
         <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl">

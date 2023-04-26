@@ -11,8 +11,8 @@ function FreelancerCardList({setCurrentPage, setSavedFreelancers, filteredFreela
   return (
     <div className="mb-20">
       {filteredFreelancers.length > 0 ? (
-        filteredFreelancers.slice(0, numToShow).map((freelancer) => (
-          <FreelancerCard setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} isLoggedIn={isLoggedIn}/>
+        filteredFreelancers.slice(0, numToShow).map((freelancer, index) => (
+          <FreelancerCard key={index} freelancer={freelancer} setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} isLoggedIn={isLoggedIn}/>
         ))
       ) : (
         <div className="text-center italic mb-4">No freelancers found.</div>

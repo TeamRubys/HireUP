@@ -67,9 +67,9 @@ function FreelancerSearchBar({setCurrentPage, setRole, setLocation, setPrice, is
                 onChange={handlePriceChange}
               >
                 <option value="">any price range</option>
-                <option value="$1 to $1000">$1 to $1000</option>
-                <option value="$1000 to $5000">$1000 to $5000</option>
-                <option value="$5000 and above">$5000 and above</option>
+                <option value="1, 50">$1 to $50</option>
+                <option value="51, 100">$51 to $100</option>
+                <option value="101, 999999">$101 and up</option>
               </select>
             </div>
           </div>
