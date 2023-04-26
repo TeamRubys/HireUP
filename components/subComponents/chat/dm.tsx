@@ -3,7 +3,7 @@ import io from 'socket.io-client'
 import Link from 'next/link'
 import { initializeSocket } from './chatHelpers/socketConnection';
 import axios from 'axios'
-function Dm({recipient, chats}) {
+function Dm({recipient, chats, setNewChat}) {
 
   const [messages, setMessages] = useState([])
 
@@ -75,7 +75,9 @@ updateScroll();
         )}
       </div>
       <div className="absolute z-50 flex h-[5%] w-[96%] justify-between bottom-[3%] left-[2%]">
-         <div className="flex rounded-lg items-center justify-center text-xl w-[10%] bg-gray-400">◄</div>
+         <button
+          onClick={() => {setNewChat(true)}}
+          className="flex rounded-lg items-center justify-center text-xl w-[10%] bg-gray-400">◄</button>
          <div className="w-[75%]">
          <input
           className="w-[100%] h-[100%] rounded-lg bg-gray-400"

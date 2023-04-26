@@ -27,10 +27,10 @@ function Chat() {
   return (
     <>
       {newChat ? (
-        <p></p>
+        <NewChat recipient={null} />
       ) : (
         <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
-        <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center justify-center h-[80%] w-[50%]">
+        <div className="relative rounded-lg bg-slate-300 flex flex-col items-center justify-center h-[80%] w-[50%] border-2 border-dollar">
           <div className="h-[10%] w-[90%] border-b-2 border-dollar text-dollar font-bold text-xl flex items-center
           ">
             <Image
@@ -65,7 +65,7 @@ function Chat() {
                     <p>Please Select a Chat</p>
                   </div>
                 ):(
-                  <Dm recipient={recipient} chats={messages[recipient]} />
+                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat} />
                 )}
               </div>
 
