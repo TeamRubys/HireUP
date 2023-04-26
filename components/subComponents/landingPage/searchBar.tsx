@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { FormEventHandler, useState } from 'react';
+import { Dispatch, FormEventHandler, SetStateAction, useState } from 'react';
+import Link from 'next/link';
 
 interface SearchBarProp {
   handleSearchSubmit: FormEventHandler<HTMLFormElement>
@@ -34,13 +35,13 @@ const SearchBar = ({handleSearchSubmit, search, handleSearchChange}:SearchBarPro
         className="rounded-r-md py-2 px-4 border border-gray-400 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
         style={{width:'40%'}}
       />
-      <button
-        type="submit"
-        className="bg-green-300 text-white rounded-r-md py-2 px-4"
-        style={{width:'20%'}}
-      >
-        Search
-      </button>
+  <button
+    type="submit"
+    className="bg-green-300 hover:bg-green-500 text-white rounded-r-md py-2 px-4 shadow-lg"
+    style={{ width: '20%' }}
+  >
+    Search
+  </button>
     </div>
   </form>
 </div>

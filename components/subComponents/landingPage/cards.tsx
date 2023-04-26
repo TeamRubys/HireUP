@@ -7,7 +7,7 @@ import Image from 'next/legacy/image';
 
 const Cards = () => {
   return (
-    <div className="flex justify-center mt-4" style={{width:'100%'}}>
+    <div className="flex justify-center mt-4" style={{width:'100%', marginBottom:'5%'}}>
       <div className="mx-4" style={{ width: '25%' }}>
         <div style={{ backgroundColor: 'transparent' }}>
           <div className="flex items-center mb-2">
