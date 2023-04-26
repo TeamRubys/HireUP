@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, setIsLoggedIn:Function, setCurrentPage:Function}) {
   const { setPage, page, isLoggedIn, setIsLoggedIn, setCurrentPage } = props;
@@ -42,12 +43,16 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
               </>
             ) : (
               <>
-                <button className="hover:bg-blue-100 px-10 py-2 border border-solid border-black font-bold rounded-md">
+              <Link href="/login">
+              <button className="hover:bg-blue-100 px-10 py-2 border border-solid border-black font-bold rounded-md">
                   Log In
                 </button>
-                <button className="hover:bg-blue-500 px-20 py-2 bg-black text-white font-bold rounded-md">
+              </Link>
+              <Link href="/register">
+              <button className="hover:bg-blue-500 px-20 py-2 bg-black text-white font-bold rounded-md">
                   Sign Up
                 </button>
+              </Link>
               </>
             )}
           </div>

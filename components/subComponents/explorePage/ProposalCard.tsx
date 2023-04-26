@@ -13,6 +13,7 @@ function ProposalCard({ setCurrentPage, setSavedJobs, setAppliedJobs }) {
   };
 
   const handleSaveJobClick = () => {
+    //fix filter later with data
     if (saved) {
       setSaved(false);
       setSavedJobs(prevJobs => prevJobs.filter(job => job !== 'Example Headline'));

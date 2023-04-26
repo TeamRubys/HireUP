@@ -1,7 +1,20 @@
-function FreelancerSearchBar({setCurrentPage}) {
+function FreelancerSearchBar({setCurrentPage, setRole, setLocation, setPrice}) {
     const handleProposeClick = () => {
       setCurrentPage(5)
     }
+
+    const handleRoleChange = (e) => {
+      setRole(e.target.value)
+    }
+
+    const handleLocationChange = (e) => {
+      setLocation(e.target.value)
+    }
+
+    const handlePriceChange = (e) => {
+      setPrice(e.target.value)
+    }
+
     return (
       <div>
         <div id="list-header" className="text-4xl font-bold mx-auto mb-5 max-w-screen-2xl">
@@ -16,11 +29,12 @@ function FreelancerSearchBar({setCurrentPage}) {
               <select
                 id="roles"
                 className="text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              onChange={handleRoleChange}
               >
                 <option value="">any service role</option>
-                <option value="option1">Software Engineer</option>
-                <option value="option2">Product Manager</option>
-                <option value="option3">Web Designer</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="Web Designer">Web Designer</option>
               </select>
             </div>
             <div className="w-1/3">
@@ -30,11 +44,12 @@ function FreelancerSearchBar({setCurrentPage}) {
               <select
                 id="location"
                 className="text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                onChange={handleLocationChange}
               >
                 <option value="">any location</option>
-                <option value="option1">Remote</option>
-                <option value="option2">San Francisco, CA</option>
-                <option value="option3">New York, NY</option>
+                <option value="Remote">Remote</option>
+                <option value="San Francisco, CA">San Francisco, CA</option>
+                <option value="New York, NY">New York, NY</option>
               </select>
             </div>
             <div className="w-1/3">
@@ -44,11 +59,12 @@ function FreelancerSearchBar({setCurrentPage}) {
               <select
                 id="price"
                 className="text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                onChange={handlePriceChange}
               >
                 <option value="">any price range</option>
-                <option value="option1">$1 to $1000</option>
-                <option value="option2">$1000 to $5000</option>
-                <option value="option3">$5000 and above</option>
+                <option value="$1 to $1000">$1 to $1000</option>
+                <option value="$1000 to $5000">$1000 to $5000</option>
+                <option value="$5000 and above">$5000 and above</option>
               </select>
             </div>
           </div>

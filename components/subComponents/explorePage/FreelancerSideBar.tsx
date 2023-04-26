@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FreelancerSideBar({setCurrentPage}) {
+function FreelancerSideBar({setCurrentPage, savedFreelancers}) {
   const handleChatMessage = () =>{
     setCurrentPage(6)
   }
@@ -10,14 +10,20 @@ function FreelancerSideBar({setCurrentPage}) {
       <div id="saved" className="flex flex-col mb-4">
         <div className="rounded-lg border border-grey-300 p-4">
           <div className="text-2xl font-bold mb-4">Saved Freelancers:</div>
-          <ul>
-            <li className="flex justify-between items-center mb-2">
-              Bobby
-              <button className="hover:bg-blue-100 font-bold py-2 px-4 rounded border border-black" onClick={handleChatMessage}>
-                Message
-              </button>
-            </li>
-          </ul>
+          {savedFreelancers.length > 0 ? (
+            <ul>
+              {savedFreelancers.map((freelancer, index) => (
+                <li className="flex justify-between items-center mb-2" key={index}>
+                  {freelancer}
+                  <button className="hover:bg-blue-100 font-bold py-2 px-4 rounded border border-black" onClick={handleChatMessage}>
+                    Message
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="italic">No saved freelancers</p>
+          )}
         </div>
       </div>
     </div>

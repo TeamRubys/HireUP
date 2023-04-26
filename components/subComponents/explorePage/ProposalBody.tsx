@@ -3,7 +3,7 @@ import ProposalSearchBar from './ProposalSearchBar';
 import ProposalCardList from './ProposalCardList';
 import ProposalSideBar from './ProposalSideBar';
 
-function ProposalBody({setCurrentPage}) {
+function ProposalBody({setCurrentPage, jobs}) {
   const [role, setRole] = useState<string>('')
   const [location, setLocation] = useState<string>('')
   const [priceRange, setPriceRange] = useState<string>('')
