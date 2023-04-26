@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ProposalCard from "./ProposalCard"
 
-function ProposalCardList({setCurrentPage, filteredJobs, setSavedJobs, setAppliedJobs, isLoggedIn}) {
+function ProposalCardList({setCurrentPage, filteredJobs, setSavedJobs, setAppliedJobs, isLoggedIn, savedJobs}) {
 
   const [numToShow, setNumToShow] = useState(4);
 

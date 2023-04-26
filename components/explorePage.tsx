@@ -7,16 +7,19 @@ import Footer from './subComponents/explorePage/Footer';
 import Chat from'./subComponents/explorePage/Chat'
 import axios from 'axios'
 
-function ExplorePage({setCurrentPage}) {
+function ExplorePage({setCurrentPage, user}) {
   const [page, setPage] = useState<number>(0);
   const [isLoggedIn, setIsLoggedIn] =useState<boolean>(false)
-  const [userId, setUserId] = useState<string>('')
   const [jobs, setJobs] = useState<Array<any>>([])
   const [freelancers, setFreelancers] = useState<Array<any>>([])
+  const [userInfo, setUserInfo] = useState<any>(user);
 
   useEffect(() => {
-  //user validation
-  },[])
+    if (Object.keys(user).length !== 0) {
+      setUserInfo(userInfo)
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   useEffect(() => {
     axios.get('/api/proposals')
@@ -40,7 +43,7 @@ function ExplorePage({setCurrentPage}) {
 
   return (
     <>
-      <Header page={page} setPage={setPage} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentPage={setCurrentPage}/>
+      <Header userInfo={userInfo} page={page} setPage={setPage} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentPage={setCurrentPage}/>
       {page === 0 && <ProposalBody setCurrentPage={setCurrentPage} isLoggedIn={isLoggedIn} jobs={jobs}/>}
       {page === 1 && <FreelancerBody setCurrentPage={setCurrentPage} isLoggedIn={isLoggedIn} freelancers={freelancers}/>}
       <Footer />

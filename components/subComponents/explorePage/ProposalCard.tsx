@@ -1,8 +1,40 @@
 import React, { useState } from "react";
 
-function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job,}) {
+function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job}) {
   const [saved, setSaved] = useState(false);
   const [applied, setApplied] = useState(false);
+
+  const handleSaveJobClick = () => {
+    if (isLoggedIn) {
+      if (saved) {
+        setSaved(false);
+        setSavedJobs((prevJobs) =>
+          prevJobs.filter((headline) => headline !== job.headline)
+        );
+      } else {
+        setSaved(true);
+        setSavedJobs((prevJobs) => [...prevJobs, job.headline]);
+      }
+    } else {
+      alert("Please login or sign up to use website features");
+    }
+  };
+
+  const handleApplyClick = () => {
+    if (isLoggedIn) {
+      if (applied) {
+        setApplied(false);
+        setAppliedJobs((prevJobs) =>
+          prevJobs.filter((headline) => headline !== job.headline)
+        );
+      } else {
+        setApplied(true);
+        setAppliedJobs((prevJobs) => [...prevJobs, job.headline]);
+      }
+    } else {
+      alert("Please login or sign up to use website features");
+    }
+  };
 
   const handleChatMessageClick = () => {
     if (isLoggedIn) {
@@ -15,39 +47,6 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
   const handleProfileViewClick = () => {
     if (isLoggedIn) {
       setCurrentPage(4);
-    } else {
-      alert("Please login or sign up to use website features");
-    }
-  };
-
-  const handleSaveJobClick = () => {
-    if (isLoggedIn) {
-      //fix filter later with data
-      if (saved) {
-        setSaved(false);
-        setSavedJobs((prevJobs) =>
-          prevJobs.filter((job) => job !== "Example Headline")
-        );
-      } else {
-        setSaved(true);
-        setSavedJobs((prevJobs) => [...prevJobs, "Example Headline"]);
-      }
-    } else {
-      alert("Please login or sign up to use website features");
-    }
-  };
-
-  const handleApplyClick = () => {
-    if (isLoggedIn) {
-      if (applied) {
-        setApplied(false);
-        setAppliedJobs((prevJobs) =>
-          prevJobs.filter((job) => job !== "Example Headline")
-        );
-      } else {
-        setApplied(true);
-        setAppliedJobs((prevJobs) => [...prevJobs, "Example Headline"]);
-      }
     } else {
       alert("Please login or sign up to use website features");
     }
@@ -110,7 +109,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
               </span>
             ))}
           </span>
-
+              {'• '}
           <span className="mr-2">
             {job.locations.map((location, index) => (
               <span key={index}>
@@ -119,7 +118,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
               </span>
             ))}
           </span>
-
+          {'• '}
           <span>${job.budget}</span>
         </div>
         <button

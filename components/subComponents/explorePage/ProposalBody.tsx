@@ -34,7 +34,7 @@ function ProposalBody({setCurrentPage, jobs, isLoggedIn}) {
       <ProposalSearchBar setRole={setRole} setLocation={setLocation} setPriceRange={setPriceRange}/>
       <div className="flex">
         <div className="w-3/4 mt-3">
-          <ProposalCardList setCurrentPage={setCurrentPage} filteredJobs={filteredJobs} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs} isLoggedIn={isLoggedIn}/>
+          <ProposalCardList savedJobs={savedJobs} setCurrentPage={setCurrentPage} filteredJobs={filteredJobs} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs} isLoggedIn={isLoggedIn}/>
         </div>
         <div className="w-1/4 p-3">
           <ProposalSideBar savedJobs={savedJobs} appliedJobs={appliedJobs}/>

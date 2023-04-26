@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, setIsLoggedIn:Function, setCurrentPage:Function}) {
-  const { setPage, page, isLoggedIn, setIsLoggedIn, setCurrentPage } = props;
-
-  const [user, setUser] = useState('Bob');
+function Header(props: { 
+  setPage: Function, 
+  page: number, 
+  isLoggedIn:Boolean, 
+  setIsLoggedIn:Function, 
+  setCurrentPage:Function,
+  userInfo:any
+}) {
+  const { setPage, page, isLoggedIn, setIsLoggedIn, setCurrentPage, userInfo } = props;
 
   const handleTogglePage = () => {
     setPage(page === 0 ? 1 : 0);
@@ -35,7 +40,7 @@ function Header(props: { setPage: Function, page: number, isLoggedIn:Boolean, se
             {isLoggedIn ? (
               <>
              <span className="text-xl"> Welcome,{' '}  
-             <span className="hover:text-blue-500 cursor-pointer underline" onClick={handleUserClick}>{user}</span>
+             <span className="hover:text-blue-500 cursor-pointer underline" onClick={handleUserClick}> {userInfo.nickname}</span>
              !</span>
               <button className="hover:bg-blue-100 px-10 py-2 border border-solid border-black font-bold rounded-md" onClick={handleSignOut}>
                 Sign Out

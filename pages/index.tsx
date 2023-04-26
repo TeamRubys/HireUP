@@ -15,7 +15,7 @@ const IndexPage = () => {
 
   const { user, isLoading } = useUser();
 
-  console.log('user data from Auth0:', user);
+  // console.log('user data from Auth0:', user);
 
   useEffect(() => {
 
@@ -60,7 +60,7 @@ const IndexPage = () => {
       {currentPage===1 ? (
         <LandingPage setCurrentPage={setCurrentPage}/>
       ): currentPage===2 ? (
-        <ExplorePage setCurrentPage={setCurrentPage}/>
+        <ExplorePage setCurrentPage={setCurrentPage} user={user}/>
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
