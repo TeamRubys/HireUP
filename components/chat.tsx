@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import Dm from './subComponents/chat/dm';
 const {getMessages} = require('./subComponents/chat/chatHelpers/helpers')
+import logo from '../components/subComponents/landingPage/logo.png'
+import Image from 'next/image'
+
 function Chat() {
 
   const [selected, setSelected] = useState(0);
@@ -23,7 +26,15 @@ function Chat() {
         <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
           <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center justify-center h-[80%] w-[50%]">
             <div className="h-[10%] w-[90%] border-b-2 border-dollar text-dollar font-bold text-xl flex items-center
-            ">HigherUp</div>
+            ">
+              <Image
+            className=""
+            src={logo}
+            alt='logo'
+            width='120'
+            height='120'
+            />
+            </div>
             <div className="flex flex-col mt-[5%] h-[85%] w-[100%]">
               <div className="flex items-center justify-evenly h-[90%]">
                 <div className="flex flex-col rounded-lg items-center justify-between h-[98%] w-[18%] bg-gray-400 overflow-y-auto scrollbar-hide">

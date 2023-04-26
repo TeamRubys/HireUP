@@ -3,6 +3,8 @@ import Chat from './chat'
 const {getMessages} = require('./subComponents/chat/chatHelpers/helpers')
 import { initializeSocket } from './subComponents/chat/chatHelpers/socketConnection'
 import axios from 'axios'
+import logo from '../components/subComponents/landingPage/logo.png'
+import Image from 'next/image'
 
 function NewChat({recipient}) {
 
@@ -40,11 +42,11 @@ function NewChat({recipient}) {
       <Chat />
     ) : (
       <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
-          <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center justify-center h-[10%] w-[50%]">
-            <div className="w-[70%] h-[20%] flex justify-center font-extrabold m-4 mb-[1vw] mt-[0] text-[2vw] rounded items-center">
-              Start a chat with {recipient}
+          <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center h-[20%] w-[50%]">
+            <div className="w-[70%] h-[20%] flex justify-center font-extrabold m-4 mb-[1vw] mt-[0] text-[2vw] items-center border-b border-black">
+              <p>Message {recipient}</p>
             </div>
-            <div className="flex justify-center items-center w-[100%] h-[30%] rounded">
+            <div className="flex justify-center items-center w-[100%] h-[20%] rounded mt-[5%]">
               <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -57,6 +59,13 @@ function NewChat({recipient}) {
               Start Chat
             </button>
             </div>
+            <Image
+            className="absolute bottom-[10%]"
+            src={logo}
+            alt='logo'
+            width='120'
+            height='120'
+            />
           </div>
         </div>
     )}
