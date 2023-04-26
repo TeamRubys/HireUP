@@ -6,6 +6,8 @@ import Image from 'next/legacy/image';
 
 const Album = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+
   const images = [
     album1.src,
     album2.src,
@@ -26,12 +28,13 @@ const Album = () => {
 
   const handleDotClick = (index: number) => {
     setActiveImageIndex(index);
+    setIsActive(true);
   };
 
   return (
     <div className="mx-auto w-4/5 grid grid-cols-2 gap-4" style={{ height: "40vh" }}>
       <div className="grid grid-cols-2 gap-4" style={{ display: "contents" }}>
-      <div className="p-4 rounded-md" style={{width:'80%'}}>
+      <div className="p-4 rounded-md" style={{ width: "80%"}}>
       <div className="flex justify-center items-center mb-4">
   {images.map((_, index) => (
     <div
@@ -44,6 +47,7 @@ const Album = () => {
         activeImageIndex === index ? "bg-green-300" : "bg-transparent"
       } hover:bg-green-300 cursor-pointer`}
       onMouseEnter={() => handleDotClick(index)}
+      onMouseLeave={() => setIsActive(false)}
     ></div>
   ))}
 </div>
@@ -53,7 +57,7 @@ const Album = () => {
 </div>
 </div>
 <div className="relative">
-          <img
+          <Image
             src={images[0]}
             className={`absolute inset-0 w-full h-full transition-transform ${
               activeImageIndex === 0 ? 'z+10' : 'z-10'
@@ -63,7 +67,7 @@ const Album = () => {
               boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)'
             }}
           />
-          <img
+          <Image
             src={images[1]}
             className={`absolute inset-0 w-full h-full transition-transform ${
               activeImageIndex === 0 ? '0' : (activeImageIndex === 1 ? 'z+10' : 'z-20')
@@ -74,7 +78,7 @@ const Album = () => {
                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)'
             }}
           />
-          <img
+          <Image
             src={images[2]}
             className={`absolute inset-0 w-full h-full transition-transform ${
               activeImageIndex === 0 ? 'z-10' : (activeImageIndex === 1 ? 'z+10' : 'z+10')
