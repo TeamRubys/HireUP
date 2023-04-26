@@ -6,6 +6,7 @@ import ProfileCreation from '../components/profileCreation';
 import ProfileView from '../components/profileView';
 import BusinessProposal from '../components/businessProposal';
 import Chat from '../components/chat'
+import NewChat from '../components/newChat';
 
 const IndexPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -42,7 +43,7 @@ const IndexPage = () => {
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
-        <Chat />
+        <NewChat recipient={null} />
       ) : (<p></p>)}
 
     </>
