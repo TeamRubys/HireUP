@@ -36,11 +36,11 @@ const IndexPage = () => {
       ): currentPage===2 ? (
         <ExplorePage setCurrentPage={setCurrentPage}/>
       ) : currentPage===3 ? (
-        <ProfileCreation />
+        <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
         <ProfileView />
       ) : currentPage===5 ? (
-        <BusinessProposal />
+        <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
         <Chat />
       ) : (<p></p>)}
