@@ -41,16 +41,17 @@ updateScroll();
   const [input, setInput] = useState("");
 
   const sendMessage = (message, user) => {
-    console.log(user)
-    socket.emit('sendMessage', {roomName: recipient, message: {sender_id: user, receiver_id: recipient, context: message}});
-    setMessages((messages) => [...messages, {sender_id: user, receiver_id: recipient, context: message}]);
-    axios.post('/api/messages', {sender_id: user, receiver_id: recipient, context: message})
-    .then((res) => {
-      console.log("message posted to DB")
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    if(message.length > 0) {
+      socket.emit('sendMessage', {roomName: recipient, message: {sender_id: user, receiver_id: recipient, context: message}});
+      setMessages((messages) => [...messages, {sender_id: user, receiver_id: recipient, context: message}]);
+      axios.post('/api/messages', {sender_id: user, receiver_id: recipient, context: message})
+      .then((res) => {
+        console.log("message posted to DB")
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
   }
 
   console.log(messages)
@@ -62,11 +63,11 @@ updateScroll();
           messages.map((message, idx) => {
             {return message.sender_id===user ? (
               <div className="rounded-lg bg-green-600 m-1 p-1 ml-auto w-[50%]">
-                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
+                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}</p>
               </div>
             ):(
               <div className="rounded-lg bg-blue-600 m-1 p-1 mr-auto w-[50%]">
-                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
+                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}</p>
               </div>
             )}
           })
@@ -85,7 +86,7 @@ updateScroll();
          </div>
          <div className="w-[10%]">
          <button
-          className="w-[100%] h-[100%] rounded-lg bg-gray-400"
+          className="flex items-center justify-center text-xs w-[100%] h-[100%] rounded-lg bg-gray-400"
           onClick={() => {sendMessage(input, user); setInput("")}}
           >{">"}</button>
          </div>

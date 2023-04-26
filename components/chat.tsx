@@ -26,7 +26,7 @@ function Chat() {
             ">HigherUp</div>
             <div className="flex flex-col mt-[5%] h-[85%] w-[100%]">
               <div className="flex items-center justify-evenly h-[90%]">
-                <div className="flex flex-col rounded-lg items-center justify-evenly h-[98%] w-[18%] bg-gray-400 overflow-y-auto scrollbar-hide">
+                <div className="flex flex-col rounded-lg items-center justify-between h-[98%] w-[18%] bg-gray-400 overflow-y-auto scrollbar-hide">
                 {Object.values(messages).length === 0 ? (
                   <p>No Chats Found</p>
                 ) : (
@@ -35,7 +35,7 @@ function Chat() {
                     <button
                     key={idx}
                     onClick={() => {setRecipient(message.recipient)}}
-                    className="flex items-center text-xl justify-center rounded-full border h-[8vw] w-[8vw] bg-light border-dollar">
+                    className="flex items-center text-xl justify-center rounded-full border min-h-[8vw] min-w-[8vw] bg-light border-dollar">
                     {message.recipient}
                     </button>
                   );
