@@ -22,20 +22,7 @@ router.get('/freelancers/:id', controller.freelancers.getOne);
 router.post('/freelancers', controller.freelancers.createFreelancer);
 
 //Users
-router.post('/users', async (req, res) => {
-  //do I need middleware somewhere
-  const { id, name, email } = req.body;
-
-  console.log('in users post route, user data:', req.body)
-
-  try {
-    await controller.users.createUser(id, name, email);
-    res.send('user created');
-  } catch (error) {
-    console.log(error);
-    res.status(500).send('attempt to add user unsuccessful. :(')
-  }
-});
+router.post('/users', controller.users.createUser);
 
 
 module.exports = router;
