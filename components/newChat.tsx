@@ -21,8 +21,7 @@ function NewChat({recipient}) {
 
   const [input, setInput] = useState("");
 
-  const sendMessage = (message, user) => {
-    console.log(user)
+  const sendMessage = (message, recipient) => {
     socket.emit('sendMessage', {roomName: recipient, message: {sender_id: user, receiver_id: recipient, context: message}});
     axios.post('/api/messages', {sender_id: user, receiver_id: recipient, context: message})
     .then((res) => {
@@ -52,7 +51,9 @@ function NewChat({recipient}) {
               placeholder="Enter Message..."
               className="h-[100%] w-[70%] border border-dollar rounded mr-1">
               </input>
-              <button className="flex max-h-[100%] text-[2vw] items-center justify-center border p-2 rounded border-dollar bg-white hover:bg-gray-400">
+              <button
+              onClick={() => {sendMessage(input, recipient)}}
+              className="flex max-h-[100%] text-[2vw] items-center justify-center border p-2 rounded border-dollar bg-white hover:bg-gray-400">
               Start Chat
             </button>
             </div>
