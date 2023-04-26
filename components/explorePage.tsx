@@ -8,7 +8,7 @@ import Chat from'./subComponents/explorePage/Chat'
 
 function ExplorePage({setCurrentPage}) {
   const [page, setPage] = useState<number>(0);
-  const [isLoggedIn, setIsLoggedIn] =useState<boolean>(true)
+  const [isLoggedIn, setIsLoggedIn] =useState<boolean>(false)
   const [userId, setUserId] = useState<string>('')
   const [jobs, setJobs] = useState<Array<any>>([])
   const [freelancers, setFreelancers] = useState<Array<any>>([])
