@@ -36,9 +36,9 @@ function ProposalSearchBar({setRole, setLocation, setPriceRange}) {
         onChange={handlePriceChange}
         >
           <option value="">any price</option>
-          <option value="$1 to $1000">$1 to $1000</option>
-          <option value="$1000 to $5000">$1000 to $5000</option>
-          <option value="$1000 to $5000">$1000 to $5000</option>
+          <option value="1, 1000">$1 to $1000</option>
+          <option value="1001, 5000">$1001 to $5000</option>
+          <option value="5001, 999999">$5001 and up</option>
         </select>
         <div className="mr-5"> range </div>
       </div>

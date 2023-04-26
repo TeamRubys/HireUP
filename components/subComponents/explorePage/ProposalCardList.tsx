@@ -12,8 +12,8 @@ function ProposalCardList({setCurrentPage, filteredJobs, setSavedJobs, setApplie
   return (
     <div className="mb-20">
       {filteredJobs.length > 0 ? (
-        filteredJobs.slice(0, numToShow).map(job => (
-          <ProposalCard setCurrentPage={setCurrentPage} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs} isLoggedIn={isLoggedIn}/>
+        filteredJobs.slice(0, numToShow).map((job, index) => (
+          <ProposalCard key={index} job={job} setCurrentPage={setCurrentPage} setSavedJobs={setSavedJobs} setAppliedJobs={setAppliedJobs} isLoggedIn={isLoggedIn}/>
         ))
       ) : (
         <div className="text-center italic mb-4">No jobs found.</div>

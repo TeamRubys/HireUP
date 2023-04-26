@@ -14,11 +14,8 @@ function ExplorePage({setCurrentPage}) {
   const [jobs, setJobs] = useState<Array<any>>([])
   const [freelancers, setFreelancers] = useState<Array<any>>([])
 
-  //useEffect(() => {
-  // grab userId and session and verify if user is logged in
-  // })
-
   useEffect(() => {
+  //user validation
   },[])
 
   useEffect(() => {
