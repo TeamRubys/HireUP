@@ -61,7 +61,7 @@ updateScroll();
         {messages ? (
           messages.map((message, idx) => {
             {return message.sender_id===user ? (
-              <div className="rounded-lg bg-green-600 m-1 p-1 ml-auto w-[50%] mt-auto">
+              <div className="rounded-lg bg-green-600 m-1 p-1 ml-auto w-[50%]">
                 <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
               </div>
             ):(
