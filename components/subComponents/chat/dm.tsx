@@ -11,6 +11,17 @@ function Dm({recipient, chats}) {
 
   const [user, setUser] = useState(1)
 
+  const updateScroll = () => {
+    var element = document.getElementById("chatlogs");
+
+    if(element) {
+      element.scrollTop = element.scrollHeight;
+    }
+}
+
+
+updateScroll();
+
   useEffect(() => {
     const cleanup = initializeSocket(user, setMessages, setSocket);
     return cleanup;
@@ -21,6 +32,11 @@ function Dm({recipient, chats}) {
       setMessages(chats.messages)
     }
   }, [chats])
+
+  useEffect(() => {
+    updateScroll();
+  }, [messages])
+
 
   const [input, setInput] = useState("");
 
@@ -41,25 +57,38 @@ function Dm({recipient, chats}) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center border-8 h-[100%] w-[100%]">
+      <div id="chatlogs" className="flex flex-col mt-auto mr-auto h-[99%] w-[99%] overflow-y-auto scrollbar-hide">
         {messages ? (
           messages.map((message, idx) => {
-           return <p key={idx}>{message.context}</p>;
+            {return message.sender_id===user ? (
+              <div className="rounded-lg bg-green-600 m-1 p-1 ml-auto w-[50%]">
+                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
+              </div>
+            ):(
+              <div className="rounded-lg bg-blue-600 m-1 p-1 mr-auto w-[50%]">
+                <p style={{wordWrap: "break-word"}} key={idx}>{message.context}user</p>
+              </div>
+            )}
           })
         ) : (
           <p>Loading...</p>
         )}
-        <div>
-          <input
-          className="border"
+      </div>
+      <div className="absolute z-50 flex h-[5%] w-[96%] justify-between bottom-[3%] left-[2%]">
+         <div className="flex rounded-lg items-center justify-center text-xl w-[10%] bg-gray-400">◄</div>
+         <div className="w-[75%]">
+         <input
+          className="w-[100%] h-[100%] rounded-lg bg-gray-400"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           ></input>
-          <button
-          className="border"
+         </div>
+         <div className="w-[10%]">
+         <button
+          className="w-[100%] h-[100%] rounded-lg bg-gray-400"
           onClick={() => {sendMessage(input, user); setInput("")}}
           >{">"}</button>
-        </div>
+         </div>
       </div>
     </>
   );
