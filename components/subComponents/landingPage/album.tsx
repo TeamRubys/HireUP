@@ -62,9 +62,10 @@ const Album = () => {
             className={`absolute inset-0 w-full h-full transition-transform ${
               activeImageIndex === 0 ? 'z+10' : 'z-10'
             }`}
+            layout="fill"
             style={{
               transform: activeImageIndex === 0 ? 'translate(0, 0)' : (activeImageIndex === 1 ? 'translate(-8%, -8%)': 'translate(-4%, -4%)'),
-              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)'
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)',
             }}
           />
           <Image
@@ -72,10 +73,11 @@ const Album = () => {
             className={`absolute inset-0 w-full h-full transition-transform ${
               activeImageIndex === 0 ? '0' : (activeImageIndex === 1 ? 'z+10' : 'z-20')
             }`}
+            layout="fill"
             style={{
               transform:
                 activeImageIndex === 0 ? 'translate(-4%, -4%)': (activeImageIndex === 1 ? 'translate(0%, 0%)': 'translate(-8%, -8%)'),
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)'
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)',
             }}
           />
           <Image
@@ -83,10 +85,11 @@ const Album = () => {
             className={`absolute inset-0 w-full h-full transition-transform ${
               activeImageIndex === 0 ? 'z-10' : (activeImageIndex === 1 ? 'z+10' : 'z+10')
             }`}
+            layout="fill"
             style={{
               transform:
               activeImageIndex === 0 ? 'translate(-8%, -8%)': (activeImageIndex === 1 ? 'translate(-4%, -4%)': 'translate(0%, 0%)'),
-              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)'
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)',
             }}
           />
         </div>
