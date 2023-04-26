@@ -20,8 +20,8 @@ function Chat() {
 
   return (
     <>
-        <div className="absolute flex items-center justify-center h-[100%] w-[100%]">
-          <div className="relative rounded-lg bg-slate-300 flex flex-col items-center justify-center h-[80%] w-[50%]">
+        <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
+          <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center justify-center h-[80%] w-[50%]">
             <div className="h-[10%] w-[90%] border-b-2 border-dollar text-dollar font-bold text-xl flex items-center
             ">HigherUp</div>
             <div className="flex flex-col mt-[5%] h-[85%] w-[100%]">

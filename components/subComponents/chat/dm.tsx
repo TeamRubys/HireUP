@@ -80,6 +80,7 @@ updateScroll();
          <input
           className="w-[100%] h-[100%] rounded-lg bg-gray-400"
           value={input}
+          placeholder="Enter Message..."
           onChange={(e) => setInput(e.target.value)}
           ></input>
          </div>
