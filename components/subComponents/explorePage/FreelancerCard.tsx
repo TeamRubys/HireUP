@@ -8,17 +8,14 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
       alert('Please login or sign up to use website features');
       return;
     }
-
     if (saved) {
-      // If the freelancer is already saved, remove them from the savedFreelancers array
       setSaved(false);
       setSavedFreelancers(prevState =>
-        prevState.filter(freelancer => freelancer !== 'Freelancer Name')
+        prevState.filter(name => name !== freelancer.freelancer_name)
       );
     } else {
-      // If the freelancer is not saved, add them to the savedFreelancers array
       setSaved(true);
-      setSavedFreelancers(prevState => [...prevState, 'Freelancer Name']);
+      setSavedFreelancers(prevState => [...prevState, freelancer.freelancer_name]);
     }
   };
   
