@@ -4,30 +4,59 @@ const {getMessages} = require('./subComponents/chat/chatHelpers/helpers')
 import logo from '../components/subComponents/landingPage/logo.png'
 import Image from 'next/image'
 import NewChat from './newChat';
+import axios from 'axios'
 
-function Chat() {
+function Chat({sendTo, setState}) {
 
   const [newChat, setNewChat] = useState(false)
 
-  const [selected, setSelected] = useState(0);
-
   const [messages, setMessages] = useState([])
 
-  const [recipient, setRecipient] = useState(0)
+  const [recipient, setRecipient] = useState(sendTo)
+
+  const [recipients, setRecipients] = useState([])
+
+  const [trigger, setTrigger] = useState(false);
+
+  const [name, setName] = useState("")
 
   useEffect(() => {
     const fetchMessages = async () => {
       const list = await getMessages(1);
-      setMessages(list);
+      const start = async () => {
+        await setMessages(list);
+        setTrigger(true);
+      }
+      start();
     }
     fetchMessages();
   }, []);
-  console.log(messages[recipient])
+
+  useEffect(() => {
+    Object.values(messages).forEach((message) => {
+      axios.get(`api/users/${message.recipient}`)
+      .then((res) => {
+      setRecipients((prevRecipients) => [...prevRecipients, res.data])
+      console.log(recipients)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+    })
+  }, [trigger])
+
+  useEffect(() => {
+    recipients.forEach((message) => {
+      if(message.id === recipient) {
+        setName(message.name)
+      }
+    })
+  })
 
   return (
     <>
       {newChat ? (
-        <NewChat recipient={null} />
+        <NewChat sendTo={null} setState={setState}/>
       ) : (
         <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
         <div className="relative rounded-lg bg-slate-300 flex flex-col items-center justify-center h-[80%] w-[50%] border-2 border-dollar">
@@ -40,6 +69,7 @@ function Chat() {
           width='120'
           height='120'
           />
+          <p className="border rounded bg-dollar p-[1%] ml-auto text-black text-[1vw]">Chatting With: {name}</p>
           </div>
           <div className="flex flex-col mt-[5%] h-[85%] w-[100%]">
             <div className="flex items-center justify-evenly h-[90%]">
@@ -47,13 +77,13 @@ function Chat() {
               {Object.values(messages).length === 0 ? (
                 <p>No Chats Found</p>
               ) : (
-              Object.values(messages).map((message, idx) => {
+              recipients.map((message, idx) => {
                 return (
                   <button
                   key={idx}
-                  onClick={() => {setRecipient(message.recipient)}}
+                  onClick={() => {setRecipient(message.id); setName(message.name)}}
                   className="flex items-center text-xl justify-center rounded-full border min-h-[8vw] min-w-[8vw] bg-light border-dollar">
-                  {message.recipient}
+                  {(message.name[0] + message.name[1]).toUpperCase()}
                   </button>
                 );
               })
@@ -65,16 +95,23 @@ function Chat() {
                     <p>Please Select a Chat</p>
                   </div>
                 ):(
-                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat} />
+                  <>
+                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat}/>
+                  </>
                 )}
               </div>
 
             </div>
           </div>
         </div>
+        <button
+        onClick={() => {if(setState) {setState(false)}}}
+        className="absolute top-[10%] right-[26%] z-50">x</button>
       </div>
       )}
-
+        <button
+        onClick={() => {if(setState) {setState(false)}}}
+        className="absolute top-[10%] right-[26%] z-50">x</button>
     </>
   );
 }

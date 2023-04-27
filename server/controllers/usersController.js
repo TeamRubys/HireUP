@@ -7,6 +7,21 @@ const usersController = {
         console.log('sucessfully created user');
         res.status(201).send('success');
       })
+  },
+  get: (req, res) => {
+    console.log('im in the users controller')
+    Models.users.getAll(req.query.page, req.query.count)
+      .then(result => {
+        console.log('successfully retrieved user from database');
+        res.send(result);
+      })
+  },
+  getOne: (req, res) => {
+    Models.users.getOne(req.params.id)
+      .then(result => {
+        console.log('successfully retrieved user from database');
+        res.send(result);
+      })
   }
 }
 
