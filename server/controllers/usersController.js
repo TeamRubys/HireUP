@@ -4,8 +4,8 @@ const usersController = {
   createUser: (req, res) => {
     Models.users.createUser(req.body)
       .then(result => {
-        console.log('sucessfully created user');
-        res.status(201).send('success');
+        console.log('sucessfully created or logged in user, user id:', result);
+        res.status(201).send({id: result});
       })
   },
   get: (req, res) => {
