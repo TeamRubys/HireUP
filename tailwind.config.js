@@ -9,6 +9,8 @@ module.exports = {
       },
       colors: {
         primary: '#0070f3',
+        dollar: '#6B8F71',
+        light: '#B9F5D8'
       },
       borderWidth: {
         '10': '10px',
@@ -18,5 +20,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }

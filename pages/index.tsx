@@ -8,6 +8,7 @@ import BusinessProposal from '../components/businessProposal';
 import Chat from '../components/chat'
 import { useUser } from '@auth0/nextjs-auth0/client';
 import axios from 'axios';
+import NewChat from '../components/newChat';
 
 const IndexPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -68,7 +69,7 @@ const IndexPage = () => {
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
-        <Chat />
+        <Chat sendTo={20} setState={undefined}/>
       ) : (<p></p>)}
 
     </>

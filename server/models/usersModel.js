@@ -15,7 +15,14 @@ const usersModel = {
     const statement = 'INSERT INTO users (s_id, name, email) VALUES ($1, $2, $3) ON CONFLICT (email) DO NOTHING';
 
     await client.query(statement, values);
-  }
+  },
+  getAll: (id) => {
+    return db.query('SELECT * FROM users')
+  },
+  getOne: async (id) => {
+    const message = await db.query('SELECT * FROM users WHERE id = $1', [id]);
+    return message.rows[0];
+  },
 }
 
 module.exports = usersModel;
