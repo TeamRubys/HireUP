@@ -121,7 +121,7 @@ function ProfileCreation({setCurrentPage}) {
                         : <p role="alert" className="font-extralight">Add a brief description of job responsibilities</p>
                       }
                     </div>
-                    <button type="button" className="border rounded mt-2 p-2 text-white bg-red-400" onClick={() => remove(index)}>Remove</button>
+                    {index > 0 && <button type="button" className="border rounded mt-2 p-2 text-white bg-red-400" onClick={() => remove(index)}>Remove</button>}
                   </div>
                 ))}
                 <button type="button" className="border rounded p-2 text-white bg-emerald-300" onClick={() => append({ company: "", position: "", duration: "", description: "" })}>Add Job</button>
