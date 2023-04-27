@@ -25,3 +25,8 @@ export type WorkHistory = {
   duration: string,
   description: string
 }
+
+
+export type ConnectionsType = [{
+  friend_id:number
+}]

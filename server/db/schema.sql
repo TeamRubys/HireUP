@@ -52,13 +52,13 @@ CREATE TABLE work_history (
   description TEXT NOT NULL
 );
 
--- CREATE TABLE connections (
---   connection_id SERIAL PRIMARY KEY,
---   user_id INT NOT NULL REFERENCES users(id),
---   friend_id INT NOT NULL REFERENCES users(id),
---   CONSTRAINT unique_connection UNIQUE (user_id, friend_id)
--- );
--- CREATE INDEX ON connections(user_id);
+CREATE TABLE connections (
+  connection_id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL REFERENCES users(id),
+  friend_id INT NOT NULL REFERENCES users(id),
+  CONSTRAINT unique_connection UNIQUE (user_id, friend_id)
+);
+CREATE INDEX ON connections(user_id);
 CREATE INDEX ON messages(sender_id);
 CREATE INDEX ON messages(receiver_id);
 CREATE INDEX ON business_proposals(user_id);

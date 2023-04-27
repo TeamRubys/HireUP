@@ -90,6 +90,7 @@ router.post("/join-room", async (req, res) => {
   });
 });
 
+router.get('/connections/:id', controller.freelancers.getConnectionsById)
 
 router.post('/api/users', controller.users.createUser);
 router.get('/api/users', controller.users.get);

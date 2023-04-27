@@ -24,19 +24,29 @@ const freelancersController = {
       })
   },
   createConnection: (req, res) => {
-    console.log(req, 'in controller, req')
     Models.freelancers.createConnection(req.body.user_id, req.body.friend_id)
       .then(result => {
-        console.log('connection created', result);
-        res.status(201).send('success')
+        if(!result) {
+          console.log(result, 'createConnection, if there is a conflict')
+          res.status(201).send('You are already connected!')
+        } else {
+          res.status(201).send('success')
+        }
+
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(201).send('Already friends')
       })
   },
-  // getConnections: (req, res) => {
-  //   Models.freelancer.getConnections(req.params.user_id)
-  //     .then(result) => {
-  //       console.log()
-  //     }
-  // }
+  getConnectionsById: (req, res) => {
+    Models.freelancers.getConnectionsById(req.params.id)
+      .then(result => {
+        console.log('connections acquired', result);
+        res.status(200).send(result)
+      })
+  }
+
 }
 
 module.exports = freelancersController;

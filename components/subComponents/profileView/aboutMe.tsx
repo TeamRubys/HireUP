@@ -1,11 +1,11 @@
 import React, {useState,useEffect} from 'react'
 import freelancersController from '../../../server/controllers/freelancersController';
-import { FreelancerData } from '../../../interfaces';
+import { FreelancerData, ConnectionsType } from '../../../interfaces';
 import Connections from './connection';
 import axios from 'axios';
 
-function AboutMe (props: {userId: number, setUserId:Function, userData:FreelancerData}) {
-  const {userId, setUserId, userData} = props;
+function AboutMe (props: {userId: number, setUserId:Function, userData:FreelancerData, connectionsList:ConnectionsType}) {
+  const {userId, setUserId, userData, connectionsList} = props;
 
 
   //onClickConnect
@@ -15,10 +15,13 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
   //  if no errors are returned, use effect on the page to refresh connections
   //  new bubble appears in connections element
   //  'Connect' button changes to 'Connected'
-  let onClickConnection = (e) => {
+
+  //onClickMessage
+  //  Opens up chat window with user
+  let onClickConnection = () => {
     axios.post('api/connections', {
-      user_id: 2,
-      friend_id:4
+      user_id: 1,
+      friend_id:3
     })
       .then(res => console.log('successful connection'))
       .catch(err => console.log('try again, bucko',err))
@@ -53,7 +56,7 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
                 <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Message</button>
               </div>
 
-                   <Connections userId={userId} setUserId={setUserId}/>
+                   <Connections userId={userId} setUserId={setUserId} connectionsList={connectionsList}/>
       </div>
     </div>
 
