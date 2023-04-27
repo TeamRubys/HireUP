@@ -3,13 +3,19 @@ import ProposalSearchBar from "./ProposalSearchBar";
 import ProposalCardList from "./ProposalCardList";
 import ProposalSideBar from "./ProposalSideBar";
 
-function ProposalBody({setCurrentPage, jobs, isLoggedIn}) {
+interface Props {
+  setCurrentPage: Function;
+  jobs: Array<any>;
+  isLoggedIn: boolean;
+}
+
+function ProposalBody({ setCurrentPage, jobs, isLoggedIn }: Props) {
   const [role, setRole] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [priceRange, setPriceRange] = useState<string>("");
   const [filteredJobs, setFilteredJobs] = useState<Array<any>>([]);
   const [savedJobs, setSavedJobs] = useState<Array<any>>([]);
-  const [appliedJobs, setAppliedJobs] =  useState<Array<any>>([]);
+  const [appliedJobs, setAppliedJobs] = useState<Array<any>>([]);
 
   useEffect(() => {
     let filtered = jobs;
@@ -47,7 +53,11 @@ function ProposalBody({setCurrentPage, jobs, isLoggedIn}) {
           />
         </div>
         <div className="w-1/4 p-3">
-          <ProposalSideBar savedJobs={savedJobs} appliedJobs={appliedJobs} setCurrentPage={setCurrentPage} />
+          <ProposalSideBar
+            savedJobs={savedJobs}
+            appliedJobs={appliedJobs}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </div>
     </div>

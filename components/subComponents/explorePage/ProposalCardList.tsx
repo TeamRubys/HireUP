@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import ProposalCard from "./ProposalCard";
 
+interface Props {
+  setCurrentPage: Function
+  filteredJobs: Array<any>
+  isLoggedIn: boolean
+  setSavedJobs: Array<any>
+  setAppliedJobs: Array<any>
+}
+
 function ProposalCardList({setCurrentPage, filteredJobs, isLoggedIn, setSavedJobs, setAppliedJobs}) {
   const [numToShow, setNumToShow] = useState(4);
 

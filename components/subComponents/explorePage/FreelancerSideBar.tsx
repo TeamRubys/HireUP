@@ -15,7 +15,7 @@ function FreelancerSideBar({setCurrentPage, savedFreelancers}) {
               {savedFreelancers.map((freelancer, index) => (
                 <li className="flex justify-between items-center mb-2" key={index}>
                   <span className="hover:text-green-500 hover:underline cursor-pointer" onClick={() => setCurrentPage(4)}>{freelancer}</span>
-                  <button className="hover:bg-green-100 font-bold py-2 px-4 rounded border border-black" onClick={handleChatMessage}>
+                  <button className="hover:bg-green-100 font-bold py-2 px-4 rounded border border-grey-300" onClick={handleChatMessage}>
                     Message
                   </button>
                 </li>

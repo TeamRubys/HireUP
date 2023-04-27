@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job}) {
-  const [saved, setSaved] = useState(false);
-  const [applied, setApplied] = useState(false);
+  const [saved, setSaved] = useState<boolean>(false);
+  const [applied, setApplied] = useState<boolean>(false);
 
   const handleSaveJobClick = () => {
     if (isLoggedIn) {
@@ -70,19 +70,19 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
         </div>
         <div>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleProfileViewClick}
           >
             See profile
           </button>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleSaveJobClick}
           >
             {saved ? "Saved" : "Save"}
           </button>
           <button
-            className="bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleChatMessageClick}
           >
             Message
@@ -122,7 +122,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
           <span>${job.budget}</span>
         </div>
         <button
-          className="bg-black hover:bg-green-500 text-white font-bold py-2 px-4 rounded border border-black"
+          className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded border"
           onClick={handleApplyClick}
         >
           {applied ? "Applied" : "Apply"}

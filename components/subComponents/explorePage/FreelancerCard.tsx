@@ -52,19 +52,19 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleProfileView}
           >
             See profile
           </button>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleSaveFreelancerClick}
           >
             {saved ? "Saved" : "Save"}
           </button>
           <button
-            className="mb-9 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleChatMessage}
           >
             Message

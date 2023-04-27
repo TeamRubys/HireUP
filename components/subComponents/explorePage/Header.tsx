@@ -4,19 +4,18 @@ import Image from "next/image";
 import logo from "./logo.png";
 import userpic from "./user_default.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRightFromBracket,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import {faArrowRightFromBracket,faUser} from "@fortawesome/free-solid-svg-icons";
 
-function Header(props: {
-  setPage: Function;
+interface Props {
+  setPage: (page: number) => void;
   page: number;
-  isLoggedIn: Boolean;
-  setIsLoggedIn: Function;
-  setCurrentPage: Function;
-  userInfo: any;
-}) {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (isLoggedIn: boolean) => void;
+  setCurrentPage: (currentPage: number) => void;
+  userInfo: { nickname: string };
+}
+
+function Header(props: Props) {
   const { setPage, page, isLoggedIn, setIsLoggedIn, setCurrentPage, userInfo } =
     props;
 
@@ -61,13 +60,13 @@ function Header(props: {
       {showMenu && (
         <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50" style={{right: '10%', top: '10%'}}>
           <div className="py-1">
+          <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleUserClick}>
+              <span className="mr-2">Profile</span>
+              <FontAwesomeIcon icon={faUser} />
+            </button>
             <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => { handleSignOut(); setShowMenu(false) }}>
               <span className="mr-2">Logout</span>
               <FontAwesomeIcon icon={faArrowRightFromBracket} />
-            </button>
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleUserClick}>
-              <span className="mr-2">Profile</span>
-              <FontAwesomeIcon icon={faUser} />
             </button>
           </div>
         </div>
