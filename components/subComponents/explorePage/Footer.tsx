@@ -5,7 +5,7 @@ function Footer({setCurrentPage}) {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <div className="flex items-center">
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hover:cursor-pointer" onClick={() => setCurrentPage(2)}>HireUp</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hover:cursor-pointer">HireUp</span>
               </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

@@ -47,7 +47,7 @@ function Header(props: Props) {
           {(isLoggedIn) ? (
       <div className="flex items-center" style={{display:'flex', justifyContent: 'flex-end'}}>
         <a
-        className="mx-auto underline mr-10 text-black text-xl hover:text-green-500 cursor-pointer"
+        className="mx-auto mr-10 text-black text-xl hover:underline hover:text-green-500 cursor-pointer"
         onClick={handleTogglePage}
         >
         {page === 0 ? "Find Freelancers" : "Find Jobs"}
@@ -75,7 +75,7 @@ function Header(props: Props) {
 ) : (
   <div className="flex mt-3">
             <a
-        className="flex items-center underline mr-10 text-black text-xl hover:text-blue-500 cursor-pointer"
+        className="flex items-center mr-10 text-black text-xl hover:underline hover:text-blue-500 cursor-pointer"
         onClick={handleTogglePage}
         >
         {page === 0 ? "Find Freelancers" : "Find Jobs"}
