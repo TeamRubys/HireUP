@@ -6,7 +6,7 @@ import axios from 'axios'
 import logo from '../components/subComponents/landingPage/logo.png'
 import Image from 'next/image'
 
-function NewChat({sendTo}) {
+function NewChat({sendTo, setState}) {
 
   const [recipient, setRecipient] = useState(sendTo)
 
@@ -69,7 +69,7 @@ function NewChat({sendTo}) {
     <>
     {recipient ? (
       chatStarted ? (
-        <Chat sendTo={recipient.id}/>
+        <Chat sendTo={recipient.id} setState={setState}/>
       ) : (
         <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
             <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center h-[20%] w-[50%]">
@@ -97,6 +97,9 @@ function NewChat({sendTo}) {
               height='120'
               />
             </div>
+            <button
+        onClick={() => {if(setState) {setState(false)}}}
+        className="absolute top-[40%] right-[26%] z-50">x</button>
           </div>
       )
     ) : (
@@ -118,6 +121,9 @@ function NewChat({sendTo}) {
           })}
         </div>
         </div>
+        <button
+        onClick={() => {if(setState) {setState(false)}}}
+        className="absolute top-[40%] right-[26%] z-50">x</button>
         </div>
     )}
     </>
