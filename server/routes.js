@@ -26,6 +26,7 @@ router.post('/users', controller.users.createUser);
 
 //Connections
 router.post('/connections', controller.freelancers.createConnection);
+router.get('/connections/:id', controller.freelancers.getConnectionsById)
 
 router.get('/users', controller.users.get);
 router.get('/users/:id', controller.users.getOne);

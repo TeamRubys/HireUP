@@ -22,7 +22,6 @@ function WorkHistory (props:{workHistory:WorkHistory[]}) {
   if(!workHistory) {
     workHistory = sample;
   }
-  console.log(workHistory)
   return (
     <ul>
       {workHistory.map((entry, i)=> (
