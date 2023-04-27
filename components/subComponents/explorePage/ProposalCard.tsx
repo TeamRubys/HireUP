@@ -70,19 +70,19 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
         </div>
         <div>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
+            className="mb-9 mr-2 hover:bg-gray-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleProfileViewClick}
           >
             See profile
           </button>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
+            className="mb-9 mr-2 hover:bg-gray-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleSaveJobClick}
           >
             {saved ? "Saved" : "Save"}
           </button>
           <button
-            className="bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
+            className="hover:bg-gray-100 text-black font-bold py-2 px-4 rounded border border-grey-300"
             onClick={handleChatMessageClick}
           >
             Message
