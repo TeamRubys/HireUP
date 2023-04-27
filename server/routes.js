@@ -23,6 +23,7 @@ router.post('/freelancers', controller.freelancers.createFreelancer);
 
 //Users
 router.post('/users', controller.users.createUser);
-
+router.get('/users', controller.users.get);
+router.get('/users/:id', controller.users.getOne);
 
 module.exports = router;
