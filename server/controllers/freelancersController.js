@@ -2,7 +2,7 @@ let Models = require('../models');
 
 const freelancersController = {
   get: (req, res) => {
-    console.log('im in the messages controller')
+    console.log('im in the freelancers controller')
     Models.freelancers.getAll(req.query.page, req.query.count)
       .then(result => {
         console.log('successfully retrieved freelancers from database');
