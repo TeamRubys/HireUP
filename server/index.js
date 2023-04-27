@@ -8,6 +8,7 @@ const handle = app.getRequestHandler()
 const routes = require('./routes.js')
 const socketIO = require('./socket.js')
 
+
 dotenv.config();
 
 app
@@ -16,7 +17,7 @@ app
     const server = express();
 
     server.use(express.json());
-    server.use('/api', routes);
+    server.use('/', routes);
 
     server.get('/test-route', (req, res) => {
       return res.end('Success')
@@ -36,5 +37,4 @@ app
   .catch(ex => {
     console.error(ex.stack);
   })
-
 

@@ -6,6 +6,7 @@ import ProfileCreation from '../components/profileCreation';
 import ProfileView from '../components/profileView';
 import BusinessProposal from '../components/businessProposal';
 import Chat from '../components/chat'
+import Videomeeting from '../components/videomeeting';
 
 const IndexPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -21,6 +22,7 @@ const IndexPage = () => {
             <button onClick={() => {setCurrentPage(4); setHidden(true)}}>ProfileView</button>
             <button onClick={() => {setCurrentPage(5); setHidden(true)}}>BusinessProposal</button>
             <button onClick={() => {setCurrentPage(6); setHidden(true)}}>Chat</button>
+            <button onClick={() => {setCurrentPage(7); setHidden(true)}}>Videomeeting</button>
             <Link href="/login">
               Login
             </Link>
@@ -43,6 +45,8 @@ const IndexPage = () => {
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
         <Chat />
+      ): currentPage===7 ? (
+        <Videomeeting />
       ) : (<p></p>)}
 
     </>
