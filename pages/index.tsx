@@ -69,7 +69,7 @@ const IndexPage = () => {
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
-        <Chat sendTo={0} />
+        <NewChat sendTo={0} />
       ) : (<p></p>)}
 
     </>

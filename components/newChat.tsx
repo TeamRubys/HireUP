@@ -40,7 +40,7 @@ function NewChat({sendTo}) {
   }, [searchInput, users]);
 
   useEffect(() => {
-    if(recipient === null) {
+    if(recipient === 0) {
       axios.get('/api/users')
       .then((res) => {
         setUsers(res.data.rows)

@@ -18,6 +18,8 @@ function Chat({sendTo}) {
 
   const [trigger, setTrigger] = useState(false);
 
+  const [name, setName] = useState("")
+
   useEffect(() => {
     const fetchMessages = async () => {
       const list = await getMessages(1);
@@ -61,6 +63,7 @@ function Chat({sendTo}) {
           width='120'
           height='120'
           />
+          <p className="border rounded bg-dollar p-[1%] ml-auto text-black text-[1vw]">Chatting With: {name}</p>
           </div>
           <div className="flex flex-col mt-[5%] h-[85%] w-[100%]">
             <div className="flex items-center justify-evenly h-[90%]">
@@ -72,7 +75,7 @@ function Chat({sendTo}) {
                 return (
                   <button
                   key={idx}
-                  onClick={() => {setRecipient(message.id)}}
+                  onClick={() => {setRecipient(message.id); setName(message.name)}}
                   className="flex items-center text-xl justify-center rounded-full border min-h-[8vw] min-w-[8vw] bg-light border-dollar">
                   {(message.name[0] + message.name[1]).toUpperCase()}
                   </button>
@@ -86,7 +89,9 @@ function Chat({sendTo}) {
                     <p>Please Select a Chat</p>
                   </div>
                 ):(
+                  <>
                   <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat} />
+                  </>
                 )}
               </div>
 
