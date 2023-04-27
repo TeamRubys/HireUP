@@ -29,7 +29,7 @@ function FreelancerBody({setCurrentPage, freelancers, isLoggedIn}){
   }, [freelancers, role, location, price]);
 
     return(
-        <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl">
+        <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl mt-10">
         <FreelancerSearchBar setCurrentPage={setCurrentPage} setRole={setRole} setLocation={setLocation} setPrice={setPrice} isLoggedIn={isLoggedIn}/>
         <div className="flex">
           <div className="w-3/4 mt-3">

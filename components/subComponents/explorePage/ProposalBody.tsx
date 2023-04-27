@@ -30,7 +30,7 @@ function ProposalBody({setCurrentPage,jobs,isLoggedIn}) {
   }, [jobs, role, location, priceRange]);
 
   return (
-    <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl">
+    <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl mt-10">
       <ProposalSearchBar
         setRole={setRole}
         setLocation={setLocation}
