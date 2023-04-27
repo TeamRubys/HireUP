@@ -21,13 +21,15 @@ const usersModel = {
     const userId = result.rows[0].id;
     console.log(userId);
     return userId;
-  }  getAll: (id) => {
+  },
+  getAll: (id) => {
     return db.query('SELECT * FROM users')
   },
   getOne: async (id) => {
     const message = await db.query('SELECT * FROM users WHERE id = $1', [id]);
     return message.rows[0];
-  },
+  }
+};
 
 
 module.exports = usersModel;
