@@ -1,4 +1,4 @@
-function Footer({setCurrentPage}) {
+function Footer() {
     return(
 <footer className="bg-white dark:bg-gray-900 border-t border-grey-300 px-10 py-10">
     <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">

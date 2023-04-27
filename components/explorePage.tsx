@@ -72,7 +72,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user }) => {
           freelancers={freelancers}
         />
       )}
-      <Footer setCurrentPage={setCurrentPage} />
+      <Footer/>
       <Chat setCurrentPage={setCurrentPage} isLoggedIn={isLoggedIn} />
     </>
   );
