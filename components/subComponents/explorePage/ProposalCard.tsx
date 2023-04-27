@@ -70,19 +70,19 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
         </div>
         <div>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
             onClick={handleProfileViewClick}
           >
             See profile
           </button>
           <button
-            className="mb-9 mr-2 bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="mb-9 mr-2 bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
             onClick={handleSaveJobClick}
           >
             {saved ? "Saved" : "Save"}
           </button>
           <button
-            className="bg-white hover:bg-blue-100 text-black font-bold py-2 px-4 rounded border border-black"
+            className="bg-white hover:bg-green-100 text-black font-bold py-2 px-4 rounded border border-black"
             onClick={handleChatMessageClick}
           >
             Message
@@ -122,7 +122,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
           <span>${job.budget}</span>
         </div>
         <button
-          className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border border-black"
+          className="bg-black hover:bg-green-500 text-white font-bold py-2 px-4 rounded border border-black"
           onClick={handleApplyClick}
         >
           {applied ? "Applied" : "Apply"}

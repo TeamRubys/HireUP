@@ -74,7 +74,7 @@ function FreelancerSearchBar({setCurrentPage, setRole, setLocation, setPrice, is
             </div>
           </div>
           <div className="flex justify-center w-1/4">
-            <button className="mt-8 bg-black text-lg text-white rounded-lg py-3 px-20 hover:bg-blue-700" onClick={handleProposeClick}>
+            <button className="mt-8 bg-black text-lg text-white rounded-lg py-3 px-20 hover:bg-green-500" onClick={handleProposeClick}>
               Propose Jobs
             </button>
           </div>

@@ -48,7 +48,7 @@ function Header(props: {
           {(isLoggedIn) ? (
       <div className="flex items-center" style={{display:'flex', justifyContent: 'flex-end'}}>
         <a
-        className="mx-auto underline mr-10 text-black text-xl hover:text-blue-500 cursor-pointer"
+        className="mx-auto underline mr-10 text-black text-xl hover:text-green-500 cursor-pointer"
         onClick={handleTogglePage}
         >
         {page === 0 ? "Find Freelancers" : "Find Jobs"}

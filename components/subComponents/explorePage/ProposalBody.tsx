@@ -3,7 +3,7 @@ import ProposalSearchBar from "./ProposalSearchBar";
 import ProposalCardList from "./ProposalCardList";
 import ProposalSideBar from "./ProposalSideBar";
 
-function ProposalBody({setCurrentPage,jobs,isLoggedIn}) {
+function ProposalBody({setCurrentPage, jobs, isLoggedIn}) {
   const [role, setRole] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [priceRange, setPriceRange] = useState<string>("");
@@ -47,7 +47,7 @@ function ProposalBody({setCurrentPage,jobs,isLoggedIn}) {
           />
         </div>
         <div className="w-1/4 p-3">
-          <ProposalSideBar savedJobs={savedJobs} appliedJobs={appliedJobs} />
+          <ProposalSideBar savedJobs={savedJobs} appliedJobs={appliedJobs} setCurrentPage={setCurrentPage} />
         </div>
       </div>
     </div>

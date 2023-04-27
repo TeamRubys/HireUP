@@ -1,4 +1,4 @@
-function ProposalSideBar({ savedJobs, appliedJobs }) {
+function ProposalSideBar({ savedJobs, appliedJobs, setCurrentPage }) {
   return (
     <div>
       <div id="saved" className="flex flex-col mb-4">
@@ -8,7 +8,14 @@ function ProposalSideBar({ savedJobs, appliedJobs }) {
             <div className="italic">No saved jobs</div>
           ) : (
             savedJobs.map((job, index) => (
-              <li key={index}>{job}</li>
+              <ul key={index}>
+                <span
+                  className="hover:text-green-500 hover:underline cursor-pointer"
+                  onClick={() => setCurrentPage(4)}
+                >
+                  {job}
+                </span>
+              </ul>
             ))
           )}
         </div>
@@ -21,7 +28,14 @@ function ProposalSideBar({ savedJobs, appliedJobs }) {
             <div className="italic">No applied jobs</div>
           ) : (
             appliedJobs.map((job, index) => (
-              <li key={index}>{job}</li>
+              <ul key={index}>
+                <span
+                  className="hover:text-green-500 hover:underline cursor-pointer"
+                  onClick={() => setCurrentPage(4)}
+                >
+                  {job}
+                </span>
+              </ul>
             ))
           )}
         </div>
