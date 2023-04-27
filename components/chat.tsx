@@ -45,7 +45,13 @@ function Chat({sendTo}) {
     })
   }, [trigger])
 
-
+  useEffect(() => {
+    recipients.forEach((message) => {
+      if(message.id === recipient) {
+        setName(message.name)
+      }
+    })
+  })
 
   return (
     <>
@@ -90,7 +96,7 @@ function Chat({sendTo}) {
                   </div>
                 ):(
                   <>
-                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat} />
+                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat}/>
                   </>
                 )}
               </div>
