@@ -100,5 +100,8 @@ router.post("/join-room", async (req, res) => {
 });
 
 
+router.post('/api/users', controller.users.createUser);
+router.get('/api/users', controller.users.get);
+router.get('/api/users/:id', controller.users.getOne);
 
 module.exports = router;

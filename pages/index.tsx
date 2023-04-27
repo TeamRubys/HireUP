@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LandingPage from '../components/landingPage';
 import ExplorePage from '../components/explorePage';
 import ProfileCreation from '../components/profileCreation';
@@ -7,10 +7,37 @@ import ProfileView from '../components/profileView';
 import BusinessProposal from '../components/businessProposal';
 import Chat from '../components/chat'
 import Videomeeting from '../components/videomeeting';
+import { useUser } from '@auth0/nextjs-auth0/client';
+import axios from 'axios';
+import NewChat from '../components/newChat';
 
 const IndexPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [hidden, setHidden] = useState(false);
+
+  const { user, isLoading } = useUser();
+
+  console.log('user data from Auth0:', user);
+
+  useEffect(() => {
+
+    if (user) {
+      const createUser = async () => {
+        try {
+          const res = await axios.post('/api/users', {user});
+          if (res.status === 200 || res.status === 201) {
+            console.log('user created or already exists, res.data:', res.data)
+          } else {
+            console.log('error with adding user', res.data)
+          }
+        } catch (err) {
+          console.log('error creating user', err)
+        }
+      };
+      createUser();
+    }
+  }, [user]);
+
 
   return (
     <>
@@ -44,7 +71,7 @@ const IndexPage = () => {
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
-        <Chat />
+        <Chat sendTo={20} setState={undefined}/>
       ): currentPage===7 ? (
         <Videomeeting />
       ) : (<p></p>)}
