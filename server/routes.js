@@ -24,5 +24,8 @@ router.post('/freelancers', controller.freelancers.createFreelancer);
 //Users
 router.post('/users', controller.users.createUser);
 
+//Connections
+router.post('/connections', controller.freelancers.createConnection);
+
 
 module.exports = router;

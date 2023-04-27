@@ -43,7 +43,7 @@ function ProfileCreation({setCurrentPage}) {
     console.log('data', data);
     axios.post('/api/freelancers', {
       ...data,
-      user_id: 1
+      user_id: 2
     })
       .then(response => {
         console.log('successfully added freelancer to database');

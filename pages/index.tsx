@@ -64,7 +64,7 @@ const IndexPage = () => {
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
-        <ProfileView />
+        <ProfileView setCurrentPage={setCurrentPage}/>
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (

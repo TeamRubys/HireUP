@@ -23,4 +23,5 @@ export type WorkHistory = {
   company: string,
   position: string,
   duration: string,
+  description: string
 }

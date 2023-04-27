@@ -39,7 +39,7 @@ function Profile_information (props: {userId: number, setUserId:Function, userDa
         <h1 className='font-semibold py-1 '>Education</h1>
           <div className='border-2 rounded border-gray'>
             <ul>
-            <li>{userData.education}</li>
+            <li className='p-1'>{userData.education}</li>
             </ul>
           </div>
       </div>

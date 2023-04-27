@@ -6,10 +6,11 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FreelancerData } from '../interfaces';
+import Header from './subComponents/landingPage/header'
 
-
-function ProfileView() {
-  const [userId, setUserId] = useState<number> (3);
+function ProfileView({setCurrentPage}) {
+  const [userId, setUserId] = useState<number> (2);
+  const [user, setUser] = useState('John')
   const [userData, setUserData] = useState<FreelancerData>({
     freelancer_name: 'Sample User',
     rate:'$5000/hr',
@@ -18,7 +19,8 @@ function ProfileView() {
     work_history:[{
       company: "Little Folk Shops",
       duration: "48 ",
-      position: "Logging Equipment Operator"}],
+      position: "Logging Equipment Operator",
+      description:'The description of the job helps recruiters see what the freelancer was doing in previous employment'}],
     location: 'remote',
     education:'HackReactor 12-week Immersive'
   });
@@ -28,18 +30,12 @@ function ProfileView() {
       if(res.data) {
         setUserData(res.data)}
       })
-  }, [])
+  }, [userId])
 
   return (
     <div>
-      <div className='border-2 rounded border-black p-1'>
-        <nav className="bg-white border-gray-200 dark:bg-brand-dark-green">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">HireUp</span>
-        </div>
-        </nav>
-      </div>
-      <br></br>
+      <Header user={user} setUser={setUser} handleProfile={() => {setCurrentPage(4)}}/>
+
 
       <div className = 'flex p-5'>
         <div className='flex justify-center'>

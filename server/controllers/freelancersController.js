@@ -22,7 +22,21 @@ const freelancersController = {
         console.log('sucessfully created freelancer', result);
         res.status(201).send('success');
       })
-  }
+  },
+  createConnection: (req, res) => {
+    console.log(req, 'in controller, req')
+    Models.freelancers.createConnection(req.body.user_id, req.body.friend_id)
+      .then(result => {
+        console.log('connection created', result);
+        res.status(201).send('success')
+      })
+  },
+  // getConnections: (req, res) => {
+  //   Models.freelancer.getConnections(req.params.user_id)
+  //     .then(result) => {
+  //       console.log()
+  //     }
+  // }
 }
 
 module.exports = freelancersController;
