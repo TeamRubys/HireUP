@@ -14,8 +14,8 @@ import { UserIdContext } from '../components/UserIdContext';
 
 
 const IndexPage = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [hidden, setHidden] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hidden, setHidden] = useState(true);
 
 
   const { user } = useUser();
