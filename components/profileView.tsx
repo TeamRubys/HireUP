@@ -16,7 +16,7 @@ function ProfileView({setCurrentPage, user, userID}) {
     freelancer_name: 'Sample User',
     rate:'$5000/hr',
     portfolio:['sample.github.com'],
-    skills: ['React', 'JaveScript'],
+    skills: ['React', 'JaveScript', 'Express', 'Node.js', 'Next.js', 'MongoDB', 'PostgreSQL'],
     work_history:[{
       company: "Little Folk Shops",
       duration: "48 ",
