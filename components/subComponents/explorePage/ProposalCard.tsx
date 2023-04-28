@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import NewChat from "../../newChat";
 
 function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job}) {
   const [saved, setSaved] = useState<boolean>(false);
   const [applied, setApplied] = useState<boolean>(false);
+  const [chat, setChat] = useState(false)
 
   const handleSaveJobClick = () => {
     if (isLoggedIn) {
@@ -38,7 +40,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
 
   const handleChatMessageClick = () => {
     if (isLoggedIn) {
-      setCurrentPage(6);
+      setChat(true);
     } else {
       alert("Please login or sign up to use website features");
     }
@@ -55,6 +57,9 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
   return (
     <div className="border p-6 rounded-lg mb-10">
       <div id="card-header" className="flex justify-between items-center mb-5">
+      {chat ? (
+        <NewChat sendTo={job} setState={setChat}/>
+      ):(<></>)}
         <div className="flex flex-col">
           <h2 id="headline" className="text-2xl font-bold">
             {job.headline}
