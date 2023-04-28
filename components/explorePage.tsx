@@ -20,7 +20,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user }) => {
   const [userInfo, setUserInfo] = useState<any>(user);
 
   useEffect(() => {
-    if (Object.keys(user).length !== 0) {
+    if (user && Object.keys(user).length !== 0) {
       setUserInfo(userInfo);
       setIsLoggedIn(true);
     }
