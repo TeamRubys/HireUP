@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Dm from './subComponents/chat/dm';
 const {getMessages} = require('./subComponents/chat/chatHelpers/helpers')
 import logo from '../components/subComponents/landingPage/logo.png'
 import Image from 'next/image'
 import NewChat from './newChat';
 import axios from 'axios'
+import { UserIdContext } from '../components/UserIdContext';
 
 function Chat({sendTo, setState}) {
+
+  const userId = useContext(UserIdContext);
 
   const [newChat, setNewChat] = useState(false)
 
@@ -20,9 +23,11 @@ function Chat({sendTo, setState}) {
 
   const [name, setName] = useState("")
 
+  console.log('USEERRID', userId)
+
   useEffect(() => {
     const fetchMessages = async () => {
-      const list = await getMessages(1);
+      const list = await getMessages(userId);
       const start = async () => {
         await setMessages(list);
         setTrigger(true);
@@ -96,7 +101,7 @@ function Chat({sendTo, setState}) {
                   </div>
                 ):(
                   <>
-                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat}/>
+                  <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat} userId={userId}/>
                   </>
                 )}
               </div>
