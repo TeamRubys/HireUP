@@ -69,9 +69,8 @@ const IndexPage = () => {
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
-        <Chat sendTo={20} setState={undefined}/>
+        <NewChat recipient={2} sendTo={1}/>
       ) : (<p></p>)}
-
     </>
   );
 };
