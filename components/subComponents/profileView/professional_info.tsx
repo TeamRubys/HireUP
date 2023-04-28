@@ -19,7 +19,7 @@ function Profile_information (props: {userId: number, setUserId:Function, userDa
               <p className='ml-1'> {userData.freelancer_name}</p>
             </div>
             <div className='flex p-1 font-medium'>Rate:
-              <p className='ml-1'>{userData.rate}</p>
+              <p className='ml-1'>${userData.rate}/hr</p>
             </div>
             <div className='flex p-1 font-medium'>
               Portfolio:
