@@ -10,7 +10,7 @@ function Profile_information (props: {userId: number, setUserId:Function, userDa
   //   .then(res => setUserData(res.data))
 
   return (
-    <div className = 'flex border-2 rounded border-gray p-10'>
+    <div className = 'flex justify-center border-2 rounded border-gray p-10'>
       <div>
         <h1 className='font-semibold'>Basic Information</h1>
           <div className='flex flex-col border-2 rounded border-gray p-1'>
