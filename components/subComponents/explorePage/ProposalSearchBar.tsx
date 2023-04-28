@@ -44,16 +44,16 @@ function ProposalSearchBar({ setRole, setLocation, setPriceRange }) {
         >
           <option value="">any location</option>
           <option value="Remote">Remote</option>
-          <option value="San Francisco, CA">San Francisco, CA</option>
-          <option value="Chicago, IL">Chicago, IL</option>
-          <option value="New York, NY">New York, NY</option>
-          <option value="Austin, Texas">Austin, Texas</option>
-          <option value="Seattle, WA">Seattle, WA</option>
-          <option value="Boston, MA">Boston, MA</option>
-          <option value="Denver, CO">Denver, CO</option>
-          <option value="Portland, OR">Portland, OR</option>
-          <option value="Washington D.C.">Washington D.C.</option>
+          <option value="Austin, Texas">Austin, TX</option>
           <option value="Atlanta, GA">Atlanta, GA</option>
+          <option value="Boston, MA">Boston, MA</option>
+          <option value="Chicago, IL">Chicago, IL</option>
+          <option value="Denver, CO">Denver, CO</option>
+          <option value="New York, NY">New York, NY</option>
+          <option value="Portland, OR">Portland, OR</option>
+          <option value="San Francisco, CA">San Francisco, CA</option>
+          <option value="Seattle, WA">Seattle, WA</option>
+          <option value="Washington D.C.">Washington D.C.</option>
         </select>
         <div className="mr-5"> at </div>
         <select
