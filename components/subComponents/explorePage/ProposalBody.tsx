@@ -2,21 +2,35 @@ import React, { useState, useEffect } from "react";
 import ProposalSearchBar from "./ProposalSearchBar";
 import ProposalCardList from "./ProposalCardList";
 import ProposalSideBar from "./ProposalSideBar";
+import { set } from "react-hook-form";
 
 interface Props {
   setCurrentPage: Function;
   jobs: Array<any>;
   isLoggedIn: boolean;
+  defaultrole: any;
+  defaultlocation: any;
   setUserId:Function
 }
 
-function ProposalBody({ setCurrentPage, jobs, isLoggedIn, setUserId}: Props) {
+
+function ProposalBody({ setCurrentPage, jobs, isLoggedIn, setUserId, defaultrole, defaultlocation}: Props) {
   const [role, setRole] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [priceRange, setPriceRange] = useState<string>("");
   const [filteredJobs, setFilteredJobs] = useState<Array<any>>([]);
   const [savedJobs, setSavedJobs] = useState<Array<any>>([]);
   const [appliedJobs, setAppliedJobs] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    if (defaultrole) {
+      setRole(defaultrole);
+    };
+
+    if (defaultlocation) {
+      setLocation(defaultlocation);
+    };
+  },[defaultrole,defaultlocation])
 
   useEffect(() => {
     let filtered = jobs;
@@ -40,7 +54,9 @@ function ProposalBody({ setCurrentPage, jobs, isLoggedIn, setUserId}: Props) {
     <div className="w-full mb-20 mx-auto mb-8 max-w-screen-xl mt-10">
       <ProposalSearchBar
         setRole={setRole}
+        defaultrole={defaultrole}
         setLocation={setLocation}
+        defaultlocation={defaultlocation}
         setPriceRange={setPriceRange}
       />
       <div className="flex">

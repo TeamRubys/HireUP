@@ -52,7 +52,7 @@ function ProfileView({setCurrentPage, user, userID}) {
   return (
 
     <div>
-      <Header user={userName} setUser={setUserName} handleProfile={() => {setCurrentPage(4)}}/>
+      <Header handleProfile={() => {setCurrentPage(4)}}/>
       <div className='flex justify-center'>
         <div className="flex justify-center flex-wrap w-full">
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
