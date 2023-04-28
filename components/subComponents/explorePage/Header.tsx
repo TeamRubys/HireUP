@@ -80,10 +80,10 @@ function Header(props: Props) {
         >
         {page === 0 ? "Find Freelancers" : "Find Jobs"}
         </a> 
-    <Link href="/login">
+    <Link href="/api/auth/login">
       <button className="bg-green-200 hover:bg-green-400 text-white rounded-md py-2 px-4 mr-2 shadow-lg">Login</button>
     </Link>
-    <Link href="/register">
+    <Link href="/api/auth/login">
       <button className="bg-green-300 hover:bg-green-500 text-white rounded-md py-2 px-4 shadow-lg">Sign Up</button>
     </Link>
   </div>
