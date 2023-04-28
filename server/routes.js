@@ -68,9 +68,6 @@ router.get('/api/freelancers', controller.freelancers.get);
 router.get('/api/freelancers/:id', controller.freelancers.getOne);
 router.post('/api/freelancers', controller.freelancers.createFreelancer);
 
-//Users
-
-
 router.post("/join-room", async (req, res) => {
   // return 400 if the request has an empty body or no roomName
   if (!req.body || !req.body.roomName) {
