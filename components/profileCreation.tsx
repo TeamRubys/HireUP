@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { useForm, useFieldArray, SubmitHandler, Controller } from 'react-hook-form'
@@ -6,6 +6,7 @@ import ParsePortfolio from './subComponents/profileCreation/parsePortfolio'
 import ParseSkills from './subComponents/profileCreation/parseSkills'
 import Footer from './subComponents/explorePage/Footer'
 import Header from './subComponents/landingPage/header'
+import { UserIdContext } from './UserIdContext'
 
 type Inputs = {
   role: string;
@@ -23,6 +24,7 @@ type Inputs = {
 };
 
 function ProfileCreation({setCurrentPage}) {
+  const userId = useContext(UserIdContext);
   const [user, setUser] = useState('John')
   const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
     defaultValues: {
@@ -43,7 +45,7 @@ function ProfileCreation({setCurrentPage}) {
     console.log('data', data);
     axios.post('/api/freelancers', {
       ...data,
-      user_id: 1
+      user_id: userId
     })
       .then(response => {
         console.log('successfully added freelancer to database');

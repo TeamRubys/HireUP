@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
@@ -6,6 +6,7 @@ import ParseSkills from './subComponents/profileCreation/parseSkills'
 import ParseLocation from './subComponents/profileCreation/parseLocation'
 import Footer from './subComponents/explorePage/Footer'
 import Header from './subComponents/landingPage/header'
+import { UserIdContext } from './UserIdContext'
 
 type Inputs = {
   headline: string;
@@ -18,6 +19,7 @@ type Inputs = {
 };
 
 function BusinessProposal({ setCurrentPage }) {
+  const userId = useContext(UserIdContext);
   const [user, setUser] = useState('John')
   const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
     defaultValues: {
@@ -33,7 +35,7 @@ function BusinessProposal({ setCurrentPage }) {
     console.log('data', data);
     axios.post('/api/proposals', {
       ...data,
-      user_id: 1
+      user_id: userId
     })
       .then(response => {
         console.log('successfully added business proposal to database');
