@@ -109,9 +109,6 @@ function Chat({sendTo, setState}) {
         className="absolute top-[10%] right-[26%] z-50">x</button>
       </div>
       )}
-        <button
-        onClick={() => {if(setState) {setState(false)}}}
-        className="absolute top-[10%] right-[26%] z-50">x</button>
     </>
   );
 }
