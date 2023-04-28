@@ -70,7 +70,8 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user }) => {
       )}
       {page === 1 && (
         <FreelancerBody
-          setCurrentPage={() => {setChat(true)}}
+          setChat={setChat}
+          setCurrentPage={setCurrentPage}
           isLoggedIn={isLoggedIn}
           freelancers={freelancers}
         />
