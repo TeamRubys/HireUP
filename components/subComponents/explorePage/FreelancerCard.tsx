@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import Chat from "./Chat";
+import NewChat from "../../newChat";
 
 function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freelancer }) {
   const [saved, setSaved] = useState(false);
+  const [chat, setChat] = useState(false);
 
   const handleSaveFreelancerClick = () => {
     if (!isLoggedIn) {
@@ -18,10 +21,10 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
       setSavedFreelancers(prevState => [...prevState, freelancer.freelancer_name]);
     }
   };
-  
+
   const handleChatMessage = () => {
     if(isLoggedIn){
-      setCurrentPage(6);
+      setChat(true);
     } else {
       alert('Please login or sign up to use website features')
     }
@@ -77,6 +80,7 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
         <li className="mb-2"><span className="font-bold">Skills: </span>{freelancer.portfolio.join(", ")}</li>
         <li className="mb-2"><span className="font-bold">Rate: </span>${freelancer.rate}/hr</li>
       </ul>
+      <Chatbox sendTo={0} setState={setChat} />
     </div>
   );
 }
