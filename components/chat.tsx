@@ -23,7 +23,6 @@ function Chat({sendTo, setState}) {
 
   const [name, setName] = useState("")
 
-  console.log('USEERRID', userId)
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -36,6 +35,8 @@ function Chat({sendTo, setState}) {
     }
     fetchMessages();
   }, []);
+
+  console.log(messages)
 
   useEffect(() => {
     Object.values(messages).forEach((message) => {
