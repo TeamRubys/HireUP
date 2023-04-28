@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { useForm, useFieldArray, SubmitHandler, Controller } from 'react-hook-form'
 import ParsePortfolio from './subComponents/profileCreation/parsePortfolio'
 import ParseSkills from './subComponents/profileCreation/parseSkills'
 import Footer from './subComponents/explorePage/Footer'
-import Header from './subComponents/landingPage/header'
+import Header from './subComponents/profileCreation/header'
+import { UserIdContext } from './UserIdContext'
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 type Inputs = {
   role: string;
@@ -23,7 +25,9 @@ type Inputs = {
 };
 
 function ProfileCreation({setCurrentPage}) {
-  const [user, setUser] = useState('John')
+  const userId = useContext(UserIdContext);
+  const { user } = useUser();
+  // const [user, setUser] = useState('John')
   const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
     defaultValues: {
       role: "",
@@ -43,7 +47,7 @@ function ProfileCreation({setCurrentPage}) {
     console.log('data', data);
     axios.post('/api/freelancers', {
       ...data,
-      user_id: 2
+      user_id: userId
     })
       .then(response => {
         console.log('successfully added freelancer to database');
@@ -55,7 +59,7 @@ function ProfileCreation({setCurrentPage}) {
   }
   return (
     <>
-      <Header user={user} setUser={setUser} handleProfile={() => {setCurrentPage(4)}}/>
+      <Header user={user?.nickname}/>
       <div className="flex flex-col items-center mt-12">
           <div>
             <h2 className="mb-8 text-3xl font-extrabold">Freelancer Profile</h2>
@@ -121,7 +125,7 @@ function ProfileCreation({setCurrentPage}) {
                         : <p role="alert" className="font-extralight">Add a brief description of job responsibilities</p>
                       }
                     </div>
-                    <button type="button" className="border rounded mt-2 p-2 text-white bg-red-400" onClick={() => remove(index)}>Remove</button>
+                    {index > 0 && <button type="button" className="border rounded mt-2 p-2 text-white bg-red-400" onClick={() => remove(index)}>Remove</button>}
                   </div>
                 ))}
                 <button type="button" className="border rounded p-2 text-white bg-emerald-300" onClick={() => append({ company: "", position: "", duration: "", description: "" })}>Add Job</button>

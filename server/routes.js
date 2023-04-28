@@ -68,19 +68,6 @@ router.get('/api/freelancers', controller.freelancers.get);
 router.get('/api/freelancers/:id', controller.freelancers.getOne);
 router.post('/api/freelancers', controller.freelancers.createFreelancer);
 
-//Users
-// router.post('/api/users', async (req, res) => {
-//   //do I need middleware somewhere
-//   const { id, name, email } = req.body;
-
-//   console.log('in users post route, user data:', req.body)
-
-//   try {
-//     await controller.users.createUser(id, name, email);
-
-// //Connections
-
-
 //     res.send('user created');
 //   } catch (error) {
 //     console.log(error);
