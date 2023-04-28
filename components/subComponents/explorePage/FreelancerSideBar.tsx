@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FreelancerSideBar({setCurrentPage, savedFreelancers}) {
+function FreelancerSideBar({setCurrentPage, savedFreelancers, setChat}) {
   const handleChatMessage = () =>{
-    setCurrentPage(6)
+    setChat(true)
   }
 
   return (
