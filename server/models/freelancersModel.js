@@ -69,6 +69,31 @@ const freelancersModel = {
       client.release();
     }
   },
-};
+    createConnection: async (userId, friendId) => {
+      console.log('UserID:', userId);
+      console.log('FriendId:', friendId);
+
+      const client = await db.connect();
+
+       try {
+        await client.query('BEGIN');
+        const queryText = 'INSERT INTO connections (user_id, friend_id) VALUES ($1, $2) ON CONFLICT DO NOTHING;';
+        const res = await client.query(queryText, [userId, friendId]);
+        await client.query('COMMIT');
+        const res1 = await client.query(queryText, [friendId, userId]);
+        await client.query('COMMIT');
+
+       } catch(e) {
+        await client.query('ROLLBACK');
+        throw e;
+       } finally {
+        client.release();
+       }
+    },
+     getConnectionsById: async (userId) => {
+      const connections = await db.query(`SELECT friend_id FROM connections WHERE user_id = $1`, [userId]);
+      return connections.rows;
+     }
+}
 
 module.exports = freelancersModel;

@@ -21,9 +21,10 @@ const IndexPage = () => {
 
   const { user } = useUser();
 
-  const [userId, setUserId] =useState(0);
 
-  // console.log('user data from Auth0:', user);
+  const [userId, setUserId] =useState(1);
+
+  //console.log('user data from Auth0:', user);
 
   useEffect(() => {
 
@@ -83,7 +84,7 @@ const IndexPage = () => {
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
-        <ProfileView />
+        <ProfileView setCurrentPage={setCurrentPage} userID={userId} user={user} />
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
