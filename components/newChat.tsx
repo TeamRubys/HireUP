@@ -26,6 +26,7 @@ function NewChat({sendTo, setState}) {
 
   useEffect(() => {
     setRecipient(sendTo)
+    console.log(recipient)
   }, [])
 
   useEffect(() => {
@@ -56,9 +57,9 @@ function NewChat({sendTo, setState}) {
   }, [])
   const [input, setInput] = useState("");
 
-  const sendMessage = (message, recipient) => {
-    socket.emit('sendMessage', {roomName: sendTo.id, message: {sender_id: user, receiver_id: sendTo.id, context: message}});
-    axios.post('/api/messages', {sender_id: user, receiver_id: sendTo.id, context: message})
+  const sendMessage = (message) => {
+    socket.emit('sendMessage', {roomName: recipient.id, message: {sender_id: user, receiver_id: recipient.id, context: message}});
+    axios.post('/api/messages', {sender_id: user, receiver_id: recipient.id, context: message})
     .then((res) => {
       console.log("message posted to DB")
       setChatStarted(true)
@@ -88,7 +89,7 @@ function NewChat({sendTo, setState}) {
                 className="h-[100%] w-[70%] border border-dollar rounded mr-1">
                 </input>
                 <button
-                onClick={() => {sendMessage(input, recipient.id)}}
+                onClick={() => {sendMessage(input)}}
                 className="flex max-h-[100%] text-[2vw] items-center justify-center border p-2 rounded border-dollar bg-white hover:bg-gray-400">
                 Start Chat
               </button>
