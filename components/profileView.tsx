@@ -12,7 +12,7 @@ function ProfileView({setCurrentPage, user, userID}) {
 function ProfileView({setCurrentPage, user, userID}) {
   const [loggedUserId, setLoggedUserId] = useState<number> (userID) //using sample user for logged in user;
   // const [freelancerUserId, setFreelancerUserId] = useState<number>(profileId)
-  const [userName, setUserName] = useState(user.nickname)
+  const [userName, setUserName] = useState(user.nickname || 'Login')
   const [userData, setUserData] = useState<FreelancerData>({
     freelancer_name: 'Sample User',
     rate:'$5000/hr',
