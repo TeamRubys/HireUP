@@ -52,12 +52,18 @@ function ProfileView({setCurrentPage}) {
       <Header user={user} setUser={setUser} handleProfile={() => {setCurrentPage(4)}}/>
 
 
-      <div className = 'flex p-5'>
-        <div className='flex justify-center'>
-          <AboutMe userData={userData} userId={userId} setUserId={setUserId} connectionsList={connections}/>
-          <Profile_information userData={userData} userId={userId} setUserId={setUserId}/>
+
+      <div className='flex justify-center'>
+        <div className="flex flex-wrap w-full">
+          <div className="w-full md:w-1/2 lg:w-1/3">
+            <AboutMe userData={userData} userId={userId} setUserId={setUserId} connectionsList={connections}/>
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3">
+            <Profile_information userData={userData} userId={userId} setUserId={setUserId}/>
+          </div>
         </div>
       </div>
+
       <Footer/>
     </div>
   );

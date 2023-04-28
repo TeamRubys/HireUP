@@ -28,7 +28,7 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
   }
 
   return (
-    <div className = 'flex flex-col h-3/4  sm:h-fit w-1/4 justify-center border-2 rounded border-gray p-5 mr-10'>
+    <div className = 'flex flex-col justify-center border-2 rounded border-gray p-5 mr-10'>
       <div className='flex-col justify-center p-5 '>
               <div className='flex flex-col justify-center'>
                   <div className='flex  justify-center items-center   w-20 h-20 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600'>
