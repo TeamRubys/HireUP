@@ -7,7 +7,7 @@ import NewChat from './newChat';
 import axios from 'axios'
 import { UserIdContext } from '../components/UserIdContext';
 
-function Chat({sendTo, setState}) {
+function Chat({sendTo, setState, setCurrentPage}) {
 
   const userId = useContext(UserIdContext);
 
@@ -74,6 +74,7 @@ function Chat({sendTo, setState}) {
           width='120'
           height='120'
           />
+         <button className="bg-green-200 hover:bg-green-400 text-white rounded-md py-2 px-4 mr-2 shadow-lg" onClick={()=> {setCurrentPage(7)}}>Video</button>
           <p className="border rounded bg-dollar p-[1%] ml-auto text-black text-[1vw]">Chatting With: {name}</p>
           </div>
           <div className="flex flex-col mt-[5%] h-[85%] w-[100%]">
