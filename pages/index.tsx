@@ -1,22 +1,29 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import LandingPage from '../components/landingPage';
 import ExplorePage from '../components/explorePage';
 import ProfileCreation from '../components/profileCreation';
 import ProfileView from '../components/profileView';
 import BusinessProposal from '../components/businessProposal';
 import Chat from '../components/chat'
+import Videomeeting from '../components/videomeeting';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import axios from 'axios';
 import NewChat from '../components/newChat';
+import { UserIdContext } from '../components/UserIdContext';
+
 
 const IndexPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [hidden, setHidden] = useState(false);
 
-  const { user, isLoading } = useUser();
 
-  console.log('user data from Auth0:', user);
+
+  const { user } = useUser();
+
+  const [userId, setUserId] =useState(0);
+
+  // console.log('user data from Auth0:', user);
 
   useEffect(() => {
 
@@ -25,7 +32,9 @@ const IndexPage = () => {
         try {
           const res = await axios.post('/api/users', {user});
           if (res.status === 200 || res.status === 201) {
-            console.log('user created or already exists, res.data:', res.data)
+            var currentId = res.data.id;
+            console.log('in index.tsx, current userid:', currentId);
+            setUserId(currentId);
           } else {
             console.log('error with adding user', res.data)
           }
@@ -34,12 +43,20 @@ const IndexPage = () => {
         }
       };
       createUser();
+
     }
   }, [user]);
+
+  useEffect(() => {
+    console.log('in index.tsx, current userId:', userId);
+  }, [userId]);
+
 
 
   return (
     <>
+
+<UserIdContext.Provider value={userId}>
     {!hidden ? (
             <div className="h-screen w-full left-0 bottom-0 flex justify-evenly items-center">
             <button onClick={() => {setCurrentPage(1); setHidden(true)}}>LandingPage</button>
@@ -48,6 +65,7 @@ const IndexPage = () => {
             <button onClick={() => {setCurrentPage(4); setHidden(true)}}>ProfileView</button>
             <button onClick={() => {setCurrentPage(5); setHidden(true)}}>BusinessProposal</button>
             <button onClick={() => {setCurrentPage(6); setHidden(true)}}>Chat</button>
+            <button onClick={() => {setCurrentPage(7); setHidden(true)}}>Videomeeting</button>
             <Link href="/login">
               Login
             </Link>
@@ -61,7 +79,7 @@ const IndexPage = () => {
       {currentPage===1 ? (
         <LandingPage setCurrentPage={setCurrentPage}/>
       ): currentPage===2 ? (
-        <ExplorePage />
+        <ExplorePage setCurrentPage={setCurrentPage} user={user}/>
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
@@ -69,8 +87,10 @@ const IndexPage = () => {
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
-        <NewChat recipient={2} sendTo={1}/>
+        <Chat sendTo={20} setState={undefined}/>
       ) : (<p></p>)}
+
+</UserIdContext.Provider>
     </>
   );
 };
