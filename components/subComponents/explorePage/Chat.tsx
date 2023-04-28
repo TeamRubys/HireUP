@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import ChatBox from "../../chat"
 
-function Chat({setCurrentPage, isLoggedIn}) {
+function Chat({ setCurrentPage, isLoggedIn }) {
+  const [isChatVisible, setIsChatVisible] = useState(false);
 
   const handleChatClick = () => {
-    if(isLoggedIn) {
-      setCurrentPage(6)
+    if (isLoggedIn) { 
+      setIsChatVisible(true);
     } else {
       alert('Please login or sign up to use website features');
     }
@@ -15,6 +17,14 @@ function Chat({setCurrentPage, isLoggedIn}) {
       <button className="fixed bottom-8 right-8 bg-green-400 text-white font-bold hover:bg-green-500 rounded-full w-12 h-12 border-none outline-none cursor-pointer" onClick={handleChatClick}>
         Chat
       </button>
+      {isChatVisible && (
+        <div>
+          <div className="modal-overlay" onClick={() => setIsChatVisible(false)}></div>
+          <div className="modal-content">
+            <ChatBox />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
