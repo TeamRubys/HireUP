@@ -54,15 +54,15 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
       alert("Please login or sign up to use website features");
     }
   };
-
+  console.log(job)
 
 
   return (
     <div className="border p-6 rounded-lg mb-10">
       <div id="card-header" className="flex justify-between items-center mb-5">
       {chat ? (
-        <div className="absolute h-screen w-screen mt-[10%]">
-        <NewChat sendTo={job} setState={setChat}/>
+        <div className="absolute h-screen w-screen left-0 top-0">
+        <NewChat sendTo={{id: job.user_id}} setState={setChat}/>
         </div>
       ):(<></>)}
         <div className="flex flex-col">
