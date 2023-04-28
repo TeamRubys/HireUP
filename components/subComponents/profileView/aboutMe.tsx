@@ -20,8 +20,8 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
   //  Opens up chat window with user
   let onClickConnection = () => {
     axios.post('api/connections', {
-      user_id: 1,
-      friend_id:3
+      user_id: 48,
+      friend_id:1
     })
       .then(res => console.log('successful connection'))
       .catch(err => console.log('try again, bucko',err))

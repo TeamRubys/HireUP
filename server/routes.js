@@ -74,7 +74,7 @@ router.post('/api/freelancers', controller.freelancers.createFreelancer);
 //     res.status(500).send('attempt to add user unsuccessful. :(')
 //   }
 // });
-router.post('/connections', controller.freelancers.createConnection);
+
 router.post("/join-room", async (req, res) => {
   // return 400 if the request has an empty body or no roomName
   if (!req.body || !req.body.roomName) {
@@ -90,7 +90,8 @@ router.post("/join-room", async (req, res) => {
   });
 });
 
-router.get('/connections/:id', controller.freelancers.getConnectionsById)
+router.post('/api/connections', controller.freelancers.createConnection);
+router.get('/api/connections/:id', controller.freelancers.getConnectionsById)
 
 router.post('/api/users', controller.users.createUser);
 router.get('/api/users', controller.users.get);

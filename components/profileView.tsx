@@ -8,9 +8,10 @@ import axios from 'axios';
 import { FreelancerData, ConnectionsType } from '../interfaces';
 import Header from './subComponents/landingPage/header'
 
-function ProfileView({setCurrentPage}) {
-  const [userId, setUserId] = useState<number> (5) //using sample user for logged in user;
-  const [user, setUser] = useState('John')
+function ProfileView({setCurrentPage, user, userID}) {
+  const [userId, setUserId] = useState<number> (userID) //using sample user for logged in user;
+  const [freelancerUserId, setFreelancerUserId] = useState<number>()
+  const [userName, setUserName] = useState(user.nickname)
   const [userData, setUserData] = useState<FreelancerData>({
     freelancer_name: 'Sample User',
     rate:'$5000/hr',
@@ -24,10 +25,11 @@ function ProfileView({setCurrentPage}) {
     location: 'remote',
     education:'HackReactor 12-week Immersive'
   });
-  const [connections, setConnections] = useState<ConnectionsType>([{friend_id:2 }]) //sample friend based on
+  const [connections, setConnections] = useState<ConnectionsType>([{friend_id:1 }]) //sample friend based on
 
   useEffect(() => {
-     axios.get(`api/freelancers/${userId}`)
+    console.log(userId)
+     axios.get(`/api/freelancers/${userId}`)
     .then(res => {
       console.log(res.data, 'IN MAIN PROFILE COMPONENT --- user ID')
       if(res.data) {
@@ -35,21 +37,20 @@ function ProfileView({setCurrentPage}) {
       })
     .catch(err => console.log(err));
 
-    axios.get(`api/connections/${userId}`)
+    axios.get(`/api/connections/${userId}`)
     .then(res => {
-      console.log(res.data, 'IN MAIN PROFILE COMPONENT')
       if(res.data) {
         setConnections(res.data)}
       })
       .catch(err => {
-        console.log(err);
+        console.log('Error in getting connections',err);
       })
 
   }, [userId])
 
   return (
     <div>
-      <Header user={user} setUser={setUser} handleProfile={() => {setCurrentPage(4)}}/>
+      <Header user={userName} setUser={setUserName} handleProfile={() => {setCurrentPage(4)}}/>
 
 
 
