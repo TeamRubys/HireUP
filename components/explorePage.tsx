@@ -6,6 +6,8 @@ import FreelancerBody from './subComponents/explorePage/FreelancerBody';
 import Footer from './subComponents/explorePage/Footer';
 import Chat from './subComponents/explorePage/Chat';
 import axios from 'axios';
+import ChatBox from './chat'
+import { set } from 'react-hook-form';
 
 interface Props {
   setCurrentPage: (currentPage: number) => void;
@@ -20,6 +22,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) 
   const [jobs, setJobs] = useState<Array<any>>([]);
   const [freelancers, setFreelancers] = useState<Array<any>>([]);
   const [userInfo, setUserInfo] = useState<any>(user);
+  const [chat, setChat] = useState(false)
 
   useEffect(() => {
     if (user && Object.keys(user).length !== 0) {
@@ -51,7 +54,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) 
   }, []);
 
   return (
-    <>
+    <div>
       <Header
         userInfo={userInfo}
         page={page}
@@ -77,8 +80,13 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) 
         />
       )}
       <Footer/>
-      <Chat setCurrentPage={setCurrentPage} isLoggedIn={isLoggedIn} />
-    </>
+      <Chat setCurrentPage={() => {setChat(true)}} isLoggedIn={isLoggedIn} />
+      {chat ? (
+      <div className="absolute h-screen w-screen top-0">
+        <ChatBox sendTo={0} setState={setChat}/>
+      </div>
+      ) : (<></>)}
+    </div>
   );
 };
 

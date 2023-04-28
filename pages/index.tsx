@@ -24,7 +24,7 @@ const IndexPage = () => {
   const [role, setRole] = useState(null);
   const [location, setLocation] = useState(null);
 
-  // console.log('user data from Auth0:', user);
+  //console.log('user data from Auth0:', user);
 
   useEffect(() => {
 
@@ -84,13 +84,11 @@ const IndexPage = () => {
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
-        <ProfileView />
+        <ProfileView setCurrentPage={setCurrentPage} userID={userId} user={user} />
       ) : currentPage===5 ? (
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
         <Chat sendTo={20} setState={undefined}/>
-      ): currentPage===7 ? (
-        <Videomeeting />
       ) : (<p></p>)}
 
 </UserIdContext.Provider>

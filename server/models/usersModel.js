@@ -19,7 +19,6 @@ const usersModel = {
 
     const result = await client.query(statement, values);
     const userId = result.rows[0].id;
-    console.log(userId);
     return userId;
   },
   getAll: (id) => {

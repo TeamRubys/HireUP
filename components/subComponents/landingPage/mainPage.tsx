@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import Header from './header';
 import Gallery from './gallery';
-import SearchBar from './searchbar';
+import SearchBar from './searchBar';
 import Cards from './cards';
 import Footer from './footer';
 import Head from 'next/head';

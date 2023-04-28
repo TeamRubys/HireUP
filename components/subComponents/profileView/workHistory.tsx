@@ -9,6 +9,7 @@ const sample:WorkHistory[] = [
   {
     company: 'Sample Comapany',
     position:'Work History was undefined',
+    description: 'The description will ',
     duration:'4 months'
   }
 
@@ -28,9 +29,10 @@ function WorkHistory (props:{workHistory:WorkHistory[]}) {
           <div className='flex items-center border-2 rounded border-gray p-1 '>
             <SVGComponent/>
             <div className='flex-1 ml-5'>
-              <div>{entry.company}</div>
-              <div>{entry.position}</div>
-              <div>{entry.duration}</div>
+              <div className='py-1'>{entry.company}</div>
+              <div className='py-1'>{entry.position}</div>
+              <div className='py-1'>{entry.description}</div>
+              <div className='py-1'>{entry.duration}</div>
             </div>
           </div>
         </li>
