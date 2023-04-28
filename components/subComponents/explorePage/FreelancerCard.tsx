@@ -85,7 +85,7 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
         <li className="mb-2"><span className="font-bold">Education: </span>{freelancer.education}</li>
         <li className="mb-2"><span className="font-bold">Skills: </span>{freelancer.skills.join(", ")}</li>
         <li className="mb-2"><span className="font-bold">Skills: </span>{freelancer.portfolio.join(", ")}</li>
-        <li className="mb-2"><span className="font-bold">Rate: </span>${freelancer.rate}/hr</li>
+        <li className="mb-2"><span className="font-bold">Rate: </span>${freelancer.rate}</li>
       </ul>
     </div>
   );
