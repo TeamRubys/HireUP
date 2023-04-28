@@ -18,10 +18,11 @@ const IndexPage = () => {
   const [hidden, setHidden] = useState(false);
 
 
-
   const { user } = useUser();
 
   const [userId, setUserId] =useState(0);
+  const [role, setRole] = useState(null);
+  const [location, setLocation] = useState(null);
 
   // console.log('user data from Auth0:', user);
 
@@ -77,9 +78,9 @@ const IndexPage = () => {
 
 
       {currentPage===1 ? (
-        <LandingPage setCurrentPage={setCurrentPage}/>
+        <LandingPage setCurrentPage={setCurrentPage} setRole={setRole} setLocation={setLocation}/>
       ): currentPage===2 ? (
-        <ExplorePage setCurrentPage={setCurrentPage} user={user}/>
+        <ExplorePage setCurrentPage={setCurrentPage} user={user} role={role} location={location}/>
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (

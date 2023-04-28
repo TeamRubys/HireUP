@@ -10,9 +10,11 @@ import axios from 'axios';
 interface Props {
   setCurrentPage: (currentPage: number) => void;
   user: any;
+  role: any;
+  location: any;
 }
 
-const ExplorePage: React.FC<Props> = ({ setCurrentPage, user }) => {
+const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) => {
   const [page, setPage] = useState<number>(0);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [jobs, setJobs] = useState<Array<any>>([]);
@@ -63,6 +65,8 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user }) => {
           setCurrentPage={setCurrentPage}
           isLoggedIn={isLoggedIn}
           jobs={jobs}
+          defaultrole={role}
+          defaultlocation={location}
         />
       )}
       {page === 1 && (

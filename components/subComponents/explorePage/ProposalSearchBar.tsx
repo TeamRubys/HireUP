@@ -1,4 +1,4 @@
-function ProposalSearchBar({setRole, setLocation, setPriceRange}) {
+function ProposalSearchBar({setRole, setLocation, setPriceRange, defaultrole, defaultlocation}) {
     const handleRoleChange = (e) => {
       setRole(e.target.value)
     }
@@ -15,7 +15,7 @@ function ProposalSearchBar({setRole, setLocation, setPriceRange}) {
         <div id="list-header" className="text-4xl font-bold mx-auto mb-8 max-w-screen-2xl">Job Proposals</div>
       <div id="search-bar" className="mx-auto items-center justify-start text-left flex flex-row font-bold text-2xl mb-5">
         <div className="mr-5">Show me</div>
-        <select id="roles" className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5" 
+        <select id="roles" className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5" value={defaultrole || ''}
         onChange={handleRoleChange}>
           <option value="">all</option>
           <option value="Software Engineer">Software Engineer</option>
@@ -23,7 +23,7 @@ function ProposalSearchBar({setRole, setLocation, setPriceRange}) {
           <option value="Web Designer">Web Designer</option>
         </select>
         <div className="mr-5">roles, hiring in</div>
-        <select id="location" className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5"
+        <select id="location" className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5" value={defaultlocation || ''}
         onChange={handleLocationChange}
         >
           <option value="">any location</option>
@@ -45,5 +45,5 @@ function ProposalSearchBar({setRole, setLocation, setPriceRange}) {
       </div>
     );
   }
-  
+
   export default ProposalSearchBar;

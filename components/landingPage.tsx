@@ -3,11 +3,13 @@ import Link from 'next/link'
 import MainPage from './subComponents/landingPage/mainPage';
 interface LandingPageProps {
   setCurrentPage: Dispatch<SetStateAction<number>>;
+  setRole: Dispatch<any>;
+  setLocation: Dispatch<any>;
 }
-function LandingPage({setCurrentPage}:LandingPageProps) {
+function LandingPage({setCurrentPage, setRole, setLocation}:LandingPageProps) {
   return (
     <>
-      <MainPage setCurrentPage={setCurrentPage}/>
+      <MainPage setCurrentPage={setCurrentPage} setRole={setRole} setLocation={setLocation}/>
     </>
 
   );
