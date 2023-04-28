@@ -69,20 +69,7 @@ router.get('/api/freelancers/:id', controller.freelancers.getOne);
 router.post('/api/freelancers', controller.freelancers.createFreelancer);
 
 //Users
-router.post('/api/users', async (req, res) => {
-  //do I need middleware somewhere
-  const { id, name, email } = req.body;
 
-  console.log('in users post route, user data:', req.body)
-
-  try {
-    await controller.users.createUser(id, name, email);
-    res.send('user created');
-  } catch (error) {
-    console.log(error);
-    res.status(500).send('attempt to add user unsuccessful. :(')
-  }
-});
 
 router.post("/join-room", async (req, res) => {
   // return 400 if the request has an empty body or no roomName
