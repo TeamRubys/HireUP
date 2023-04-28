@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ChatBox from "../../chat"
+import ChatBox from "../../chat";
 
-function Chat({ setCurrentPage, isLoggedIn }) {
+function Chat({isLoggedIn}) {
   const [isChatVisible, setIsChatVisible] = useState(false);
 
   const handleChatClick = () => {
@@ -21,7 +21,7 @@ function Chat({ setCurrentPage, isLoggedIn }) {
         <div>
           <div className="modal-overlay" onClick={() => setIsChatVisible(false)}></div>
           <div className="modal-content">
-            <ChatBox />
+            <ChatBox sendTo={20} setState={undefined} />
           </div>
         </div>
       )}

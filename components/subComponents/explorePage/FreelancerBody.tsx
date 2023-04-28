@@ -36,7 +36,7 @@ function FreelancerBody({setCurrentPage, freelancers, isLoggedIn}){
             <FreelancerCardList setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} filteredFreelancers={filteredFreelancers} isLoggedIn={isLoggedIn}/>
           </div>
           <div className="w-1/4 p-3">
-            <FreelancerSideBar setCurrentPage={setCurrentPage} savedFreelancers={savedFreelancers}/>
+            <FreelancerSideBar isLoggedIn={isLoggedIn} setCurrentPage={setCurrentPage} savedFreelancers={savedFreelancers}/>
           </div>
         </div>
       </div>

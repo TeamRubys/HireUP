@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import ChatBox from "../../chat";
 
 function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job}) {
   const [saved, setSaved] = useState<boolean>(false);
   const [applied, setApplied] = useState<boolean>(false);
+  const [isChatVisible, setIsChatVisible] =  useState<boolean>(false);
 
   const handleSaveJobClick = () => {
     if (isLoggedIn) {
@@ -38,7 +40,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
 
   const handleChatMessageClick = () => {
     if (isLoggedIn) {
-      setCurrentPage(6);
+      setIsChatVisible(true);
     } else {
       alert("Please login or sign up to use website features");
     }
@@ -87,6 +89,14 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
           >
             Message
           </button>
+          {isChatVisible && (
+        <div>
+          <div className="modal-overlay" onClick={() => setIsChatVisible(false)}></div>
+          <div className="modal-content">
+            <ChatBox sendTo={20} setState={undefined} />
+          </div>
+        </div>
+      )}
         </div>
       </div>
       <ul>
