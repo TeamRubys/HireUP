@@ -5,7 +5,6 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
   const [saved, setSaved] = useState<boolean>(false);
   const [applied, setApplied] = useState<boolean>(false);
   const [chat, setChat] = useState(false)
-  console.log(job)
 
   const handleSaveJobClick = () => {
     if (isLoggedIn) {

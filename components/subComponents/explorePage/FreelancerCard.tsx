@@ -5,7 +5,6 @@ import NewChat from "../../newChat";
 function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freelancer }) {
   const [saved, setSaved] = useState(false);
   const [chat, setChat] = useState(false);
-  console.log(freelancer)
 
   const handleSaveFreelancerClick = () => {
     if (!isLoggedIn) {
