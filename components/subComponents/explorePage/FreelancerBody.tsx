@@ -10,6 +10,8 @@ function FreelancerBody({setCurrentPage, freelancers, isLoggedIn}){
   const [savedFreelancers, setSavedFreelancers] = useState<Array<any>>([])
   const [filteredFreelancers, setFilteredFreelancers] = useState<Array<any>>([])
 
+  console.log(freelancers)
+
   useEffect(() => {
     let filtered = freelancers;
     if (role) {

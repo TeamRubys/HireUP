@@ -25,6 +25,10 @@ function NewChat({sendTo, setState}) {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
+    setRecipient(sendTo)
+  }, [])
+
+  useEffect(() => {
     const cleanup = initializeSocket(user, setMessages, setSocket);
     return cleanup;
   }, []);
@@ -53,8 +57,8 @@ function NewChat({sendTo, setState}) {
   const [input, setInput] = useState("");
 
   const sendMessage = (message, recipient) => {
-    socket.emit('sendMessage', {roomName: recipient, message: {sender_id: user, receiver_id: recipient, context: message}});
-    axios.post('/api/messages', {sender_id: user, receiver_id: recipient, context: message})
+    socket.emit('sendMessage', {roomName: sendTo.id, message: {sender_id: user, receiver_id: sendTo.id, context: message}});
+    axios.post('/api/messages', {sender_id: user, receiver_id: sendTo.id, context: message})
     .then((res) => {
       console.log("message posted to DB")
       setChatStarted(true)
