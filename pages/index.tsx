@@ -6,6 +6,7 @@ import ProfileCreation from '../components/profileCreation';
 import ProfileView from '../components/profileView';
 import BusinessProposal from '../components/businessProposal';
 import Chat from '../components/chat'
+import Videomeeting from '../components/videomeeting';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import axios from 'axios';
 import NewChat from '../components/newChat';
@@ -64,6 +65,7 @@ const IndexPage = () => {
             <button onClick={() => {setCurrentPage(4); setHidden(true)}}>ProfileView</button>
             <button onClick={() => {setCurrentPage(5); setHidden(true)}}>BusinessProposal</button>
             <button onClick={() => {setCurrentPage(6); setHidden(true)}}>Chat</button>
+            <button onClick={() => {setCurrentPage(7); setHidden(true)}}>Videomeeting</button>
             <Link href="/login">
               Login
             </Link>
@@ -86,6 +88,8 @@ const IndexPage = () => {
         <BusinessProposal setCurrentPage={setCurrentPage}/>
       ) : currentPage===6 ? (
         <Chat sendTo={20} setState={undefined}/>
+      ): currentPage===7 ? (
+        <Videomeeting />
       ) : (<p></p>)}
 
 </UserIdContext.Provider>

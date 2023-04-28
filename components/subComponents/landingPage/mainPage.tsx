@@ -35,7 +35,7 @@ const MainPage = ({setCurrentPage}:MainPageProp) => {
     <div style={{ marginBottom: '1%' }}>
       <Header user={user} setUser={setUser} handleProfile={handleProfile} />
     </div>
-      <main className="flex-1">
+      <main className="flex-1" style={{marginBottom:'5%'}}>
         <div className="flex items-center justify-center">
           <div style={{width:'80%'}}>
             <Gallery />
