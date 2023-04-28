@@ -9,7 +9,7 @@ import { FreelancerData, ConnectionsType } from '../interfaces';
 import Header from './subComponents/landingPage/header'
 
 function ProfileView({setCurrentPage}) {
-  const [userId, setUserId] = useState<number> (1) //using sample user for logged in user;
+  const [userId, setUserId] = useState<number> (5) //using sample user for logged in user;
   const [user, setUser] = useState('John')
   const [userData, setUserData] = useState<FreelancerData>({
     freelancer_name: 'Sample User',
@@ -54,11 +54,11 @@ function ProfileView({setCurrentPage}) {
 
 
       <div className='flex justify-center'>
-        <div className="flex flex-wrap w-full">
-          <div className="w-full md:w-1/2 lg:w-1/3">
+        <div className="flex justify-center flex-wrap w-full">
+          <div className="w-full md:w-1/2 lg:w-1/3 p-2">
             <AboutMe userData={userData} userId={userId} setUserId={setUserId} connectionsList={connections}/>
           </div>
-          <div className="w-full md:w-1/2 lg:w-1/3">
+          <div className="w-full md:w-1/2 lg:w-1/3 p-2">
             <Profile_information userData={userData} userId={userId} setUserId={setUserId}/>
           </div>
         </div>
