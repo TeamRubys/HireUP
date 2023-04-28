@@ -3,7 +3,7 @@ import FreelancerSearchBar from './FreelancerSearchBar'
 import FreelancerCardList from './FreelancerCardList'
 import FreelancerSideBar from './FreelancerSideBar'
 
-function FreelancerBody({setCurrentPage, freelancers, isLoggedIn, setChat}){
+function FreelancerBody({setCurrentPage, freelancers, isLoggedIn, setChat, setUserId}){
   const [role, setRole] = useState<string>('')
   const [location, setLocation] = useState<string>('')
   const [price, setPrice] = useState<string>('')
@@ -35,7 +35,7 @@ function FreelancerBody({setCurrentPage, freelancers, isLoggedIn, setChat}){
         <FreelancerSearchBar setCurrentPage={setCurrentPage} setRole={setRole} setLocation={setLocation} setPrice={setPrice} isLoggedIn={isLoggedIn}/>
         <div className="flex">
           <div className="w-3/4 mt-3">
-            <FreelancerCardList setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} filteredFreelancers={filteredFreelancers} isLoggedIn={isLoggedIn}/>
+            <FreelancerCardList setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} filteredFreelancers={filteredFreelancers} isLoggedIn={isLoggedIn} setUserId={setUserId}/>
           </div>
           <div className="w-1/4 p-3">
             <FreelancerSideBar setChat={setChat} setCurrentPage={setCurrentPage} savedFreelancers={savedFreelancers}/>

@@ -29,10 +29,10 @@ function WorkHistory (props:{workHistory:WorkHistory[]}) {
           <div className='flex items-center border-2 rounded border-gray p-1 '>
             <SVGComponent/>
             <div className='flex-1 ml-5'>
-              <div className='py-1'>{entry.company}</div>
-              <div className='py-1'>{entry.position}</div>
-              <div className='py-1'>{entry.description}</div>
-              <div className='py-1'>{entry.duration}</div>
+              <div className='py-1 font-semibold'>{entry.company}</div>
+              <div className='py-1 italic'>{entry.position}</div>
+              <div className='py-1 text-sm'>{entry.description}</div>
+              <div className='py-1 text-sm'>{entry.duration} months</div>
             </div>
           </div>
         </li>
