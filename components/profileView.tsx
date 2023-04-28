@@ -9,7 +9,7 @@ import { FreelancerData, ConnectionsType } from '../interfaces';
 import Header from './subComponents/landingPage/header'
 
 function ProfileView({setCurrentPage, user, userID}) {
-  const [loggedUserId, setLoggedUserId] = useState<number> (userID) //using sample user for logged in user;
+  const [loggedUserId, setLoggedUserId] = useState<number> (1) //using sample user for logged in user;
   //const [freelancerUserId, setFreelancerUserId] = useState<number>(userID)
   const [userName, setUserName] = useState(user.nickname)
   const [userData, setUserData] = useState<FreelancerData>({

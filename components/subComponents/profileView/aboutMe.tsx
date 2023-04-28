@@ -21,7 +21,7 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
   let onClickConnection = () => {
     axios.post('api/connections', {
       user_id: userId,
-      friend_id:3
+      friend_id:1
     })
       .then(res => console.log('successful connection'))
       .catch(err => console.log('try again, bucko',err))

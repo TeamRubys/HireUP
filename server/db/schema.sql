@@ -64,3 +64,14 @@ CREATE INDEX ON messages(receiver_id);
 CREATE INDEX ON business_proposals(user_id);
 CREATE INDEX ON freelancers(user_id);
 CREATE INDEX ON work_history(freelancer_id);
+
+
+-- COPY users(id,name, s_id, email) FROM '/Users/joseumana/RFE2302 Sprints/blueOcean/Users - Sheet1.csv' DELIMITER ',' CSV HEADER;
+
+
+-- COPY freelancers (id, user_id, role, rate, skills, location, education, portfolio) FROM '/Users/joseumana/RFE2302 Sprints/blueOcean/Freelancers - PortfolioCreation.csv' DELIMITER ',' CSV HEADER;
+
+
+-- COPY work_history (id,freelancer_id, company, position, duration, description) FROM '/Users/joseumana/RFE2302 Sprints/blueOcean/Work History - Sheet1.csv' DELIMITER ',' CSV HEADER;
+
+-- COPY connections (connection_id, user_id, friend_id) FROM '/Users/joseumana/RFE2302 Sprints/blueOcean/Connections - IMPORT.csv' DELIMITER ',' CSV HEADER;
