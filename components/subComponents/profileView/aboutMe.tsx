@@ -50,7 +50,7 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
 
             <div className = 'flex justify-evenly '>
                 <button onClick={onClickConnection} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Connect</button>
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Message</button>
+                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Chat</button>
             </div>
             <br></br>
           <Connections userId={userId} setUserId={setUserId} connectionsList={connectionsList}/>
