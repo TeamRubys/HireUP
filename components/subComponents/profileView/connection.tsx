@@ -1,24 +1,17 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { ConnectionsType } from "../../../interfaces";
 
 
 function Connections (props: {userId: number, setUserId:Function, connectionsList:ConnectionsType}) {
   const {userId, setUserId, connectionsList} = props;
+  const [conns, setConns] = useState(connectionsList)
+
   let onClickConnection = (e) =>{
-    //use event target id (ETI), extract user_id
-    //invoke setUserId with ETI
-    console.log(e.target.id, 'event ID')
-
     setUserId(e.target.id)
-
-  // useEffect(() =>{
-  //   axios.get('api/connections', {
-  //     user_id: userId
-  //   }).then(res => console.log(res))
-  // },[userId])
-
   }
+
+
   return (
     <div className='flex-col justify-center p-5 '>
 

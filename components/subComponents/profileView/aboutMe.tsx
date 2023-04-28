@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function AboutMe (props: {userId: number, setUserId:Function, userData:FreelancerData, connectionsList:ConnectionsType}) {
   const {userId, setUserId, userData, connectionsList} = props;
-
+  const [friend, setFriend] = useState();
 
   //onClickConnect
   //  model pops up and confirms connection, then...
@@ -20,7 +20,7 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
   //  Opens up chat window with user
   let onClickConnection = () => {
     axios.post('api/connections', {
-      user_id: 48,
+      user_id: userId,
       friend_id:1
     })
       .then(res => console.log('successful connection'))

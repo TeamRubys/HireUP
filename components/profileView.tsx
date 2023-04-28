@@ -9,8 +9,8 @@ import { FreelancerData, ConnectionsType } from '../interfaces';
 import Header from './subComponents/landingPage/header'
 
 function ProfileView({setCurrentPage, user, userID}) {
-  const [userId, setUserId] = useState<number> (userID) //using sample user for logged in user;
-  const [freelancerUserId, setFreelancerUserId] = useState<number>()
+  const [loggedUserId, setLoggedUserId] = useState<number> (userID) //using sample user for logged in user;
+  //const [freelancerUserId, setFreelancerUserId] = useState<number>(userID)
   const [userName, setUserName] = useState(user.nickname)
   const [userData, setUserData] = useState<FreelancerData>({
     freelancer_name: 'Sample User',
@@ -28,8 +28,8 @@ function ProfileView({setCurrentPage, user, userID}) {
   const [connections, setConnections] = useState<ConnectionsType>([{friend_id:1 }]) //sample friend based on
 
   useEffect(() => {
-    console.log(userId)
-     axios.get(`/api/freelancers/${userId}`)
+    console.log(loggedUserId)
+     axios.get(`/api/freelancers/${loggedUserId}`)
     .then(res => {
       console.log(res.data, 'IN MAIN PROFILE COMPONENT --- user ID')
       if(res.data) {
@@ -37,7 +37,7 @@ function ProfileView({setCurrentPage, user, userID}) {
       })
     .catch(err => console.log(err));
 
-    axios.get(`/api/connections/${userId}`)
+    axios.get(`/api/connections/${loggedUserId}`)
     .then(res => {
       if(res.data) {
         setConnections(res.data)}
@@ -46,25 +46,22 @@ function ProfileView({setCurrentPage, user, userID}) {
         console.log('Error in getting connections',err);
       })
 
-  }, [userId])
+  }, [loggedUserId])
 
   return (
+
     <div>
       <Header user={userName} setUser={setUserName} handleProfile={() => {setCurrentPage(4)}}/>
-
-
-
       <div className='flex justify-center'>
         <div className="flex justify-center flex-wrap w-full">
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
-            <AboutMe userData={userData} userId={userId} setUserId={setUserId} connectionsList={connections}/>
+            <AboutMe userData={userData} userId={loggedUserId} setUserId={setLoggedUserId} connectionsList={connections}/>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
-            <Profile_information userData={userData} userId={userId} setUserId={setUserId}/>
+            <Profile_information userData={userData} userId={loggedUserId} setUserId={setLoggedUserId}/>
           </div>
         </div>
       </div>
-
       <Footer/>
     </div>
   );
