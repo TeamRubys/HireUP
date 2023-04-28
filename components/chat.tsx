@@ -104,9 +104,13 @@ function Chat({sendTo, setState}) {
                   <Dm recipient={recipient} chats={messages[recipient]} setNewChat={setNewChat} userId={userId}/>
                   </>
                 )}
-              </div>
 
+              </div>
             </div>
+            <button
+          onClick={() => {setNewChat(true)}}
+          className="flex rounded-lg items-center justify-center text-xl w-[10%] bg-gray-40 ml-[5%] border bg-slate-400 z-50">+</button>
+         <div className="w-[75%]"></div>
           </div>
         </div>
         <button
