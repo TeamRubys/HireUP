@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Chat from "./Chat";
 import NewChat from "../../newChat";
 
-function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freelancer }) {
+function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freelancer ,setUserId}) {
   const [saved, setSaved] = useState(false);
   const [chat, setChat] = useState(false);
 
@@ -33,10 +33,12 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
   const handleProfileView = () => {
     if(isLoggedIn){
       setCurrentPage(4);
+      setUserId(freelancer.user_id)
     } else {
       alert('Please login or sign up to use website features')
     }
   };
+
 
  return (
     <div className="border p-6 rounded-lg mb-10">

@@ -80,7 +80,7 @@ const IndexPage = () => {
       {currentPage===1 ? (
         <LandingPage setCurrentPage={setCurrentPage}/>
       ): currentPage===2 ? (
-        <ExplorePage setCurrentPage={setCurrentPage} user={user}/>
+        <ExplorePage setCurrentPage={setCurrentPage} user={user} setUserId={setUserId}/>
       ) : currentPage===3 ? (
         <ProfileCreation setCurrentPage={setCurrentPage}/>
       ) : currentPage===4 ? (
