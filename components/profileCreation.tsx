@@ -5,8 +5,9 @@ import { useForm, useFieldArray, SubmitHandler, Controller } from 'react-hook-fo
 import ParsePortfolio from './subComponents/profileCreation/parsePortfolio'
 import ParseSkills from './subComponents/profileCreation/parseSkills'
 import Footer from './subComponents/explorePage/Footer'
-import Header from './subComponents/landingPage/header'
+import Header from './subComponents/profileCreation/header'
 import { UserIdContext } from './UserIdContext'
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 type Inputs = {
   role: string;
@@ -25,7 +26,8 @@ type Inputs = {
 
 function ProfileCreation({setCurrentPage}) {
   const userId = useContext(UserIdContext);
-  const [user, setUser] = useState('John')
+  const { user } = useUser();
+  // const [user, setUser] = useState('John')
   const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
     defaultValues: {
       role: "",
@@ -57,7 +59,7 @@ function ProfileCreation({setCurrentPage}) {
   }
   return (
     <>
-      <Header user={user} setUser={setUser} handleProfile={() => {setCurrentPage(4)}}/>
+      <Header user={user?.nickname}/>
       <div className="flex flex-col items-center mt-12">
           <div>
             <h2 className="mb-8 text-3xl font-extrabold">Freelancer Profile</h2>

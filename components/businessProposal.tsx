@@ -5,8 +5,9 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import ParseSkills from './subComponents/profileCreation/parseSkills'
 import ParseLocation from './subComponents/profileCreation/parseLocation'
 import Footer from './subComponents/explorePage/Footer'
-import Header from './subComponents/landingPage/header'
+import Header from './subComponents/businessProposal/header'
 import { UserIdContext } from './UserIdContext'
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 type Inputs = {
   headline: string;
@@ -20,7 +21,7 @@ type Inputs = {
 
 function BusinessProposal({ setCurrentPage }) {
   const userId = useContext(UserIdContext);
-  const [user, setUser] = useState('John')
+  const { user } = useUser();
   const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
     defaultValues: {
       headline: "",
@@ -47,7 +48,7 @@ function BusinessProposal({ setCurrentPage }) {
   }
   return (
     <>
-      <Header user={user} setUser={setUser} handleProfile={() => { setCurrentPage(4)}}/>
+      <Header user={user?.nickname} handleProfile={() => { setCurrentPage(4)}}/>
       <div className="flex flex-col items-center mt-12">
         <div>
           <h2 className="mb-8 text-3xl font-extrabold">Business Proposal</h2>
