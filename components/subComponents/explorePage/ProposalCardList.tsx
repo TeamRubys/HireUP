@@ -9,7 +9,7 @@ interface Props {
   setAppliedJobs: Array<any>
 }
 
-function ProposalCardList({setCurrentPage, filteredJobs, isLoggedIn, setSavedJobs, setAppliedJobs}) {
+function ProposalCardList({setCurrentPage, filteredJobs, isLoggedIn, setSavedJobs, setAppliedJobs, setUserId}) {
   const [numToShow, setNumToShow] = useState(4);
 
   const handleLoadMore = () => {
@@ -29,6 +29,7 @@ function ProposalCardList({setCurrentPage, filteredJobs, isLoggedIn, setSavedJob
               setAppliedJobs={setAppliedJobs}
               setCurrentPage={setCurrentPage}
               isLoggedIn={isLoggedIn}
+              setUserId={setUserId}
             />
           ))
       ) : (

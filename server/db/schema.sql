@@ -66,14 +66,15 @@ CREATE INDEX ON freelancers(user_id);
 CREATE INDEX ON work_history(freelancer_id);
 
 
--- COPY users(id,name, s_id, email) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+
+-- COPY users(name, s_id, email) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
 
 
--- COPY freelancers (id, user_id, role, rate, skills, location, education, portfolio) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY freelancers (user_id, role, rate, skills, location, education, portfolio) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
 
 
--- COPY work_history (id,freelancer_id, company, position, duration, description) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY work_history (freelancer_id, company, position, duration, description) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
 
 -- COPY connections (connection_id, user_id, friend_id) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
 
--- COPY business_proposals (id ,user_id,headline ,overview,skills,estimated_timeline,locations,budget,roles) FROM '/Users/joseumana/RFE2302 Sprints/blueOcean/Business Proposals - IMPORT.csv' DELIMITER ',' CSV HEADER;
+-- COPY business_proposals (user_id,headline ,overview,skills,estimated_timeline,locations,budget,roles) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;

@@ -14,9 +14,10 @@ interface Props {
   user: any;
   role: any;
   location: any;
+  setUserId:Function
 }
 
-const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) => {
+const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location, setUserId}) => {
   const [page, setPage] = useState<number>(0);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [jobs, setJobs] = useState<Array<any>>([]);
@@ -70,6 +71,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) 
           jobs={jobs}
           defaultrole={role}
           defaultlocation={location}
+          setUserId={setUserId}
         />
       )}
       {page === 1 && (
@@ -78,6 +80,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location }) 
           setCurrentPage={setCurrentPage}
           isLoggedIn={isLoggedIn}
           freelancers={freelancers}
+          setUserId={setUserId}
         />
       )}
       <Footer/>

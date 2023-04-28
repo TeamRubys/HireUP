@@ -10,9 +10,11 @@ interface Props {
   isLoggedIn: boolean;
   defaultrole: any;
   defaultlocation: any;
+  setUserId:Function
 }
 
-function ProposalBody({ setCurrentPage, jobs, isLoggedIn, defaultrole, defaultlocation }: Props) {
+
+function ProposalBody({ setCurrentPage, jobs, isLoggedIn, setUserId, defaultrole, defaultlocation}: Props) {
   const [role, setRole] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [priceRange, setPriceRange] = useState<string>("");
@@ -65,6 +67,7 @@ function ProposalBody({ setCurrentPage, jobs, isLoggedIn, defaultrole, defaultlo
             setCurrentPage={setCurrentPage}
             filteredJobs={filteredJobs}
             isLoggedIn={isLoggedIn}
+            setUserId={setUserId}
           />
         </div>
         <div className="w-1/4 p-3">

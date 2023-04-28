@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NewChat from "../../newChat";
 
-function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job}) {
+function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job, setUserId}) {
   const [saved, setSaved] = useState<boolean>(false);
   const [applied, setApplied] = useState<boolean>(false);
   const [chat, setChat] = useState(false)
@@ -49,10 +49,13 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
   const handleProfileViewClick = () => {
     if (isLoggedIn) {
       setCurrentPage(4);
+      setUserId(job.user_id)
     } else {
       alert("Please login or sign up to use website features");
     }
   };
+
+
 
   return (
     <div className="border p-6 rounded-lg mb-10">

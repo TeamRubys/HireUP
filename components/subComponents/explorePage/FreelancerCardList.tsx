@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FreelancerCard from "./FreelancerCard";
 
-function FreelancerCardList({setCurrentPage, setSavedFreelancers, filteredFreelancers, isLoggedIn}) {
+function FreelancerCardList({setCurrentPage, setSavedFreelancers, filteredFreelancers, isLoggedIn, setUserId}) {
   const [numToShow, setNumToShow] = useState(4);
 
   const handleLoadMore = () => {
@@ -12,7 +12,7 @@ function FreelancerCardList({setCurrentPage, setSavedFreelancers, filteredFreela
     <div className="mb-20">
       {filteredFreelancers.length > 0 ? (
         filteredFreelancers.slice(0, numToShow).map((freelancer, index) => (
-          <FreelancerCard key={index} freelancer={freelancer} setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} isLoggedIn={isLoggedIn}/>
+          <FreelancerCard key={index} freelancer={freelancer} setCurrentPage={setCurrentPage} setSavedFreelancers={setSavedFreelancers} isLoggedIn={isLoggedIn} setUserId={setUserId}/>
         ))
       ) : (
         <div className="text-center italic mb-4">No freelancers found.</div>

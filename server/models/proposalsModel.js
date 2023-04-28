@@ -4,14 +4,14 @@ const proposalsModel = {
   getAll: async (page = 1, count = 5) => {
     const first = (page - 1) * count + 1;
     const last = page * count;
-    const proposals = await db.query(`SELECT p.id, p.headline, p.overview, p.skills, p.estimated_timeline, p.locations, p.budget, p.roles, p.timestamp, u.name AS poster_name, u.email AS poster_email
+    const proposals = await db.query(`SELECT p.id, p.user_id, p.headline, p.overview, p.skills, p.estimated_timeline, p.locations, p.budget, p.roles, p.timestamp, u.name AS poster_name, u.email AS poster_email
       FROM business_proposals p
         INNER JOIN users u ON p.user_id = u.id
       WHERE p.id BETWEEN $1 AND $2 GROUP BY p.id, u.name, u.email ORDER BY p.id ASC`, [first, last]);
     return proposals.rows;
   },
   getOne: async (id) => {
-    const proposal = await db.query(`SELECT p.id, p.headline, p.overview, p.skills, p.estimated_timeline, p.locations, p.budget, p.roles, p.timestamp, u.name AS poster_name, u.email AS poster_email
+    const proposal = await db.query(`SELECT p.id, p.user_id, p.headline, p.overview, p.skills, p.estimated_timeline, p.locations, p.budget, p.roles, p.timestamp, u.name AS poster_name, u.email AS poster_email
       FROM business_proposals p
         INNER JOIN users u ON p.user_id = u.id
       WHERE p.id = $1`, [id]);
