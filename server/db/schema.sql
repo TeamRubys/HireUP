@@ -67,14 +67,14 @@ CREATE INDEX ON work_history(freelancer_id);
 
 
 
--- COPY users(name, s_id, email) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY users(name, s_id, email) FROM '/home/johnnyyin0/Users.csv' DELIMITER ',' CSV HEADER;
 
 
--- COPY freelancers (user_id, role, rate, skills, location, education, portfolio) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY freelancers (user_id, role, rate, skills, location, education, portfolio) FROM '/home/johnnyyin0/Freelancers.csv' DELIMITER ',' CSV HEADER;
 
 
--- COPY work_history (freelancer_id, company, position, duration, description) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY work_history (freelancer_id, company, position, duration, description) FROM '/home/johnnyyin0/WorkHistory.csv' DELIMITER ',' CSV HEADER;
 
--- COPY connections (connection_id, user_id, friend_id) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY connections (connection_id, user_id, friend_id) FROM '/home/johnnyyin0/Connections.csv' DELIMITER ',' CSV HEADER;
 
--- COPY business_proposals (user_id,headline ,overview,skills,estimated_timeline,locations,budget,roles) FROM 'PATH/TO/CSVFILE.csv' DELIMITER ',' CSV HEADER;
+-- COPY business_proposals (user_id,headline ,overview,skills,estimated_timeline,locations,budget,roles) FROM '/home/johnnyyin0/BusinessProposals.csv' DELIMITER ',' CSV HEADER;

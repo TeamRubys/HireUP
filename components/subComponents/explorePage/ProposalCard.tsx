@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import NewChat from "../../newChat";
 
-function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn, job, setUserId}) {
+function ProposalCard({
+  setCurrentPage,
+  setSavedJobs,
+  setAppliedJobs,
+  isLoggedIn,
+  job,
+  setUserId,
+}) {
   const [saved, setSaved] = useState<boolean>(false);
   const [applied, setApplied] = useState<boolean>(false);
-  const [chat, setChat] = useState(false)
+  const [chat, setChat] = useState(false);
 
   const handleSaveJobClick = () => {
     if (isLoggedIn) {
@@ -49,20 +56,19 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
   const handleProfileViewClick = () => {
     if (isLoggedIn) {
       setCurrentPage(4);
-      setUserId(job.user_id)
+      setUserId(job.user_id);
     } else {
       alert("Please login or sign up to use website features");
     }
   };
-  console.log(job)
 
 
   return (
     <div className="border p-6 rounded-lg mb-10">
       <div id="card-header" className="flex justify-between items-center mb-5">
       {chat ? (
-        <div className="absolute h-screen w-screen left-0 top-0">
-        <NewChat sendTo={{id: job.user_id}} setState={setChat} setCurrentPage={setCurrentPage}/>
+        <div className="absolute h-screen w-screen mt-[10%]">
+        <NewChat sendTo={job} setState={setChat} setCurrentPage={setCurrentPage}/>
         </div>
       ):(<></>)}
         <div className="flex flex-col">
@@ -106,7 +112,12 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
         </li>
         <li className="mb-2 ">
           <span className="font-bold">Skills required: </span>
-          {job.skills}
+          {Object.entries(job.skills).map(([skill, proficiency], index) => (
+            <span key={skill}>
+              {index > 0 && ", "}
+              {proficiency}
+            </span>
+          ))}
         </li>
       </ul>
       <div className="flex justify-between items-center border p-2 rounded-lg">
@@ -119,7 +130,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
               </span>
             ))}
           </span>
-              {'• '}
+          {"• "}
           <span className="mr-2">
             {job.locations.map((location, index) => (
               <span key={index}>
@@ -128,7 +139,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
               </span>
             ))}
           </span>
-          {'• '}
+          {"• "}
           <span>${job.budget}</span>
         </div>
         <button
