@@ -84,10 +84,10 @@ const Gallery = () => {
             alt={image.alt}
             width='100vh'
             height='100vh'
-            active={index === currentIndex}
+            active={+(index === currentIndex)}
           />
           <GalleryHeadline
-            active={index === currentIndex}
+            active={+(index === currentIndex)}
             textOpacity={textOpacity}
           >
             {image.headline}
