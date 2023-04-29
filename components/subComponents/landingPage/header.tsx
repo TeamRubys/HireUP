@@ -6,15 +6,15 @@ import Link from 'next/link';
 import userpic from './user_default.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 interface HeaderProp {
-  user: string;
-  setUser: Dispatch<SetStateAction<string>>;
   handleProfile: () => void;
 }
 
-const Header = ({user, handleProfile, setUser}:HeaderProp) => {
+const Header = ({ handleProfile}:HeaderProp) => {
   const [showMenu, setShowMenu] = useState(false);
+  const { user } = useUser();
 
   return (
     <><div className="flex justify-center">
@@ -28,20 +28,22 @@ const Header = ({user, handleProfile, setUser}:HeaderProp) => {
           />
           <h1 className="text-lg font-bold ml-4">Hire Up</h1>
           <div className="ml-auto">
-          {(user!=='') ? (
+          {user ? (
       <div className="flex items-center" style={{display:'flex', justifyContent: 'flex-end'}}>
       <img src={userpic.src} alt="Profile" className="rounded-full mr-2 cursor-pointer" style={{width:'10%', height:'10%'}} onClick={()=>{setShowMenu(!showMenu)}} />
       <div className="mr-2">
-        <p className="text-sm font-medium text-gray-900">{user}</p>
+        <p className="text-sm font-medium text-gray-900">{user.nickname}</p>
         <p className="text-sm text-gray-500">Welcome!</p>
       </div>
       {showMenu && (
         <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50" style={{right: '10%', top: '10%'}}>
           <div className="py-1">
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>{setUser(''); setShowMenu(false)}}>
+          <Link href="/api/auth/logout">
+            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>{setShowMenu(false);}}>
               <span className="mr-2">Logout</span>
               <FontAwesomeIcon icon={faArrowRightFromBracket} />
             </button>
+            </Link>
             <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleProfile}>
               <span className="mr-2">Profile</span>
               <FontAwesomeIcon icon={faUser} />
@@ -52,10 +54,10 @@ const Header = ({user, handleProfile, setUser}:HeaderProp) => {
     </div>
 ) : (
   <div className="flex">
-    <Link href="/login">
+    <Link href="/api/auth/login">
       <button className="bg-green-200 hover:bg-green-400 text-white rounded-md py-2 px-4 mr-2 shadow-lg">Login</button>
     </Link>
-    <Link href="/register">
+    <Link href="/api/auth/login">
       <button className="bg-green-300 hover:bg-green-500 text-white rounded-md py-2 px-4 shadow-lg">Sign Up</button>
     </Link>
   </div>

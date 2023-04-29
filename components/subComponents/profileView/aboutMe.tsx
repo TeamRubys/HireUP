@@ -3,11 +3,12 @@ import freelancersController from '../../../server/controllers/freelancersContro
 import { FreelancerData, ConnectionsType } from '../../../interfaces';
 import Connections from './connection';
 import axios from 'axios';
+import NewChat from '../../newChat';
 
 function AboutMe (props: {userId: number, setUserId:Function, userData:FreelancerData, connectionsList:ConnectionsType}) {
   const {userId, setUserId, userData, connectionsList} = props;
   const [friend, setFriend] = useState();
-
+  const [chat, setChat] = useState(false)
   //onClickConnect
   //  model pops up and confirms connection, then...
   //  get signed in userId and profile userId
@@ -31,8 +32,14 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
 
 
     <div className = 'border-2 rounded border-gray p-10 mr-10'>
+      {chat ? (
+      <div className="absolute h-screen w-screen left-0 top-0">
+      <NewChat sendTo={{id: userId}} setState={setChat}/>
+      </div>
+      ) : (
+       <></>
+      )}
       <div>
-
           <div className='flex flex-col justify-center'>
             <div className='flex justify-center'><SVGComponent/></div>
             <p className='flex justify-center'>{userData.freelancer_name}</p>
@@ -47,10 +54,11 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
             </div>
             <br></br>
 
-
             <div className = 'flex justify-evenly '>
                 <button onClick={onClickConnection} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Connect</button>
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Chat</button>
+                <button
+                onClick={() => {setChat(true)}}
+                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Chat</button>
             </div>
             <br></br>
           <Connections userId={userId} setUserId={setUserId} connectionsList={connectionsList}/>

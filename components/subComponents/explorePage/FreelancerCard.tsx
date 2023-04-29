@@ -39,15 +39,17 @@ function FreelancerCard({ setCurrentPage, setSavedFreelancers, isLoggedIn, freel
     }
   };
 
-
+console.log(freelancer)
  return (
     <div className="border p-6 rounded-lg mb-10">
-      <div id="card-header" className="flex justify-between items-center mb-5">
       {chat ? (
-        <NewChat sendTo={freelancer} setState={setChat} />
+        <div className="absolute h-screen w-screen left-0 top-0 border-8">
+        <NewChat sendTo={{id: freelancer.user_id}} setState={setChat} />
+        </div>
       ) : (
         <></>
       )}
+      <div id="card-header" className="flex justify-between items-center mb-5">
         <div className="flex items-center">
           <img
             id="profile-pic"

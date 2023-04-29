@@ -12,10 +12,12 @@ import { set } from 'react-hook-form';
 interface Props {
   setCurrentPage: (currentPage: number) => void;
   user: any;
+  role: any;
+  location: any;
   setUserId:Function
 }
 
-const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, setUserId }) => {
+const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location, setUserId}) => {
   const [page, setPage] = useState<number>(0);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [jobs, setJobs] = useState<Array<any>>([]);
@@ -67,6 +69,8 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, setUserId }) => {
           setCurrentPage={setCurrentPage}
           isLoggedIn={isLoggedIn}
           jobs={jobs}
+          defaultrole={role}
+          defaultlocation={location}
           setUserId={setUserId}
         />
       )}

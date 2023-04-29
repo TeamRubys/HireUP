@@ -6,20 +6,20 @@ import Cards from './cards';
 import Footer from './footer';
 import Head from 'next/head';
 import Album from './album';
+import { UserIdContext } from '../../UserIdContext';
 
 interface MainPageProp {
   setCurrentPage: Dispatch<SetStateAction<number>>;
+  setRole: Dispatch<any>;
+  setLocation: Dispatch<any>;
 }
-const MainPage = ({setCurrentPage}:MainPageProp) => {
-  const [search, setSearch] = useState('');
-  const [user, setUser] = useState('John')
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
+const MainPage = ({setCurrentPage, setRole, setLocation}:MainPageProp) => {
+  const [temprole, setTemprole]=useState(null);
+  const [templocation, setTemplocation]=useState(null);
 
   const handleSearchSubmit = () => {
-    console.log(search);
+    setRole(temprole);
+    setLocation(templocation);
     setCurrentPage(2);
   };
 
@@ -33,13 +33,13 @@ const MainPage = ({setCurrentPage}:MainPageProp) => {
       <title>Hire Up</title>
     </Head>
     <div style={{ marginBottom: '1%' }}>
-      <Header user={user} setUser={setUser} handleProfile={handleProfile} />
+      <Header handleProfile={handleProfile} />
     </div>
       <main className="flex-1" style={{marginBottom:'5%'}}>
         <div className="flex items-center justify-center">
           <div style={{width:'80%'}}>
             <Gallery />
-            <SearchBar handleSearchChange={handleSearchChange} search={search} handleSearchSubmit={handleSearchSubmit}/>
+            <SearchBar handleSearchSubmit={handleSearchSubmit} setTemprole={setTemprole} setTemplocation={setTemplocation}/>
           </div>
         </div>
         <Cards/>

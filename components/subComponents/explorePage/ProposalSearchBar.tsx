@@ -1,7 +1,7 @@
-function ProposalSearchBar({ setRole, setLocation, setPriceRange }) {
-  const handleRoleChange = (e) => {
-    setRole(e.target.value);
-  };
+function ProposalSearchBar({setRole, setLocation, setPriceRange, defaultrole, defaultlocation}) {
+    const handleRoleChange = (e) => {
+      setRole(e.target.value)
+    }
 
   const handleLocationChange = (e) => {
     setLocation(e.target.value);
@@ -23,11 +23,8 @@ function ProposalSearchBar({ setRole, setLocation, setPriceRange }) {
         className="mx-auto items-center justify-start text-left flex flex-row font-bold text-2xl mb-5"
       >
         <div className="mr-5">Show me</div>
-        <select
-          id="roles"
-          className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5"
-          onChange={handleRoleChange}
-        >
+        <select id="roles" className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5" value={defaultrole || ''}
+        onChange={handleRoleChange}>
           <option value="">all</option>
           <option value="Back End Engineer">Back End Engineer</option>
           <option value="Front End Engineer">Front End Engineer</option>
@@ -37,10 +34,8 @@ function ProposalSearchBar({ setRole, setLocation, setPriceRange }) {
           <option value="Web Designer">Web Designer</option>
         </select>
         <div className="mr-5">roles, hiring in</div>
-        <select
-          id="location"
-          className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5"
-          onChange={handleLocationChange}
+        <select id="location" className="w-1/8 text-center mr-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-black block p-2.5" value={defaultlocation || ''}
+        onChange={handleLocationChange}
         >
           <option value="">any location</option>
           <option value="Remote">Remote</option>
@@ -68,8 +63,8 @@ function ProposalSearchBar({ setRole, setLocation, setPriceRange }) {
         </select>
         <div className="mr-5"> range </div>
       </div>
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
-export default ProposalSearchBar;
+  export default ProposalSearchBar;

@@ -62,6 +62,7 @@ function ProposalCard({
     }
   };
 
+
   return (
     <div className="border p-6 rounded-lg mb-10">
       <div id="card-header" className="flex justify-between items-center mb-5">
