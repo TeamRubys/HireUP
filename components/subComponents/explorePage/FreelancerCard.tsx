@@ -44,7 +44,7 @@ console.log(freelancer)
     <div className="border p-6 rounded-lg mb-10">
       {chat ? (
         <div className="absolute h-screen w-screen left-0 top-0 border-8">
-        <NewChat sendTo={{id: freelancer.user_id}} setState={setChat} />
+        <NewChat sendTo={{id: freelancer.user_id}} setState={setChat} setCurrentPage={setCurrentPage}/>
         </div>
       ) : (
         <></>

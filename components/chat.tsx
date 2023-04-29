@@ -61,7 +61,7 @@ function Chat({sendTo, setState, setCurrentPage}) {
   return (
     <>
       {newChat ? (
-        <NewChat sendTo={0} setState={setState}/>
+        <NewChat sendTo={0} setState={setState} setCurrentPage={setCurrentPage}/>
       ) : (
         <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
         <div className="relative rounded-lg bg-slate-300 flex flex-col items-center justify-center h-[80%] w-[50%] border-2 border-dollar">

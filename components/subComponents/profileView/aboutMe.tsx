@@ -5,8 +5,8 @@ import Connections from './connection';
 import axios from 'axios';
 import NewChat from '../../newChat';
 
-function AboutMe (props: {userId: number, setUserId:Function, userData:FreelancerData, connectionsList:ConnectionsType}) {
-  const {userId, setUserId, userData, connectionsList} = props;
+function AboutMe (props: {userId: number, setUserId:Function, userData:FreelancerData, connectionsList:ConnectionsType, setCurrentPage: any}) {
+  const {userId, setUserId, userData, connectionsList, setCurrentPage} = props;
   const [friend, setFriend] = useState();
   const [chat, setChat] = useState(false)
   //onClickConnect
@@ -34,7 +34,7 @@ function AboutMe (props: {userId: number, setUserId:Function, userData:Freelance
     <div className = 'border-2 rounded border-gray p-10 mr-10'>
       {chat ? (
       <div className="absolute h-screen w-screen left-0 top-0">
-      <NewChat sendTo={{id: userId}} setState={setChat}/>
+      <NewChat sendTo={{id: userId}} setState={setChat} setCurrentPage={setCurrentPage}/>
       </div>
       ) : (
        <></>

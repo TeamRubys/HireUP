@@ -6,7 +6,7 @@ import axios from 'axios'
 import logo from '../components/subComponents/landingPage/logo.png'
 import Image from 'next/image'
 
-function NewChat({sendTo, setState}) {
+function NewChat({sendTo, setState, setCurrentPage}) {
 
   const [recipient, setRecipient] = useState(sendTo)
 
@@ -74,7 +74,7 @@ function NewChat({sendTo, setState}) {
     <>
     {recipient ? (
       chatStarted ? (
-        <Chat sendTo={recipient.id} setState={setState}/>
+        <Chat sendTo={recipient.id} setState={setState} setCurrentPage={setCurrentPage}/>
       ) : (
         <div className="absolute flex items-center justify-center h-[100%] w-[100%] z-50">
             <div className="relative rounded-lg bg-slate-300 bg-opacity-50 flex flex-col items-center h-[20%] w-[50%]">

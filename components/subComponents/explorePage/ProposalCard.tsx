@@ -62,7 +62,7 @@ function ProposalCard({setCurrentPage, setSavedJobs, setAppliedJobs, isLoggedIn,
       <div id="card-header" className="flex justify-between items-center mb-5">
       {chat ? (
         <div className="absolute h-screen w-screen left-0 top-0">
-        <NewChat sendTo={{id: job.user_id}} setState={setChat}/>
+        <NewChat sendTo={{id: job.user_id}} setState={setChat} setCurrentPage={setCurrentPage}/>
         </div>
       ):(<></>)}
         <div className="flex flex-col">
