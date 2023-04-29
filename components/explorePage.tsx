@@ -87,7 +87,7 @@ const ExplorePage: React.FC<Props> = ({ setCurrentPage, user, role, location, se
       <Chat setCurrentPage={() => {setChat(true)}} isLoggedIn={isLoggedIn} />
       {chat ? (
       <div className="absolute h-screen w-screen top-0">
-        <ChatBox sendTo={0} setState={setChat}/>
+        <ChatBox sendTo={0} setState={setChat} setCurrentPage={setCurrentPage}/>
       </div>
       ) : (<></>)}
     </div>

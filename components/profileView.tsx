@@ -56,7 +56,7 @@ function ProfileView({setCurrentPage, user, userID}) {
       <div className='flex justify-center'>
         <div className="flex justify-center flex-wrap w-full">
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
-            <AboutMe userData={userData} userId={loggedUserId} setUserId={setLoggedUserId} connectionsList={connections}/>
+            <AboutMe userData={userData} userId={loggedUserId} setUserId={setLoggedUserId} connectionsList={connections} setCurrentPage={setCurrentPage}/>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
             <Profile_information userData={userData} userId={loggedUserId} setUserId={setLoggedUserId}/>
