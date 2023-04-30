@@ -6,16 +6,29 @@ Hire up is a job posting site that connects tech freelancers to those in need of
 
 1. [Project Description](#project-description)
 2. [Technologies Used](#technologies-used)
+3. [Demo](#demo)
 3. [How to Install and Run this Project](#how-to-install-and-run-this-project)
 4. [Future Enchancements](#future-enhancements)
 
-## Project Description
+# Project Description
 
 We created this project from scratch over the course of a week as part of the Hack Reactor Software Engineering Immersive. We were given a “client” that requested that we build a job posting site where freelancers could post their profiles, and those seeking talent could post business proposals.
 
 # Technologies Used
 
 ![CircleCI](https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white) ![Socket.io](https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
+# Demo
+
+## Landing Page
+![HireUp Landing Page Demo 2](https://user-images.githubusercontent.com/93889833/235370770-3bde8c7e-c2e0-448d-94c2-bedd8efb7888.gif)
+## Explore Pages
+![HireUp Explore Page Demo](https://user-images.githubusercontent.com/93889833/235371681-af2001db-236d-4a23-9487-cda14abaf4ac.gif)
+## Profile Page
+![HireUp Profile Page Demo](https://user-images.githubusercontent.com/93889833/235371792-4ad6860e-a66b-45da-b39e-da37b58700e1.gif)
+## Chat Page
+![Uploading HireUp Chat Page Demo.gif…]()
+## Freelancer and Business Proposal Form Pages
 
 # How to Install and Run this Project
 
