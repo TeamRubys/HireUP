@@ -27,8 +27,9 @@ We created this project from scratch over the course of a week as part of the Ha
 ## Profile Page
 ![HireUp Profile Page Demo](https://user-images.githubusercontent.com/93889833/235371792-4ad6860e-a66b-45da-b39e-da37b58700e1.gif)
 ## Chat Page
-![Uploading HireUp Chat Page Demo.gif…]()
+![HireUp Chat Page Demo](https://user-images.githubusercontent.com/93889833/235372128-ea1d4808-11ea-4610-bc1a-ad1e3a5f3ee5.gif)
 ## Freelancer and Business Proposal Form Pages
+![HireUp Freelancer and Proposals Form Pages Demo 2](https://user-images.githubusercontent.com/93889833/235373369-b7f4de7e-ca1c-4c53-b278-5fa828ab27ec.gif)
 
 # How to Install and Run this Project
 
