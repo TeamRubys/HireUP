@@ -34,7 +34,7 @@ const IndexPage = () => {
           const res = await axios.post('/api/users', {user});
           if (res.status === 200 || res.status === 201) {
             var currentId = res.data.id;
-            console.log('in index.tsx, current userid:', currentId);
+            // console.log('in index.tsx, current userid:', currentId);
             setUserId(currentId);
           } else {
             console.log('error with adding user', res.data)
@@ -49,7 +49,7 @@ const IndexPage = () => {
   }, [user]);
 
   useEffect(() => {
-    console.log('in index.tsx, current userId:', userId);
+    // console.log('in index.tsx, current userId:', userId);
   }, [userId]);
 
 

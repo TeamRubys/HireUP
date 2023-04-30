@@ -18,6 +18,7 @@ const Cards = () => {
               src={card1}
               alt="card1"
               layout="fill"
+              sizes="100%"
               style={{ objectFit: 'cover', objectPosition: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}
               />
               </div>
@@ -39,6 +40,7 @@ const Cards = () => {
               src={card2}
               alt="card2"
               layout="fill"
+              sizes="100%"
               style={{ objectFit: 'cover', objectPosition: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}
               />
               </div>
@@ -60,6 +62,7 @@ const Cards = () => {
               src={card3}
               alt="card3"
               layout="fill"
+              sizes="100%"
               style={{ objectFit: 'cover', objectPosition: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}
               />
               </div>

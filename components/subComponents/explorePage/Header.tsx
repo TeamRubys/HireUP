@@ -51,22 +51,22 @@ function Header(props: Props) {
         onClick={handleTogglePage}
         >
         {page === 0 ? "Find Freelancers" : "Find Jobs"}
-        </a> 
+        </a>
       <img src={userpic.src} alt="Profile" className="rounded-full mr-2 cursor-pointer" style={{width:'10%', height:'10%'}} onClick={()=>{setShowMenu(!showMenu)}} />
       <div className="mr-2">
         <p className="text-sm font-medium text-gray-900">{userInfo.nickname}</p>
         <p className="text-sm text-gray-500">Welcome!</p>
       </div>
       {showMenu && (
-        <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50" style={{right: '10%', top: '10%'}}>
+        <div className="absolute mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50" style={{right: '10%', top: '10%'}}>
           <div className="py-1">
-          <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleUserClick}>
+          <button className="w-full flex text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleUserClick}>
               <span className="mr-2">Profile</span>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon className="-mt-1 w-3/12" icon={faUser} />
             </button>
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => { handleSignOut(); setShowMenu(false) }}>
+            <button className="w-full flex text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => { handleSignOut(); setShowMenu(false) }}>
               <span className="mr-2">Logout</span>
-              <FontAwesomeIcon icon={faArrowRightFromBracket} />
+              <FontAwesomeIcon className="-mt-1 w-3/12" icon={faArrowRightFromBracket} />
             </button>
           </div>
         </div>
@@ -79,7 +79,7 @@ function Header(props: Props) {
         onClick={handleTogglePage}
         >
         {page === 0 ? "Find Freelancers" : "Find Jobs"}
-        </a> 
+        </a>
     <Link href="/api/auth/login">
       <button className="bg-green-200 hover:bg-green-400 text-white rounded-md py-2 px-4 mr-2 shadow-lg">Login</button>
     </Link>

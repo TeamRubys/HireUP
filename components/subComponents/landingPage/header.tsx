@@ -36,17 +36,17 @@ const Header = ({ handleProfile}:HeaderProp) => {
         <p className="text-sm text-gray-500">Welcome!</p>
       </div>
       {showMenu && (
-        <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50" style={{right: '10%', top: '10%'}}>
+        <div className="absolute mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50" style={{right: '10%', top: '10%'}}>
           <div className="py-1">
-          <Link href="/api/auth/logout">
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>{setShowMenu(false);}}>
-              <span className="mr-2">Logout</span>
-              <FontAwesomeIcon icon={faArrowRightFromBracket} />
-            </button>
+            <Link href="/api/auth/logout">
+              <button className="w-full flex text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>{setShowMenu(false);}}>
+                <span className="mr-2">Logout</span>
+                <FontAwesomeIcon className="-mt-1 w-3/12" icon={faArrowRightFromBracket} />
+              </button>
             </Link>
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleProfile}>
+            <button className="w-full flex text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={handleProfile}>
               <span className="mr-2">Profile</span>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon className="-mt-1 w-3/12" icon={faUser} />
             </button>
           </div>
         </div>

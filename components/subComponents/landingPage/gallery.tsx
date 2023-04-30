@@ -6,6 +6,12 @@ import image1 from './working1.jpg';
 import image2 from './working2.jpg';
 import image3 from './working3.jpg';
 
+// const HeroImage = () => {
+//   return (
+//     <Image priority={true}/>
+//   )
+// }
+
 const images = [
   {
     id: 1,
@@ -82,9 +88,12 @@ const Gallery = () => {
             key={image.id}
             src={image.src}
             alt={image.alt}
-            width='100vh'
-            height='100vh'
+            // width='100vh'
+            // height='100vh'
+            fill
+            sizes='100vw'
             active={+(index === currentIndex)}
+            priority={true}
           />
           <GalleryHeadline
             active={+(index === currentIndex)}
